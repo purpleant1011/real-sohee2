@@ -1,0 +1,17 @@
+.avatar {
+  display: grid;
+  flex: 0 0 auto;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--v07-line-strong);
+  border-radius: 50%;
+  background: var(--v07-surface-soft);
+  color: var(--v07-accent-dark);
+}
+
+.message { inline-size: 2rem; block-size: 2rem; }
+.menu { inline-size: 1.75rem; block-size: 1.75rem; }
+.hero { inline-size: 3rem; block-size: 3rem; }
+.avatar img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.fallback { display: grid; inline-size: 100%; block-size: 100%; place-items: center; }
+.fallback svg { inline-size: 56%; block-size: 56%; }

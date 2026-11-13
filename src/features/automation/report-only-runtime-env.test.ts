@@ -1,0 +1,1 @@
+import { expect,it,vi } from 'vitest';vi.mock('server-only',()=>({}));import { reportOnlyRuntimeFromEnv } from './report-only-due-runtime';it('fails closed without enabled env or dependencies',()=>{delete process.env.SOHEE_REPORT_ONLY_DUE_ENABLED;expect(reportOnlyRuntimeFromEnv()).toEqual({enabled:false,dependencies:undefined})})

@@ -1,0 +1,36 @@
+-- ============================================================================
+-- 심사 전용 테스트 계정용 작업공간 시드 템플릿
+-- 실행 전 사용자 확인 필요, 운영 DB
+--
+-- [안내 및 주의사항]
+-- 1. 본 템플릿은 Supabase 대시보드에서 이미 생성한 인증 사용자를 위해
+--    격리된 심사 전용 작업공간을 초기화하는 용도입니다.
+-- 2. 실행 전 반드시 아래의 ':user_id' 자리표시자에서 따옴표 안의 :user_id 텍스트만
+--    실제 auth 사용자 uuid 로 치환하고, 작은따옴표와 ::uuid 캐스팅은 그대로 유지하십시오.
+-- 3. 운영 데이터 안전을 위해 기존 데이터 변경 없이 오직 신규 추가 및 충돌 무시만 수행합니다.
+-- 4. 일괄 크레딧 지급 대상에서 제외되도록 workspace_kind 는 'demo' 로 격리됩니다.
+-- 5. 플랫폼 관리자/운영자 권한은 부여되지 않으며, 해당 격리 작업공간 내의 manager 권한만 부여됩니다.
+-- ============================================================================
+
+BEGIN;
+
+-- 1. 심사 전용 격리 워크스페이스 생성 및 매니저 멤버십, 사업자 프로필 연쇄 생성
+WITH seeded_workspace AS (
+  INSERT INTO public.workspaces (id, name, created_by, workspace_kind)
+  VALUES (gen_random_uuid(), '소희 심사용 체험 매장', ':user_id'::uuid, 'demo')
+  ON CONFLICT (id) DO NOTHING
+  RETURNING id
+),
+seeded_member AS (
+  INSERT INTO public.workspace_members (workspace_id, user_id, role, status)
+  SELECT id, ':user_id'::uuid, 'manager', 'active'
+  FROM seeded_workspace
+  ON CONFLICT (workspace_id, user_id) DO NOTHING
+  RETURNING workspace_id
+)
+INSERT INTO public.business_profiles (workspace_id, business_name, summary, updated_at)
+SELECT id, '소희 심사용 체험 매장', '소희 결제 심사용 체험 매장', now()
+FROM seeded_workspace
+ON CONFLICT (workspace_id) DO NOTHING;
+
+COMMIT;

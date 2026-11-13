@@ -1,0 +1,31 @@
+-- ============================================================================
+-- Migration: 20261023100100_booking_recovery_steps_immutable_search_path.sql
+-- Purpose: Pin the search_path of the booking_recovery_steps immutability trigger
+-- ============================================================================
+--
+-- Why: 20261016120000_booking_recovery_runtime.sql:85 defines
+-- public.enforce_booking_recovery_steps_immutable() without a SET search_path clause,
+-- while the other RPCs in that same file pin SET search_path = ''. Supabase's security
+-- advisor reports the resulting gap as `function_search_path_mutable` (WARN): a caller can
+-- prepend its own schema to search_path so that unqualified names inside the function
+-- resolve to attacker-controlled objects.
+--
+-- Audit of the function body (20261016120000:85-126) before pinning to the empty path:
+--   * the only schema-qualified reference is `public.booking_recovery_cases` (:116) - fully qualified
+--   * RAISE EXCEPTION, TG_OP, OLD, NEW are plpgsql built-ins and do not consult search_path
+--   * there is no unqualified table, function, operator or type reference
+-- Because every reference is already fully qualified, an empty search_path cannot break the
+-- trigger, so this migration uses SET search_path = '' (the strictest form, matching the
+-- sibling RPCs) rather than `public, pg_temp`.
+--
+-- Behaviour: unchanged. This is a security hardening of the trigger function only; the
+-- append-only rules (identity columns immutable, only CLAIMED rows updatable, direct DELETE
+-- forbidden while the parent case exists) stay exactly as implemented.
+--
+-- Scope: one function. No table, row, trigger, policy or grant is touched.
+--
+-- Rollback: ALTER FUNCTION public.enforce_booking_recovery_steps_immutable() RESET search_path;
+-- No data is deleted. Additive and forward-only; applying this file changes no operational data.
+-- ============================================================================
+
+ALTER FUNCTION public.enforce_booking_recovery_steps_immutable() SET search_path = '';

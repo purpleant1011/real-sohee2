@@ -1,0 +1,37 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(30);
+
+select has_column('public', 'operator_incidents', 'assignee_user_id', 'incidents have an assignee field');
+select has_column('public', 'operator_incidents', 'impact_scope', 'incidents have a bounded impact scope');
+select has_column('public', 'operator_incidents', 'recovery_verified_at', 'incidents retain recovery verification time');
+select has_column('public', 'operator_incidents', 'recovery_evidence_summary', 'incidents retain safe recovery evidence');
+select has_column('public', 'operator_incidents', 'remediation_kind', 'incidents retain remediation kind');
+select has_column('public', 'operator_incidents', 'remediation_result', 'incidents retain remediation result');
+select has_column('public', 'operator_incident_timeline', 'assignee_user_id', 'timeline snapshots assignee');
+select has_column('public', 'operator_incident_timeline', 'impact_scope', 'timeline snapshots impact');
+select has_column('public', 'operator_incident_timeline', 'recovery_verified_at', 'timeline snapshots verification time');
+select has_column('public', 'operator_incident_timeline', 'recovery_evidence_summary', 'timeline snapshots evidence');
+select has_column('public', 'operator_incident_timeline', 'remediation_kind', 'timeline snapshots remediation kind');
+select has_column('public', 'operator_incident_timeline', 'remediation_result', 'timeline snapshots remediation result');
+select has_function('public', 'record_operator_incident_recovery', array['uuid','text','text','text','bigint','text','uuid','text','timestamptz','text','text','text'], 'extended recovery RPC exists');
+select ok(pg_get_functiondef(to_regprocedure('public.record_operator_incident_recovery(uuid,text,text,text,bigint,text,uuid,text,timestamptz,text,text,text)')) like '%INCIDENT_RECOVERY_FIELDS_REQUIRED%', 'verified recovery requires completion evidence');
+select ok(pg_get_functiondef(to_regprocedure('public.record_operator_incident_recovery(uuid,text,text,text,bigint,text,uuid,text,timestamptz,text,text,text)')) like '%INCIDENT_ASSIGNEE_INVALID%', 'recovery validates active assignee');
+select ok(pg_get_functiondef(to_regprocedure('public.record_operator_incident_recovery(uuid,text,text,text,bigint,text,uuid,text,timestamptz,text,text,text)')) like '%p_recovery_verified_at > statement_timestamp%', 'future recovery timestamps are rejected');
+select ok(pg_get_functiondef(to_regprocedure('public.record_operator_incident_recovery(uuid,text,text,text,bigint,text,uuid,text,timestamptz,text,text,text)')) like '%remediation_kind%', 'recovery stores remediation kind');
+select ok(pg_get_functiondef(to_regprocedure('public.record_operator_incident_recovery(uuid,text,text,text,bigint,text,uuid,text,timestamptz,text,text,text)')) like '%operator_incident_timeline%', 'recovery stores the same evidence snapshot in timeline');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_ASSIGNEE_REQUIRED%', 'resolve requires an assignee');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_IMPACT_SCOPE_REQUIRED%', 'resolve requires an impact scope');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_RECOVERY_VERIFIED_AT_REQUIRED%', 'resolve requires verification time');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_RECOVERY_EVIDENCE_REQUIRED%', 'resolve requires evidence summary');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_REMEDIATION_REQUIRED%', 'resolve requires remediation result');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_RECOVERY_NOT_VERIFIED%', 'recovery not verified is returned as a stable code');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%sqlerrm in%' and pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%INCIDENT_RECOVERY_NOT_VERIFIED%', 'completion errors are explicitly preserved before generic fallback');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%pending%', 'reopen changes current recovery state to pending');
+select ok(pg_get_functiondef(to_regprocedure('public.transition_operator_incident(uuid,text,text,bigint,text)')) like '%recovery_verified_at%', 'reopen preserves prior recovery evidence snapshot');
+select ok(pg_get_functiondef(to_regprocedure('public.list_operator_incidents(integer)')) like '%assignee_display%', 'read model returns only masked assignee display');
+select ok(pg_get_functiondef(to_regprocedure('public.list_operator_incidents(integer)')) like '%recovery_evidence_summary%', 'read model returns safe evidence summary');
+select ok(pg_get_functiondef(to_regprocedure('public.list_operator_incidents(integer)')) not like '%raw_log%' and pg_get_functiondef(to_regprocedure('public.list_operator_incidents(integer)')) not like '%secret%', 'read model excludes raw logs and secrets');
+
+select * from finish();
+rollback;

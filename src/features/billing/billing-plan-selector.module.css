@@ -1,0 +1,74 @@
+.section {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.section header,
+.card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.section h2,
+.section h3,
+.section p {
+  margin: 0;
+}
+
+.section header > p,
+.card > p:not(.price) {
+  color: var(--color-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.card {
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-4);
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.card button {
+  min-block-size: 2.75rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: white;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.message {
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3) var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

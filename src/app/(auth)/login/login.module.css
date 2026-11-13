@@ -1,0 +1,759 @@
+.authShell {
+  position: relative;
+  min-block-size: var(--viewport-block);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 18%, color-mix(in srgb, var(--sohee-accent-soft) 82%, transparent) 0, transparent 30rem),
+    var(--sohee-canvas);
+  padding-block: max(var(--space-6), var(--safe-area-top)) max(var(--space-4), var(--safe-area-bottom));
+}
+
+.authBrand {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100% - 2rem, 72rem);
+  grid-template-columns: 2.5rem auto 1fr;
+  align-items: center;
+  min-block-size: var(--tap-size);
+  gap: var(--space-3);
+  margin-inline: auto;
+  color: var(--sohee-ink);
+  text-decoration: none;
+}
+
+.authBrand > span {
+  display: grid;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  place-items: center;
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+/* 다크의 `--sohee-accent`(#a994ef) 위 흰 글자는 2.57:1 이다. 어두운 잉크로 바꿔 7.9:1 확보.
+   라이트(#6941c6 위 흰색)는 그대로 둔다. */
+:global(:root[data-theme='dark']) .authBrand > span {
+  color: #17121a;
+}
+
+.authBrand strong {
+  font-size: 1rem;
+}
+
+.authBrand small {
+  justify-self: start;
+  border: 1px solid var(--sohee-line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sohee-surface) 82%, transparent);
+  color: var(--sohee-muted);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 30;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  transform: translateY(-180%);
+  min-block-size: var(--tap-size);
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-accent);
+  color: #ffffff;
+  padding: var(--space-3) var(--space-4);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+.loginPage {
+  width: min(100% - 2rem, 72rem);
+  min-height: min(44rem, calc(var(--viewport-block) - 8rem));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.intro {
+  max-width: 38rem;
+}
+
+.intro h1 {
+  max-width: 13ch;
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.introText {
+  max-width: 32rem;
+  margin: var(--space-6) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.trustList {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  color: var(--color-muted);
+  list-style: none;
+}
+
+.trustList li {
+  position: relative;
+  display: grid;
+  gap: 0.2rem;
+  padding-inline-start: 1.35rem;
+}
+
+.trustList li::before {
+  position: absolute;
+  inset-block-start: 0.42rem;
+  inset-inline-start: 0;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  content: '';
+}
+
+.trustList strong {
+  color: var(--sohee-ink);
+  font-size: 0.9rem;
+}
+
+.trustList span {
+  color: var(--sohee-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.card {
+  min-width: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--sohee-radius-action);
+  background: color-mix(in srgb, var(--sohee-surface) 96%, transparent);
+  box-shadow: var(--sohee-shadow-panel);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  letter-spacing: -0.045em;
+}
+
+.cardIntro {
+  margin: var(--space-2) 0 var(--space-6);
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* 신규 방문자가 로그인 폼에 갇히지 않도록 가입 유도를 카드형 CTA로 승격한다. */
+.signupCta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 32%, var(--color-border));
+  border-radius: var(--sohee-radius-action);
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.signupCta strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.signupCta span {
+  /* accent 7% 배경 위 보조 문구: --color-muted는 이 배경에서 4.3:1대로 AA(4.5:1)에 미달한다. */
+  color: var(--sohee-ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.signupCta:hover {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+}
+
+.signupCta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.callbackError,
+.message {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 38%, var(--color-border));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field label {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.fieldError {
+  margin: 0;
+  color: var(--sohee-danger);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--sohee-danger);
+  background: var(--sohee-danger-soft);
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.input::placeholder {
+  color: var(--color-muted);
+}
+
+.input:hover {
+  border-color: color-mix(in srgb, var(--color-text) 45%, var(--color-border));
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordWrapper .input {
+  padding-inline-end: 2.75rem;
+}
+
+.passwordToggle {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: max(44px, var(--tap-size, 44px));
+  min-block-size: max(44px, var(--tap-size, 44px));
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color 150ms ease;
+}
+
+.passwordToggle:hover {
+  color: var(--color-text);
+}
+
+.passwordToggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.primaryButton,
+.providerButton,
+.forgotLink {
+  min-height: max(44px, var(--tap-size, 44px));
+  border-radius: var(--radius-sm);
+}
+
+.primaryButton:focus-visible,
+.googleButton:focus-visible,
+.kakaoButton:focus-visible,
+.appleButton:focus-visible,
+.forgotLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.primaryButton,
+.providerButton {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-4);
+  font-weight: 750;
+}
+
+.primaryButton {
+  /* 주요 CTA 는 디자인 계약상 48px 이상(--m-cta-h). 위 그룹 규칙의 44px 를 덮어쓴다. */
+  min-block-size: var(--m-cta-h, 3rem);
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.primaryButton:hover:not(:disabled) {
+  border-color: var(--color-accent-strong);
+  background: var(--color-accent-strong);
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.forgotLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-2);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+.forgotLink:hover {
+  color: var(--color-text);
+  text-decoration-color: currentColor;
+}
+
+.divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block: var(--space-5) var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  height: 1px;
+  background: var(--color-border);
+  content: '';
+}
+
+.socialButtonsContainer {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.googleButton,
+.kakaoButton,
+.appleButton {
+  width: 100%;
+  min-height: 2.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.googleButton {
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.googleButton:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.kakaoButton {
+  border: 1px solid #FEE500;
+  background: #FEE500;
+  color: #191919;
+}
+
+.kakaoButton:hover:not(:disabled) {
+  background: #FADA0A;
+  border-color: #FADA0A;
+  transform: translateY(-1px);
+}
+
+.appleButton {
+  border: 1px solid #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+.appleButton:hover:not(:disabled) {
+  background: #1f2937;
+  border-color: #1f2937;
+  transform: translateY(-1px);
+}
+
+.googleButton:disabled,
+.kakaoButton:disabled,
+.appleButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.socialIcon {
+  flex-shrink: 0;
+}
+
+.trialBadgeBanner {
+  margin-top: var(--space-4);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md, 0.75rem);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(245, 158, 11, 0.12) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.trialSparkle {
+  font-size: 1rem;
+}
+
+.trialText {
+  font-size: 0.8rem;
+  color: var(--sohee-ink);
+  line-height: 1.4;
+}
+
+.trialText strong {
+  color: var(--sohee-accent);
+  font-weight: 700;
+}
+
+.providerNotice {
+  margin: var(--space-3) 0 0;
+  border-block-start: 1px solid var(--sohee-line);
+  color: var(--color-muted);
+  padding-block-start: var(--space-4);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.authFootnote {
+  width: min(100% - 2rem, 72rem);
+  margin: 0 auto;
+  color: var(--sohee-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.adminEntry,
+.customerEntry {
+  position: absolute;
+  z-index: 3;
+  inset-inline-start: max(var(--space-6), env(safe-area-inset-left));
+  inset-block-end: max(var(--space-4), var(--safe-area-bottom));
+  display: inline-flex;
+  min-block-size: var(--tap-size);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--sohee-line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sohee-surface) 92%, transparent);
+  color: var(--sohee-muted);
+  padding-inline: var(--space-4);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.adminEntry:hover,
+.customerEntry:hover {
+  border-color: color-mix(in srgb, var(--sohee-accent) 45%, var(--sohee-line));
+  color: var(--sohee-accent);
+  transform: translateY(-1px);
+}
+
+.adminIntroLabel {
+  margin: 0 0 var(--space-4);
+  color: var(--sohee-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.providerGrid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.providerButton {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  color: var(--color-muted);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.message {
+  margin-block: var(--space-4) 0;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--sohee-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+:global(:root[data-theme='dark']) .eyebrow {
+  color: var(--sohee-accent-strong);
+}
+
+.heroArt {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .heroArt {
+    display: block;
+    width: 100%;
+    max-height: clamp(120px, 30vw, 155px);
+    object-fit: cover;
+    object-position: center 10%;
+    margin-block: 0 var(--space-3);
+    border: 1px solid var(--sohee-line);
+    border-radius: 1.25rem;
+    box-shadow: var(--sohee-shadow-panel);
+  }
+
+  .card {
+    border-radius: 1.25rem;
+  }
+
+  .authShell {
+    padding-block-start: max(var(--space-3), var(--safe-area-top));
+  }
+
+  .authBrand {
+    grid-template-columns: 2.25rem auto 1fr;
+  }
+
+  .authBrand > span {
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+  }
+
+  .authBrand small {
+    justify-self: end;
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .loginPage {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--space-4);
+    padding-block: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .intro {
+    max-width: 34rem;
+  }
+
+  .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+
+  .intro h1 {
+    max-width: 13ch;
+    font-size: clamp(1.65rem, 6.8vw, 2.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+
+  .introText {
+    margin-block-start: var(--space-2);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .trustList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+  }
+
+  .trustList li {
+    border-inline-start: 2px solid color-mix(in srgb, var(--sohee-accent) 35%, var(--sohee-line));
+    padding-inline-start: var(--space-2);
+  }
+
+  :global(:root[data-theme='dark']) .trustList li {
+    border-inline-start-color: color-mix(in srgb, var(--sohee-accent-strong) 45%, var(--sohee-line));
+  }
+
+  .trustList li::before,
+  .trustList span {
+    display: none;
+  }
+
+  .trustList strong {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .adminEntry,
+  .customerEntry {
+    position: relative;
+    inset: auto;
+    display: flex;
+    width: fit-content;
+    margin: var(--space-4) auto var(--space-2);
+  }
+
+  .adminEntry {
+    border: none;
+    background: transparent;
+    color: var(--sohee-muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+    opacity: 0.85;
+    min-block-size: max(44px, var(--tap-size, 44px));
+    min-inline-size: 44px;
+    padding-inline: var(--space-2);
+  }
+
+  .adminEntry:hover {
+    opacity: 0.9;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  :global(:root[data-theme='dark']) .adminEntry {
+    border: none;
+    background: transparent;
+  }
+}
+
+:global(:root[data-theme='dark']) .heroArt {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:global(:root[data-theme='dark']) .card {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:global(:root[data-theme='dark']) .adminEntry,
+:global(:root[data-theme='dark']) .customerEntry {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 430px) {
+  .loginPage {
+    width: min(100% - 1.25rem, 72rem);
+  }
+
+  .card {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .card h2 {
+    font-size: 1.55rem;
+  }
+
+  .cardIntro {
+    margin: var(--space-1) 0 var(--space-4);
+    font-size: 0.88rem;
+  }
+
+  .intro h1 {
+    font-size: clamp(1.5rem, 6.2vw, 1.85rem);
+  }
+
+  .introText {
+    margin-block-start: var(--space-2);
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .primaryButton,
+  .forgotLink {
+    transition: none;
+  }
+
+  .adminEntry,
+  .customerEntry {
+    transition: none;
+  }
+}

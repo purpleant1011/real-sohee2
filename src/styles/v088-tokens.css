@@ -1,0 +1,197 @@
+/* Sohee V0.9 Agent OS Operational Semantic Design Tokens */
+@layer base {
+  :root,
+  html:not(.dark) {
+    /* shadcn v4 semantic token contract */
+    --background: oklch(0.985 0.004 275);
+    --foreground: oklch(0.145 0.015 275);
+
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0.015 275);
+
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0.015 275);
+
+    /* 대비: primary-foreground 와 4.5:1 이상(6.4:1), hover(primary/90) 상태도 4.5:1 이상(5.2:1 이상).
+       틴트 표면(bg-primary/20 · /15) 위 primary 텍스트가 4.5:1 을 넘도록 L=0.50 으로 고정했다.
+       이전 값(L=0.53)은 20% 틴트 위 텍스트가 4.19:1(페이지 배경)·4.36:1(카드) 로 미달했고,
+       L=0.58 은 채움 위 글씨가 4.49:1 로 axe color-contrast 위반이었다.
+       값을 바꿀 땐 src/styles/token-contrast.test.ts 를 함께 확인한다. */
+    --primary: oklch(0.50 0.23 285);
+    --primary-foreground: oklch(0.985 0 0);
+
+    --secondary: oklch(0.96 0.01 275);
+    --secondary-foreground: oklch(0.20 0.015 275);
+
+    --muted: oklch(0.96 0.008 275);
+    --muted-foreground: oklch(0.52 0.02 275);
+
+    --accent: oklch(0.95 0.03 285);
+    --accent-foreground: oklch(0.45 0.20 285);
+
+    /* 대비: 흰 글씨(destructive-foreground) 기준 채움 5.43:1, hover(destructive/90) 5.03:1,
+       destructive 텍스트가 10% 틴트(bg-destructive/10) 위에서도 4.5:1 을 넘도록 L=0.54 로 고정.
+       이전 값(L=0.58)은 틴트 위 텍스트가 3.93:1(bg)·4.09:1(card) 로 미달했다.
+       값을 바꿀 땐 src/styles/token-contrast.test.ts 를 함께 확인한다. */
+    --destructive: oklch(0.54 0.22 25);
+    --destructive-foreground: oklch(0.985 0 0);
+
+    --border: oklch(0.91 0.01 275);
+    --input: oklch(0.91 0.01 275);
+    --ring: oklch(0.50 0.23 285);
+
+    --radius: 0.75rem;
+
+    /* Chart semantic series */
+    --chart-outcome: oklch(0.65 0.20 285);
+    --chart-booking: oklch(0.68 0.16 155);
+    --chart-revenue: oklch(0.62 0.18 145);
+    --chart-spend: oklch(0.75 0.16 75);
+    --chart-organic: oklch(0.70 0.14 220);
+    --chart-paid: oklch(0.72 0.18 45);
+    --chart-confidence: oklch(0.60 0.15 295);
+
+    /* v088 compatibility aliases */
+    --v088-bg: var(--background);
+    --v088-surface: var(--card);
+    --v088-surface-subtle: var(--muted);
+    --v088-surface-elevated: var(--card);
+    --v088-ink: var(--foreground);
+    --v088-muted: var(--muted-foreground);
+    --v088-border: var(--border);
+    --v088-border-subtle: oklch(0.94 0.008 275);
+
+    --v088-sohee: var(--primary);
+    --v088-sohee-hover: oklch(0.49 0.24 285);
+    --v088-sohee-subtle: var(--accent);
+    --v088-sohee-border: oklch(0.85 0.10 285);
+
+    --v088-live: oklch(0.72 0.13 195);
+    --v088-live-subtle: oklch(0.95 0.04 195);
+    
+    --v088-verified: oklch(0.66 0.16 155);
+    --v088-verified-subtle: oklch(0.95 0.04 155);
+    
+    --v088-warning: oklch(0.72 0.16 75);
+    --v088-warning-subtle: oklch(0.96 0.05 75);
+    
+    --v088-danger: var(--destructive);
+    --v088-danger-subtle: oklch(0.95 0.05 25);
+
+    --radius-card: 1rem;
+    --radius-panel: 1.25rem;
+    --shadow-float: 0 14px 40px oklch(0.25 0.04 280 / 0.08);
+
+    /* Floating command bar & overlay layout tokens */
+    --command-bar-height: 5.75rem;
+  }
+
+  html.dark,
+  :root.dark,
+  :root[data-theme='dark'] {
+    /* shadcn v4 semantic token contract - dark */
+    --background: #0C0D10;
+    --foreground: #F0F2F5;
+
+    --card: #13151A;
+    --card-foreground: #F0F2F5;
+
+    --popover: #171920;
+    --popover-foreground: #F0F2F5;
+
+    /* 대비: 채움형 표면(primary/destructive) 위 글씨는 어두운 잉크를 쓴다.
+       흰 글씨는 primary 채움에서 3.25:1 로 미달했다. 틴트 표면(bg-* 10% 틴트) 위 텍스트는
+       채움형 전경색이 아니라 --primary / --destructive 를 쓴다.
+       primary 는 틴트 표면(bg-primary/20 · /15) 위 텍스트가 4.5:1 을 넘도록 L=0.74 로 고정했다.
+       이전 값(L=0.68)은 20% 틴트 위 텍스트가 4.00:1(팝오버)·4.03:1(페이지 배경) 로 미달했다. */
+    --primary: oklch(0.74 0.22 285);
+    --primary-foreground: oklch(0.12 0.015 275);
+
+    --secondary: #1E222B;
+    --secondary-foreground: #F0F2F5;
+
+    --muted: #1A1D24;
+    --muted-foreground: #8E95A3;
+
+    --accent: oklch(0.26 0.08 285);
+    --accent-foreground: oklch(0.82 0.18 285);
+
+    /* 대비: 10% 틴트 위 destructive 텍스트가 4.5:1 을 넘도록 L=0.65 로 올렸다(이전 0.64: 4.49:1).
+       값을 바꿀 땐 src/styles/token-contrast.test.ts 를 함께 확인한다. */
+    --destructive: oklch(0.65 0.21 25);
+    --destructive-foreground: oklch(0.12 0.015 275);
+
+    --border: rgba(255, 255, 255, 0.09);
+    --input: rgba(255, 255, 255, 0.12);
+    --ring: oklch(0.74 0.22 285);
+
+    --radius: 0.75rem;
+
+    /* Chart semantic series dark */
+    --chart-outcome: oklch(0.72 0.20 285);
+    --chart-booking: oklch(0.74 0.16 155);
+    --chart-revenue: oklch(0.68 0.18 145);
+    --chart-spend: oklch(0.80 0.16 75);
+    --chart-organic: oklch(0.76 0.14 220);
+    --chart-paid: oklch(0.78 0.18 45);
+    --chart-confidence: oklch(0.68 0.15 295);
+
+    /* v088 compatibility aliases */
+    --v088-bg: var(--background);
+    --v088-surface: var(--card);
+    --v088-surface-subtle: var(--muted);
+    --v088-surface-elevated: #222630;
+    --v088-ink: var(--foreground);
+    --v088-muted: var(--muted-foreground);
+    --v088-border: var(--border);
+    --v088-border-subtle: rgba(255, 255, 255, 0.04);
+
+    --v088-sohee: var(--primary);
+    --v088-sohee-hover: oklch(0.76 0.22 285);
+    --v088-sohee-subtle: var(--accent);
+    --v088-sohee-border: oklch(0.40 0.12 285);
+
+    --v088-live: oklch(0.76 0.14 195);
+    --v088-live-subtle: oklch(0.25 0.05 195);
+
+    --v088-verified: oklch(0.72 0.16 155);
+    --v088-verified-subtle: oklch(0.25 0.06 155);
+
+    --v088-warning: oklch(0.78 0.16 75);
+    --v088-warning-subtle: oklch(0.25 0.06 75);
+
+    --v088-danger: var(--destructive);
+    --v088-danger-subtle: oklch(0.25 0.07 25);
+
+    --shadow-float: 0 14px 40px rgba(0, 0, 0, 0.5);
+
+    /* Floating command bar & overlay layout tokens */
+    --command-bar-height: 5.75rem;
+  }
+}
+
+/* Command Center Specific Utilities */
+.v088-card {
+  background-color: var(--v088-surface);
+  border: 1px solid var(--v088-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.v088-card:hover {
+  border-color: var(--v088-border);
+}
+
+.v088-panel-dark {
+  background-color: #0F1117;
+  color: #F0F2F5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.v088-live-glow {
+  box-shadow: 0 0 20px -4px var(--v088-live-subtle);
+}
+
+.v088-sohee-glow {
+  box-shadow: 0 0 24px -6px rgba(109, 74, 255, 0.25);
+}

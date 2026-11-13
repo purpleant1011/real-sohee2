@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "13.0.0",
+  "canonicalRevision": "v13-commercial-employee-loop",
+  "title": "소희 V0.91 · Commercial Employee Experience & Verified Growth Loop",
+  "linearProjectId": "ce06fe36-5933-4db9-812b-8f26998b7aa1",
+  "linearTeamId": "fe9ce92a-6944-441c-8c02-6791df6e8061",
+  "githubRepository": "example-owner/real-sohee",
+  "activeBranch": "feat/ani-v091-commercial-employee-loop",
+  "baseBranch": "main",
+  "figmaDesign": {
+    "fileKey": "FIGMA_FILE_KEY_PLACEHOLDER",
+    "title": "소희 0.9 UI-UX",
+    "url": "https://www.figma.com/design/FIGMA_FILE_KEY_PLACEHOLDER/%EC%86%8C%ED%9D%AC-0.9-UI-UX",
+    "canonicalNodes": {
+      "productionUi": "8:2",
+      "agentUxCanon": "73:2",
+      "firstMarketingOutcome": "87:2",
+      "adminResponsive": "68:2",
+      "creativeAssetTruth": "98:3",
+      "agentEventState": "73:67",
+      "appShellNav": "37:660",
+      "ownerClosedLoop13A": "138:2",
+      "adminCommercialOps13B": "139:2"
+    },
+    "forbiddenBlankNodes": ["106:2"]
+  },
+  "productionUrl": "https://example.com",
+  "adminUrl": "https://example.com/admin",
+  "supabaseProjectId": "your-project-ref",
+  "modelRouting": {
+    "conversation": "gemini-3.5-flash-lite",
+    "action": "gemini-3.8-flash",
+    "image": "gpt-image-2.5-sunburst",
+    "imagePresets": {
+      "flare": "gpt-image-2.5-flare",
+      "sunburst": "gpt-image-2.5-sunburst"
+    }
+  },
+  "mandatoryRules": {
+    "noMergeWithoutExplicitCommand": true,
+    "forbiddenStaticProductionAssets": [
+      "sohee_insta_post.jpg",
+      "images.unsplash.com"
+    ],
+    "requireDistinctAssetHashProof": true,
+    "requireDualChatDecision": true,
+    "requireProviderVisualReadback": true,
+    "zeroFalseGreen": true,
+    "failClosedOnMockInProductionVerified": true,
+    "requireActorBoundarySeparation": true,
+    "purgeFabricatedUITruth": true,
+    "serverAuthoritativeReadinessLadder": true,
+    "evidenceContract": "No Evidence, No Done",
+    "stateSeparationLaw": "CODE_COMPLETE != VERIFIED != RELEASE_READY != DONE"
+  },
+  "waves": [
+    { "index": 0, "name": "Truth Reconciliation & Security Blocker", "status": "IN_PROGRESS" },
+    { "index": 1, "name": "Demand & Content Generation", "status": "PENDING" },
+    { "index": 2, "name": "Mission Runtime & Durable Lineage", "status": "PENDING" },
+    { "index": 3, "name": "Customer Conversation → Booking", "status": "PENDING" },
+    { "index": 4, "name": "Proactive Employee Autonomy", "status": "PENDING" },
+    { "index": 5, "name": "Outcome, Attribution & Self-Learning", "status": "PENDING" },
+    { "index": 6, "name": "Commercial UX, Onboarding & Trust", "status": "PENDING" },
+    { "index": 7, "name": "Golden Business Week Release Truth", "status": "PENDING" }
+  ]
+}

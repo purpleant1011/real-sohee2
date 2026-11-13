@@ -1,0 +1,76 @@
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(20rem, 1.2fr);
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid var(--v07-line);
+  border-radius: 22px;
+  background: var(--v07-surface);
+  padding: clamp(1rem, 2.5vw, 1.25rem);
+  box-shadow: var(--v07-shadow-sm);
+}
+
+.copy h2,
+.copy p,
+.message { margin: 0; }
+.copy h2 { color: var(--v07-ink); font-size: 1rem; letter-spacing: -0.025em; }
+.copy p { margin-block-start: 0.4rem; color: var(--v07-muted); font-size: 0.75rem; line-height: 1.55; }
+
+.content {
+  display: flex;
+  min-inline-size: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.preview {
+  display: grid;
+  flex: 0 0 4.5rem;
+  inline-size: 4.5rem;
+  block-size: 4.5rem;
+  overflow: hidden;
+  place-items: center;
+  border: 2px solid #d9ccf4;
+  border-radius: 50%;
+  background: var(--v07-accent-soft);
+  color: var(--v07-accent-dark);
+}
+
+.preview img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.preview svg { inline-size: 1.7rem; block-size: 1.7rem; }
+.controls { display: grid; min-inline-size: 0; gap: 0.45rem; }
+.form { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.fileButton,
+.form button,
+.deleteButton {
+  display: inline-flex;
+  min-block-size: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid var(--v07-line-strong);
+  border-radius: 12px;
+  padding-inline: 0.8rem;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.fileButton { background: var(--v07-accent-soft); color: var(--v07-accent-dark); }
+.fileButton input { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.fileButton svg, .deleteButton svg { inline-size: 1rem; block-size: 1rem; }
+.form button { background: var(--v07-accent); color: #fff; }
+.deleteButton { background: transparent; color: #9b394b; }
+.form button:disabled, .deleteButton:disabled { cursor: wait; opacity: 0.6; }
+.guidance { color: var(--v07-muted); font-size: 0.66rem; }
+.message { font-size: 0.7rem; line-height: 1.45; }
+.message[data-status='success'] { color: #216f53; }
+.message[data-status='error'] { color: #9b394b; }
+
+@media (max-width: 700px) {
+  .card { grid-template-columns: 1fr; }
+  .content { justify-content: flex-start; }
+}

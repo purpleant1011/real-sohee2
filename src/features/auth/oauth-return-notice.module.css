@@ -1,0 +1,68 @@
+/* ANI-1761 AC-3: 구글 로그인 복귀 안내. 취소·실패(alert)와 성공(success)을 색+문구로 함께 구분한다. */
+.notice {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--state-wait-line);
+  border-radius: var(--radius-sm);
+  background: var(--state-wait-bg);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.title {
+  color: var(--state-wait-fg);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.detail {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.notice[data-tone='alert'] {
+  border-color: var(--state-warn-line);
+  background: var(--state-warn-bg);
+}
+
+.notice[data-tone='alert'] .title {
+  color: var(--state-warn-fg);
+}
+
+.notice[data-tone='success'] {
+  border-color: var(--state-ok-line);
+  background: var(--state-ok-bg);
+}
+
+.notice[data-tone='success'] .title {
+  color: var(--state-ok-fg);
+}
+
+/* 다음 행동 링크도 44px 터치 타깃을 지킨다. */
+.action {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap-size);
+  min-inline-size: 44px;
+  padding-inline: var(--space-3);
+  border-radius: var(--sohee-radius-control);
+  color: var(--color-accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition: none;
+  }
+}

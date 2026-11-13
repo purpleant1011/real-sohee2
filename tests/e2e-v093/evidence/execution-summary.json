@@ -1,0 +1,177 @@
+{
+  "executionMode": "PLAN_ONLY",
+  "testedSha": "UNATTESTED_WORKTREE",
+  "gitProvenance": {
+    "repoRoot": "/Volumes/Development/Github/real-sohee/.claude/worktrees/v093-w3-tenant-security-6f814f",
+    "observedHeadSha": "742ee9accb784afb48368ae3c2b919a45f0f5b7d",
+    "isWorkingTreeDirty": true,
+    "sourceScope": "UNATTESTED_WORKTREE",
+    "uncommittedEntriesCount": 1
+  },
+  "actionsAttempted": 0,
+  "durationMs": null,
+  "screenshotPath": null,
+  "observationSlotsTotal": 24,
+  "notVerifiedSlotsCount": 24,
+  "contractCompletedSteps": 0,
+  "verifiedBusinessTasksCount": 0,
+  "stepObservations": [
+    {
+      "stepId": "E093-01",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-01",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-02",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-02",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-03",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-03",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-04",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-04",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-05",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-05",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-06",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-06",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-07",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-07",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-08",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-08",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-09",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-09",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-10",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-10",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-11",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-11",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-12",
+      "viewport": "MOBILE",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    },
+    {
+      "stepId": "E093-12",
+      "viewport": "PC",
+      "status": "NOT_VERIFIED",
+      "reason": "PLAN_ONLY: Execution deferred until integration and fixture wiring"
+    }
+  ],
+  "contractsDeclaredContractOnly": [
+    "Exact loopback origins only (credentials and external domains rejected without leaking strings)",
+    "Fail-closed on ACTUAL, SHOWCASE_DEMO, and UNKNOWN datasets",
+    "Two matching errors or two matching NULLs forbidden from parity PASS",
+    "Canonical epoch match required before step-specific field parity check",
+    "Strict sequence comparison for imageReferences (sorting forbidden)",
+    "Strict cross-tenant refusal required (403/404 only; same-tenant, 200, and data leaks rejected)",
+    "Anti-optimism: 24 observation slots strictly separated from 0 verified business tasks",
+    "Factory thunk driver prevents browser launching in PLAN_ONLY mode",
+    "Live execution gates ANI-1598, ANI-1604, ANI-1613 required for LIVE_ALLOWLIST"
+  ],
+  "executionExitCode": 2,
+  "exitReason": "READINESS_UNVERIFIED_PLAN_ONLY"
+}

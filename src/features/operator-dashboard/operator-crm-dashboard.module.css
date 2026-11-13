@@ -1,0 +1,29 @@
+.dashboard { display: grid; gap: 1rem; }
+.alert :global(.ant-alert-message) { inline-size: 100%; }
+.alertMessage { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.alertMessage strong { color: #a52c28; }
+.alertMessage a { color: #6f3fd4; font-weight: 800; text-decoration: none; }
+.metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .75rem; }
+.metric :global(.ant-pro-card-body) { min-block-size: 7.4rem; padding: 1rem; }
+.metricMeta { display: block; margin-block-start: .8rem; color: #817685; font-size: .7rem; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(20rem, .9fr); gap: .9rem; }
+.lowerGrid { display: grid; grid-template-columns: minmax(18rem, .8fr) minmax(0, 1.2fr); gap: .9rem; }
+.panel { min-inline-size: 0; }
+.chartPlaceholder { display: grid; align-content: space-between; min-block-size: 10rem; }
+.chartPlaceholder :global(.ant-empty) { margin-block: 1.4rem .7rem; }
+.distribution { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; border-block-start: 1px solid #eee9f0; padding-block-start: .8rem; }
+.distribution > div { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .4rem; color: #5d5262; font-size: .74rem; }
+.distribution i { inline-size: .48rem; block-size: .48rem; border-radius: 50%; }
+.riskCell { display: grid; gap: .2rem; }
+.riskCell a { color: #3c2c43; font-weight: 800; text-decoration: none; }
+.riskCell small { color: #817685; }
+.stageList { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.stageList li { display: flex; align-items: center; justify-content: space-between; border-radius: .65rem; background: #f6f1fb; padding: .75rem .85rem; }
+.stageList span { color: #54465b; }
+.stageList strong { color: #6f3fd4; }
+.eventTitle { color: #3c2c43; font-weight: 800; }
+.eventMeta { color: #817685; font-size: .72rem; }
+@media (max-width: 1180px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .grid, .lowerGrid { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }.alertMessage { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 420px) { .metrics { grid-template-columns: 1fr; } }

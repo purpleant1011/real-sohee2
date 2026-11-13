@@ -1,0 +1,367 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 120px);
+  padding: 24px 16px 48px;
+  background-color: #f8fafc;
+}
+
+.ticketWrapper {
+  width: 100%;
+  max-width: 440px;
+}
+
+.ticketCard {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticketHeader {
+  padding: 24px 20px 16px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ticketHeaderCancelled {
+  padding: 24px 20px 16px;
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.badgeConfirmed {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #15803d;
+  background-color: #dcfce7;
+}
+
+.badgeCancelled {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b91c1c;
+  background-color: #fee2e2;
+}
+
+.badgePending {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b45309;
+  background-color: #fef3c7;
+}
+
+.bookingNumber {
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #64748b;
+}
+
+.shopName {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.serviceName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+}
+
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.dividerLine {
+  width: 100%;
+  border-top: 2px dashed #e2e8f0;
+}
+
+.dividerLeftCircle {
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+}
+
+.dividerRightCircle {
+  position: absolute;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #f8fafc;
+  border-left: 1px solid #e2e8f0;
+}
+
+.ticketBody {
+  padding: 12px 20px 24px;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.infoValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.highlightValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f766e;
+}
+
+.cancelNotice {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #fff1f2;
+  border: 1px solid #ffe4e6;
+  color: #9f1239;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.naverMapButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #03c75a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.naverMapButton:hover {
+  background-color: #02b350;
+}
+
+.kakaoChatButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #fee500;
+  color: #191919;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.kakaoChatButton:hover {
+  background-color: #f5dc00;
+}
+
+.errorCard {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.errorIcon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  color: #ef4444;
+}
+
+.errorTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.errorDescription {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.homeButton {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reauthBox {
+  margin-top: 16px;
+  padding: 20px 16px;
+  background-color: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.reauthTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reauthDescription {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
+}
+
+.reauthForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.reauthInput {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #0f172a;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reauthInput:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.reauthButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.reauthButton:hover:not(:disabled) {
+  background-color: #1e293b;
+}
+
+.reauthButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reauthError {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}

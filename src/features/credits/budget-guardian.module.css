@@ -1,0 +1,251 @@
+.guardianCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  margin-bottom: 24px;
+}
+
+.cardHeader {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 14px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0284c7;
+}
+
+.title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.gaugeContainer {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.gaugeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.gaugeLabel {
+  font-weight: 700;
+  color: #334155;
+}
+
+.gaugeValue strong {
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.gaugeTrack {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.gaugeFill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #0284c7 70%, #f59e0b 100%);
+  border-radius: 9999px;
+}
+
+.gaugeFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.alertText {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.proposalBox {
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.proposalHeader {
+  margin-bottom: 14px;
+}
+
+.proposalBadge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #92400e;
+  background: #fef3c7;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.proposalHeader h3 {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #78350f;
+}
+
+.proposalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.maintainCol,
+.adjustCol {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #fef3c7;
+}
+
+.maintainCol strong {
+  font-size: 12px;
+  color: #15803d;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.adjustCol strong {
+  font-size: 12px;
+  color: #b45309;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.maintainCol ul,
+.adjustCol ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: #334155;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proposalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.applyBtn {
+  min-height: 44px;
+  padding: 0 18px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.applyBtn:hover {
+  background: #0369a1;
+}
+
+.topupBtn {
+  min-height: 44px;
+  padding: 0 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+}
+
+.appliedAlert {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #065f46;
+  text-align: center;
+}
+
+.distributionPolicy {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.distributionPolicy h4 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.policyPills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.pillItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.pillItem strong {
+  color: #0284c7;
+  font-weight: 800;
+}
+
+.pillItem span {
+  color: #475569;
+}

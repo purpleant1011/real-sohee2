@@ -1,0 +1,59 @@
+.group {
+  display: flex;
+  max-inline-size: 100%;
+  gap: 0.25rem;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-muted);
+  padding: 0.25rem;
+  scrollbar-width: none;
+}
+
+.group::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  display: inline-flex;
+  min-block-size: var(--tap-size);
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-muted);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 720;
+  cursor: pointer;
+  transition: background var(--sohee-duration-fast) var(--sohee-ease-standard), color var(--sohee-duration-fast) var(--sohee-ease-standard), box-shadow var(--sohee-duration-fast) var(--sohee-ease-standard);
+}
+
+.item[data-selected] {
+  background: var(--color-surface-raised);
+  box-shadow: var(--sohee-shadow-control);
+  color: var(--color-accent-strong);
+}
+
+.item[data-focus-visible] {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.item[data-disabled] {
+  /* opacity 로 흐리면 바탕과 섞여 실제 대비가 1.9:1 수준까지 떨어진다.
+     비활성 표시는 커서로 하고, 글씨색은 토큰으로 명시해 4.5:1 을 지킨다. */
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.item strong {
+  display: grid;
+  min-inline-size: 1.4rem;
+  block-size: 1.4rem;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-emphasis);
+  font-size: 0.72rem;
+}

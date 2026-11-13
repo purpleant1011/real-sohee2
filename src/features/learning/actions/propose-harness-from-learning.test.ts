@@ -1,0 +1,4 @@
+import { expect,it,vi } from 'vitest'
+import { proposeHarnessFromLearning } from './propose-harness-from-learning'
+const id='10000000-0000-4000-8000-000000000001'
+it('creates only a review candidate and reuses its idempotency key',async()=>{const save=vi.fn(async()=>({ruleId:id,status:'review_required' as const}));const deps={load:async()=>({workspaceId:id,status:'approved' as const,sourceCandidateId:id,evidenceIds:[id],priorHarnessId:id,priorVersion:2,changedLayers:['performanceLearning'],reason:'근거',limitations:['제안']}),save};const input={workspaceId:id,candidateId:id,idempotencyKey:'key',expectedVersion:2};await expect(proposeHarnessFromLearning(input,deps)).resolves.toEqual({data:{ruleId:id,status:'review_required',requiresReviewHarnessRule:true}});expect(save).toHaveBeenCalledWith(expect.objectContaining({expectedVersion:2,status:'review_required'}))})

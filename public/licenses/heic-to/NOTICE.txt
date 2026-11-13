@@ -1,0 +1,28 @@
+HEIC local conversion — third-party notices
+
+heic-to 1.6.7 by Hopper Gee
+License: GNU Lesser General Public License version 3 or later, as stated
+in the upstream LICENSE. Provided without warranty.
+Upstream: https://github.com/hoppergee/heic-to
+Exact package: https://registry.npmjs.org/heic-to/-/heic-to-1.6.7.tgz
+Source repository: https://github.com/hoppergee/heic-to
+Exact source JavaScript is also included in the package linked above.
+
+The heic-to project reports libheif 1.23.7 for this package version.
+libheif: https://github.com/strukturag/libheif/tree/v1.23.7
+The decoder build also uses libde265; the upstream build instructions
+specify LIBDE265_VERSION=1.0.16.
+libde265: https://github.com/strukturag/libde265/tree/v1.0.16
+
+This application uses the package's unmodified heic-to/csp entry point,
+loaded only inside a dedicated browser Worker when HEIC is selected.
+No unsafe-eval CSP exception is added. Converted JPEG bytes, rather than
+the HEIC original, are passed through the existing upload validation.
+
+Copies of the GNU GPL v3 and GNU LGPL v3 are supplied in this directory.
+These notices and upstream links alone are NOT an assertion that all
+redistribution obligations have been met. Before distribution, release
+owners must verify and provide the complete corresponding source for the
+exact bundled decoder and dependencies, build instructions, and the
+applicable LGPL relinking/replacement materials and permissions. The UX
+recovery release remains blocked until this distribution review is complete.

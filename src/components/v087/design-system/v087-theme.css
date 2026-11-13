@@ -1,0 +1,104 @@
+/* 소희 V0.8.7 Silicon Valley Top-Tier Design System & OKLCH Tokens */
+
+:root {
+  --v087-bg-base: oklch(0.985 0.005 240);
+  --v087-bg-surface: oklch(1 0 0);
+  --v087-bg-surface-elevated: oklch(0.995 0.002 240);
+  --v087-bg-subtle: oklch(0.96 0.008 240);
+  --v087-border-subtle: oklch(0.90 0.01 240);
+  --v087-border-strong: oklch(0.82 0.015 240);
+  
+  --v087-text-primary: oklch(0.18 0.02 260);
+  --v087-text-secondary: oklch(0.45 0.02 260);
+  --v087-text-tertiary: oklch(0.62 0.015 260);
+
+  --v087-accent-brand: oklch(0.55 0.22 275);
+  --v087-accent-brand-subtle: oklch(0.95 0.05 275);
+  --v087-accent-brand-text: oklch(0.45 0.22 275);
+
+  --v087-provenance-measured-bg: oklch(0.94 0.06 150);
+  --v087-provenance-measured-text: oklch(0.38 0.14 150);
+  --v087-provenance-measured-dot: oklch(0.52 0.18 150);
+
+  --v087-provenance-calc-bg: oklch(0.94 0.06 230);
+  --v087-provenance-calc-text: oklch(0.38 0.14 230);
+
+  --v087-provenance-est-bg: oklch(0.94 0.06 290);
+  --v087-provenance-est-text: oklch(0.40 0.15 290);
+
+  --v087-risk-amber-bg: oklch(0.95 0.08 85);
+  --v087-risk-amber-text: oklch(0.48 0.15 75);
+
+  --v087-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --v087-shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --v087-shadow-lg: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -3px rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --v087-bg-base: oklch(0.12 0.015 260);
+  --v087-bg-surface: oklch(0.16 0.015 260);
+  --v087-bg-surface-elevated: oklch(0.20 0.018 260);
+  --v087-bg-subtle: oklch(0.18 0.015 260);
+  --v087-border-subtle: oklch(0.25 0.02 260);
+  --v087-border-strong: oklch(0.35 0.025 260);
+  
+  --v087-text-primary: oklch(0.95 0.005 260);
+  --v087-text-secondary: oklch(0.72 0.01 260);
+  --v087-text-tertiary: oklch(0.52 0.01 260);
+
+  --v087-accent-brand: oklch(0.68 0.20 275);
+  --v087-accent-brand-subtle: oklch(0.25 0.08 275);
+  --v087-accent-brand-text: oklch(0.85 0.12 275);
+
+  --v087-provenance-measured-bg: oklch(0.22 0.08 150);
+  --v087-provenance-measured-text: oklch(0.82 0.12 150);
+  --v087-provenance-measured-dot: oklch(0.68 0.18 150);
+
+  --v087-provenance-calc-bg: oklch(0.22 0.08 230);
+  --v087-provenance-calc-text: oklch(0.82 0.12 230);
+
+  --v087-provenance-est-bg: oklch(0.24 0.08 290);
+  --v087-provenance-est-text: oklch(0.84 0.12 290);
+
+  --v087-risk-amber-bg: oklch(0.26 0.08 75);
+  --v087-risk-amber-text: oklch(0.86 0.14 80);
+
+  --v087-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --v087-shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.5);
+  --v087-shadow-lg: 0 12px 30px -4px rgba(0, 0, 0, 0.6);
+}
+
+/* Glassmorphism Surface Base */
+.v087-glass-card {
+  background-color: var(--v087-bg-surface);
+  border: 1px solid var(--v087-border-subtle);
+  border-radius: 1rem;
+  box-shadow: var(--v087-shadow-md);
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v087-glass-card:hover {
+  border-color: var(--v087-border-strong);
+  box-shadow: var(--v087-shadow-lg);
+}
+
+/* Spotlight Highlight */
+.v087-spotlight-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--v087-bg-surface) 0%, var(--v087-bg-surface-elevated) 100%);
+  border: 1px solid var(--v087-border-subtle);
+  border-radius: 1.25rem;
+  box-shadow: var(--v087-shadow-lg);
+}
+
+.v087-spotlight-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  pointer-events: none;
+}

@@ -1,0 +1,96 @@
+/* Sohee V0.8.7 Silicon Valley Design Engineering System */
+@layer base {
+  :root,
+  html:not(.dark) {
+    --v087-bg: #FAF9F7;
+    --v087-surface: #FFFFFF;
+    --v087-surface-subtle: #F6F4F0;
+    --v087-border: #EAE7E3;
+    --v087-border-subtle: #F0EDE8;
+    --v087-charcoal: #171717;
+    --v087-charcoal-muted: #666666;
+    --v087-charcoal-subtle: #8C8A87;
+    --v087-violet: #6D4AFF;
+    --v087-violet-hover: #5A35EB;
+    --v087-violet-subtle: #F1EDFF;
+    --v087-violet-border: #DCD3FF;
+    --v087-emerald: #10B981;
+    --v087-emerald-subtle: #ECFDF5;
+    --v087-amber: #F59E0B;
+    --v087-amber-subtle: #FFFBEB;
+    --v087-rose: #EF4444;
+    --v087-rose-subtle: #FEF2F2;
+  }
+
+  html.dark,
+  :root.dark,
+  :root[data-theme='dark'] {
+    --v087-bg: #0C0D0E;
+    --v087-surface: #141517;
+    --v087-surface-subtle: #1C1E22;
+    --v087-border: rgba(255, 255, 255, 0.08);
+    --v087-border-subtle: rgba(255, 255, 255, 0.04);
+    --v087-charcoal: #EDEDED;
+    --v087-charcoal-muted: #A1A1AA;
+    --v087-charcoal-subtle: #71717A;
+    --v087-violet: #8B6BFF;
+    --v087-violet-hover: #7852FF;
+    --v087-violet-subtle: #231B47;
+    --v087-violet-border: #3D3075;
+  }
+}
+
+/* Tactile Surface & Inset Highlights */
+.tactile-card {
+  background-color: var(--v087-surface);
+  border: 1px solid var(--v087-border);
+  box-shadow: 
+    0 1px 2px 0 rgba(0, 0, 0, 0.03),
+    0 4px 12px -2px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.dark .tactile-card,
+.dark .tactile-card {
+  box-shadow: 
+    0 1px 2px 0 rgba(0, 0, 0, 0.4),
+    0 8px 24px -4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.tactile-card:hover {
+  border-color: rgba(109, 74, 255, 0.3);
+  box-shadow: 
+    0 4px 16px -2px rgba(109, 74, 255, 0.06),
+    0 12px 28px -6px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Glassmorphic Navbar Pill */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 231, 227, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .glass-pill,
+.dark .glass-pill {
+  background: rgba(20, 21, 23, 0.82);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle Shimmer & Pulse */
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 3s infinite ease-in-out;
+}

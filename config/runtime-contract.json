@@ -1,0 +1,78 @@
+{
+  "$schema": "./runtime-contract.schema.json",
+  "appVersion": "1.0.0",
+  "expectedMigrationHead": "20260907060000",
+  "requiredTables": [
+    "business_profiles",
+    "brand_profiles",
+    "agent_sessions",
+    "conversation_threads",
+    "conversation_jobs",
+    "conversation_job_steps",
+    "messages",
+    "work_items",
+    "knowledge_facts",
+    "harness_rules",
+    "kill_switches",
+    "channel_capabilities",
+    "external_action_requests",
+    "external_action_attempts",
+    "external_action_receipts",
+    "channel_verification_runs",
+    "channel_consents",
+    "provider_webhook_events",
+    "channel_response_jobs",
+    "channel_delivery_attempts",
+    "channel_metric_collections",
+    "channel_metric_values",
+    "social_attribution_events",
+    "report_snapshots",
+    "meta_channel_credentials"
+  ],
+  "requiredColumns": {
+    "agent_sessions": [
+      "id",
+      "workspace_id",
+      "title",
+      "model_profile",
+      "status"
+    ],
+    "conversation_threads": [
+      "id",
+      "workspace_id",
+      "title",
+      "status"
+    ],
+    "business_profiles": [
+      "workspace_id",
+      "business_name",
+      "industry",
+      "location",
+      "summary"
+    ],
+    "brand_profiles": [
+      "workspace_id",
+      "voice",
+      "keywords",
+      "prohibited_terms"
+    ],
+    "conversation_jobs": [
+      "id",
+      "workspace_id",
+      "status"
+    ],
+    "external_action_requests": [
+      "id",
+      "workspace_id",
+      "channel",
+      "action_kind",
+      "status"
+    ],
+    "channel_consents": [
+      "id",
+      "workspace_id",
+      "channel",
+      "consent_scope"
+    ]
+  }
+}

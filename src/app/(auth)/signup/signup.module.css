@@ -1,0 +1,318 @@
+.page {
+  min-height: 100svh;
+  padding: 1.2rem;
+  background: #fbfaf7;
+  color: #27222d;
+}
+.brand {
+  display: inline-flex;
+  padding: 0.8rem;
+  color: #6f4be8;
+  font-weight: 850;
+  text-decoration: none;
+}
+.layout {
+  width: min(100%, 72rem);
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 3rem;
+  align-items: center;
+}
+.intro > p {
+  color: #6f4be8;
+  font-weight: 850;
+}
+.introTitle {
+  max-width: 12ch;
+  margin: 0.8rem 0 0;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+.intro > span {
+  display: block;
+  max-width: 36rem;
+  margin-top: 1rem;
+  color: #706774;
+  line-height: 1.7;
+}
+.intro img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  border-radius: 1.4rem;
+}
+.journey {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.journey li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #e3dce7;
+  border-radius: 0.85rem;
+  background: #fff;
+}
+.journeyIndex {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, #6f4be8 12%, #fff);
+  color: #6f4be8;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.journey strong {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+.journey small {
+  display: block;
+  margin-top: 0.1rem;
+  color: #706774;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.card {
+  padding: 2rem;
+  border: 1px solid #e3dce7;
+  border-radius: 1.4rem;
+  background: #fff;
+  box-shadow: 0 25px 60px rgba(64, 47, 76, 0.1);
+}
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+.form > * {
+  min-width: 0;
+}
+.form label:not(.checkboxLabel) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.45rem;
+  min-width: 0;
+  font-weight: 750;
+}
+.checkboxLabel {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding-block: 0.15rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+.checkboxLabel input[type="checkbox"] {
+  min-height: 18px !important;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+.allAgreeBox {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.75rem;
+  background-color: #f5f2f8;
+  font-weight: 700 !important;
+  cursor: pointer;
+  margin-bottom: 0.3rem;
+}
+.allAgreeBox input[type="checkbox"] {
+  min-height: 18px !important;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* 약관 원문 보기 링크 — label 바깥에 두어 체크박스 토글과 충돌하지 않게 한다. 터치 타깃 44px. */
+.legalLink {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6f4be8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-radius: 0.5rem;
+}
+.legalLink:hover {
+  text-decoration-thickness: 2px;
+}
+.legalLink:focus-visible {
+  outline: 2px solid #6f4be8;
+  outline-offset: 2px;
+}
+.form input:not([type="checkbox"]) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  /* WebKit 은 input 의 기본 min-content 폭(약 305px)을 유지해 320·360px 뷰포트에서
+     카드가 331px 로 고정되고 가로 오버플로가 발생한다. 폭을 100%로 고정하고
+     min-width 를 0 으로 풀어 그리드 트랙이 뷰포트 폭을 따라가게 한다. */
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd5e2;
+  border-radius: 0.7rem;
+  padding: 0 0.8rem;
+}
+.form input:focus-visible {
+  outline: 2px solid #6f4be8;
+  outline-offset: 1px;
+}
+.form button:focus-visible,
+.confirmation a:focus-visible,
+.loginLink:focus-visible {
+  outline: 2px solid #6f4be8;
+  outline-offset: 2px;
+}
+.form button,
+.confirmation a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.75rem;
+  background: #6f4be8;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+.form > p {
+  min-height: 1.2rem;
+  margin: 0;
+  color: #b64c4c;
+}
+.consent {
+  grid-template-columns: auto 1fr !important;
+  align-items: start;
+  font-size: 0.82rem;
+  font-weight: 500 !important;
+  line-height: 1.5;
+}
+.consent input {
+  min-height: auto;
+  margin-top: 0.2rem;
+}
+.loginLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 1rem;
+  text-align: center;
+  color: #6f4be8;
+}
+.confirmation h2 {
+  font-size: 1.6rem;
+}
+.confirmation span {
+  display: block;
+  margin: 1rem 0;
+  color: #706774;
+  line-height: 1.6;
+}
+.error {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0.5rem 0;
+}
+.sectionDivider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+  color: #8b7f94;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.sectionDivider::before,
+.sectionDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e3dce7;
+}
+.fieldNote {
+  font-size: 0.75rem;
+  color: #706774;
+  font-weight: 400;
+  margin-top: -0.2rem;
+}
+.badgeValid {
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.badgeInvalid {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .introTitle {
+    font-size: 2.8rem;
+  }
+  .card {
+    padding: 1.3rem;
+  }
+}
+
+/* ANI-1761 AC-7: 320~430px 실제 폰 폭. 좌우 여백은 모바일 토큰 --m-inset(16px)에 맞추고,
+   카드 안쪽 여백과 제목 크기를 줄여 한 화면에 폼이 들어오게 한다. */
+@media (max-width: 430px) {
+  /* 여백은 rem 이라 텍스트 200% 확대에서 함께 두 배가 된다. 그러면 320px 폰에서
+     본문 폭이 78px 까지 눌려 한 줄에 두세 글자만 남는다. px 상한을 두어
+     확대 시에도 여백이 화면을 잡아먹지 않게 한다. 100% 에서는 값이 같아 변화가 없다. */
+  .page {
+    padding: min(1rem, 16px);
+  }
+  .card {
+    padding: min(1.1rem, 17.6px);
+  }
+  .introTitle {
+    font-size: 2.1rem;
+  }
+}

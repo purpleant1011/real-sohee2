@@ -1,0 +1,6 @@
+import 'server-only'
+import type { MetaInsightsPort } from './meta-channel-adapters'
+import type { PerformanceMetricName, PerformanceMetricState } from './types'
+type Row=Readonly<{workspaceId:string;channel:'instagram'|'threads';collectedAt:string;state:PerformanceMetricState;metrics:readonly Readonly<{metric:PerformanceMetricName;value:number|null}>[];rawError?:string}>
+export interface StoredMetaObservationRepository{read(input:Readonly<{workspaceId:string;channel:'instagram'|'threads';periodStart:string;periodEnd:string}>):Promise<readonly Row[]>}
+export function createStoredMetaInsightsPort(repository:StoredMetaObservationRepository):MetaInsightsPort{return{async collect(input){try{const rows=await repository.read(input);const eligible=rows.filter(row=>row.workspaceId===input.workspaceId&&row.channel===input.channel&&row.collectedAt>=input.periodStart&&row.collectedAt<=input.periodEnd).sort((a,b)=>b.collectedAt.localeCompare(a.collectedAt));const latest=eligible[0];return latest?{state:latest.state,metrics:latest.metrics.map(({metric,value})=>({metric,value:latest.state==='available'?value:null}))}:{state:'not_connected',metrics:[]}}catch{return{state:'not_connected',metrics:[]}}}}}

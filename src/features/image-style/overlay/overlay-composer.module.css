@@ -1,0 +1,124 @@
+.composer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.composer label {
+  display: grid;
+  gap: var(--space-2);
+  font-weight: 700;
+}
+
+.composer input:not([type='file']),
+.composer textarea {
+  inline-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3);
+  font: inherit;
+  font-weight: 400;
+}
+
+.composer input[type='file'] {
+  inline-size: 100%;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3);
+  font: inherit;
+  font-weight: 400;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.presets button {
+  min-block-size: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding-inline: var(--space-3);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.presets .active {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent), transparent 88%);
+}
+
+.canvasBox {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.canvas {
+  inline-size: 100%;
+  max-inline-size: 26rem;
+  block-size: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.actions button {
+  flex: 1 1 10rem;
+}
+
+.download {
+  min-block-size: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: inherit;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.download:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.save {
+  min-block-size: 2.75rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: white;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.save:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.ok {
+  margin: 0;
+  color: var(--color-accent-strong);
+}
+
+.error {
+  margin: 0;
+  color: #8f1d14;
+}

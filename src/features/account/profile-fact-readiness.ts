@@ -1,0 +1,1 @@
+export function profileFactReadiness(facts:readonly Readonly<{status:'approved'|'pending'|'rejected';sourceId:string;stale?:boolean}>[]){const approved=facts.filter(f=>f.status==='approved'&&!f.stale&&f.sourceId.length>0);return{coverage:facts.length?Math.round(approved.length/facts.length*100):0,sourceState:approved.length?'approved_sources_only':'no_approved_sources'}}

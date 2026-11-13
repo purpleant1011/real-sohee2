@@ -1,0 +1,207 @@
+.page {
+  display: grid;
+  gap: var(--space-5);
+  inline-size: min(100%, 64rem);
+  margin-inline: auto;
+}
+
+.header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.header h1,
+.header p,
+.card h2,
+.card p,
+.failure h1,
+.failure p {
+  margin: 0;
+}
+
+.header h1,
+.failure h1 {
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.header > p:last-child,
+.card p,
+.permission,
+.hint,
+.failure p {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  padding-block-end: var(--space-1);
+}
+
+.tabs a {
+  display: grid;
+  flex: 0 0 auto;
+  min-block-size: var(--tap-size);
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding-inline: var(--space-4);
+  text-decoration: none;
+}
+
+.form,
+.card,
+.failure {
+  display: grid;
+  gap: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: clamp(var(--space-4), 4vw, var(--space-6));
+}
+
+.form label,
+.card label {
+  display: grid;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  font-size: 0.875rem;
+  font-weight: 720;
+}
+
+.form input,
+.form textarea,
+.form select,
+.card input,
+.card textarea,
+.card select {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--tap-size);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-3);
+  font: inherit;
+}
+
+.form textarea,
+.card textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.form :disabled,
+.card :disabled {
+  color: var(--color-muted);
+  opacity: 0.78;
+}
+
+.twoColumns,
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.twoColumns > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.actions button,
+.failure a {
+  display: inline-grid;
+  min-block-size: var(--tap-size);
+  place-items: center;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  padding-inline: var(--space-4);
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.actions button[type='reset'] {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.message {
+  margin: 0;
+  color: var(--color-accent-strong);
+}
+
+.hint {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardHeading span {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+  color: var(--color-muted);
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.cardHeading span[data-state='connected'] {
+  background: color-mix(in srgb, var(--v07-mint), transparent 82%);
+  color: var(--color-text);
+}
+
+.cardHeading span[data-state='error'] {
+  background: color-mix(in srgb, var(--v07-coral), transparent 84%);
+  color: var(--color-text);
+}
+
+.failure a {
+  justify-self: start;
+}
+
+@media (max-width: 700px) {
+  .twoColumns,
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .twoColumns > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs {
+    scroll-behavior: auto;
+  }
+}

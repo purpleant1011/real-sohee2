@@ -1,0 +1,12 @@
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 14px; align-items: start; }
+.mainColumn { display: grid; gap: 14px; min-inline-size: 0; }
+.detail { position: sticky; inset-block-start: 14px; min-block-size: 620px; }
+.detail :global(.ant-pro-card-body) { display: grid; gap: 16px; }
+.detailBlocks { display: grid; gap: 10px; }
+.detailBlocks section { border: 1px solid #ebe5ed; border-radius: 9px; padding: 12px; }
+.detailBlocks h3 { margin: 0 0 8px; font-size: .88rem; }.detailBlocks p { margin: 0; color: #786f7c; font-size: .78rem; line-height: 1.5; }
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.principles > div { border-inline-end: 1px solid #ece6ef; padding-inline-end: 12px; }.principles > div:last-child { border-inline-end: 0; }
+.principles strong { color: #433348; font-size: .84rem; }.principles p { color: #7d7481; font-size: .76rem; line-height: 1.5; }
+@media (max-width: 1180px) { .workspace { grid-template-columns: 1fr; }.detail { position: static; min-block-size: auto; } }
+@media (max-width: 680px) { .principles { grid-template-columns: 1fr; }.principles > div { border-inline-end: 0; border-block-end: 1px solid #ece6ef; padding-block-end: 12px; }.principles > div:last-child { border-block-end: 0; } }

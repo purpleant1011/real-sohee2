@@ -1,0 +1,22 @@
+.page,.rules,.list,.card,.form,.run{display:grid;gap:var(--space-3)}
+.page{inline-size:min(100%,70rem);margin-inline:auto;gap:var(--space-5)}
+.header,.cardHeading,.inlineForm,.actions{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap}
+.header h1,.header h3,.header p,.form h2,.card h3,.card p,.empty p,.run p{margin:0}
+.header h1,.header h3{font-size:clamp(1.65rem,4vw,2.7rem);letter-spacing:-.045em}
+.eyebrow{color:var(--color-accent-strong);font-size:.75rem;font-weight:750}
+.mockBadge,.cardHeading span{border-radius:999px;background:color-mix(in srgb,var(--color-accent),transparent 88%);color:var(--color-accent-strong);padding:var(--space-1) var(--space-2);font-size:.75rem;font-weight:750}
+.form,.card,.empty{border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface);padding:var(--space-5)}
+.form{grid-template-columns:repeat(2,minmax(0,1fr))}
+.form h2,.form button{grid-column:1/-1}
+.form label{display:grid;gap:var(--space-2);font-weight:700}
+.form select{min-block-size:2.75rem;border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface-muted);padding-inline:var(--space-3)}
+.check{display:flex!important;align-items:center;gap:var(--space-2)!important}
+.form button,.inlineForm button,.actions button{min-block-size:2.65rem;border:0;border-radius:var(--radius-md);background:var(--color-accent);color:white;padding-inline:var(--space-4);font:inherit;font-weight:750;cursor:pointer}
+.actions button:last-child{background:var(--color-surface-muted);color:var(--color-text)}
+.notice{margin:0;border-radius:var(--radius-md);background:var(--color-surface-muted);padding:var(--space-3) var(--space-4)}
+.list{margin:0;padding:0;list-style:none}
+.cardHeading p,.muted,.header p{color:var(--color-muted)}
+.run{border-radius:var(--radius-md);background:var(--color-surface-muted);padding:var(--space-3)}
+.run[data-status='failed']{border-inline-start:3px solid #b42318}
+.run code{overflow-wrap:anywhere}
+@media(max-width:680px){.header{align-items:flex-start}.form{grid-template-columns:1fr}.mockBadge{flex:0 0 auto}}

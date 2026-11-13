@@ -1,0 +1,1958 @@
+{
+  "generated_at": "2026-10-29",
+  "environment": "local-isolated-replay",
+  "target_supabase_url": null,
+  "total_migrations": 324,
+  "remote_probe_status": "NOT_PROBED",
+  "drift_summary": {
+    "manifest_drift_count": 0,
+    "remote_unapplied_count": null
+  },
+  "migrations": [
+    {
+      "version": "20260809034506",
+      "filename": "20260809034506_workspace_foundation.sql",
+      "checksum": "5d86d8641943d68098bbd4516896148c9a554fbbe3ac41eef850270303fbeac8",
+      "size": 11699
+    },
+    {
+      "version": "20260809034634",
+      "filename": "20260809034634_workspace_private_schema_access.sql",
+      "checksum": "d26fd7de7a6d39a716892b4e9f091e93e0034047dd793d855e280864b72f9fdf",
+      "size": 48
+    },
+    {
+      "version": "20260809034750",
+      "filename": "20260809034750_platform_rls_compatibility.sql",
+      "checksum": "cac326c829264230bfee95762c8e3026554e15dcee66ff20c56e140513f24b16",
+      "size": 817
+    },
+    {
+      "version": "20260809034836",
+      "filename": "20260809034836_harden_platform_rls_trigger.sql",
+      "checksum": "9d135ad34cb1d5f6a5a2d9ea39c6a59a6cedf3013fe55fd2be4d8a0dbb4d4111",
+      "size": 86
+    },
+    {
+      "version": "20260809040030",
+      "filename": "20260809040030_content_operations.sql",
+      "checksum": "c14a8a7c985bc0f87ef7cb9bd00818d6fda4e5f32def42f91fdfb6bb97a1889c",
+      "size": 39875
+    },
+    {
+      "version": "20260809040158",
+      "filename": "20260809040158_content_fk_indexes.sql",
+      "checksum": "1a16f55b6bf4b09356ebd7526b5848e4d696743a61605f6f3d3d9f1918c7b567",
+      "size": 517
+    },
+    {
+      "version": "20260809040956",
+      "filename": "20260809040956_private_storage.sql",
+      "checksum": "5e40f93dcbb635f14e0eeb42c851ae02c2ebc246225c34411940b24318bb493f",
+      "size": 2711
+    },
+    {
+      "version": "20260809041553",
+      "filename": "20260809041553_storage_asset_binding.sql",
+      "checksum": "059d372ddd8b8672f1257431046d89091fd930e4329d06a4d347a50b9e1948ad",
+      "size": 2298
+    },
+    {
+      "version": "20260809042203",
+      "filename": "20260809042203_rpc_mutation_boundary.sql",
+      "checksum": "eef80debdba048ddeaffc93688a341716b6fbf443af06b7361a1056c90de749d",
+      "size": 8010
+    },
+    {
+      "version": "20260809043938",
+      "filename": "20260809043938_content_invariant_completion.sql",
+      "checksum": "9ae4c91569a240bf8f2f3bacbb35c18555be11310f3e07761e01b07c2b1392d3",
+      "size": 24702
+    },
+    {
+      "version": "20260809045954",
+      "filename": "20260809045954_server_validated_upload_boundary.sql",
+      "checksum": "b356d10f88f2f871ffc0598c2fc8fbaeda537bc0258ced8e3350393533d0b683",
+      "size": 4667
+    },
+    {
+      "version": "20260809055900",
+      "filename": "20260809055900_auth_initial_workspace.sql",
+      "checksum": "a7d84e68f7d7ab5e48b9d1886c8b96f95b44300724a0faf0a94ee0b253dae0c7",
+      "size": 2471
+    },
+    {
+      "version": "20260809063743",
+      "filename": "20260809063743_content_revision_reason.sql",
+      "checksum": "8e73f85c069d42d3453c04bac87f287cb83dc10a9c0465837ee9ca403f77db28",
+      "size": 6183
+    },
+    {
+      "version": "20260809070156",
+      "filename": "20260809070156_approval_schedule_lifecycle.sql",
+      "checksum": "221179477693e4805695290a72e1240bc56b9ca9d2bc01e3c7a6ee0345cd72ce",
+      "size": 10393
+    },
+    {
+      "version": "20260809070611",
+      "filename": "20260809070611_approval_schedule_rpc_permissions.sql",
+      "checksum": "c774c9fb42ddefc6bacc39452f350853fc09c4326adefcbfa2300afb75be97df",
+      "size": 895
+    },
+    {
+      "version": "20260809070742",
+      "filename": "20260809070742_approval_schedule_audit_events.sql",
+      "checksum": "a9f5bf27a008a10251b871094d7860938ea1440f9966511a6dfe93f8d8419a64",
+      "size": 1117
+    },
+    {
+      "version": "20260809071410",
+      "filename": "20260809071410_schedule_idempotency_role_guard.sql",
+      "checksum": "208489c1df43d0fc7912794be97f0fd7388c7d9f9cd1258de71ac0b5ddc0aade",
+      "size": 1365
+    },
+    {
+      "version": "20260809072227",
+      "filename": "20260809072227_mock_publish_reservation.sql",
+      "checksum": "f8372ba3292c25871aacdfc1f2914e073da46147b097c6200d7610fae4160be9",
+      "size": 9122
+    },
+    {
+      "version": "20260809205500",
+      "filename": "20260809205500_knowledge_review_workflow.sql",
+      "checksum": "8e8577ebe97814ef0cee48c1bd65b0099df87ba70ce4d7e4715c685942e2810e",
+      "size": 2961
+    },
+    {
+      "version": "20260809212000",
+      "filename": "20260809212000_mock_automation_workflow.sql",
+      "checksum": "8aeff257b167f3598c763595fda66b4825c244e345d8693720ce658d5969fd76",
+      "size": 4308
+    },
+    {
+      "version": "20260809214000",
+      "filename": "20260809214000_notification_consistency.sql",
+      "checksum": "cee915be9eb7fd20a094833f8f63c7c2d4298d179e9ba83c40d59ae3cd0b2d00",
+      "size": 525
+    },
+    {
+      "version": "20260810083250",
+      "filename": "20260810083250_v07_advisor_foreign_key_indexes.sql",
+      "checksum": "6d00ffacc73bb5237bd40f1dee7fe51b9befa00122536b2f31dfe6e850015dce",
+      "size": 2630
+    },
+    {
+      "version": "20260810083558",
+      "filename": "20260810083558_v07_authenticated_message_persistence.sql",
+      "checksum": "02ca82ed8751ed6b691e21e561477b3d73973deb5981a9f79dfd44233e6b82aa",
+      "size": 170
+    },
+    {
+      "version": "20260810090000",
+      "filename": "20260810090000_v07_conversation_work_foundation.sql",
+      "checksum": "bb8eff48317ea4fb43f02af8aabbf0083bd39f2641c1d085d728aab26b263fb6",
+      "size": 14920
+    },
+    {
+      "version": "20260810091000",
+      "filename": "20260810091000_v07_knowledge_harness_customer.sql",
+      "checksum": "352f90daac37f4274b1e4eeb7cfc2b87a625701522c40da8a344d3358168291c",
+      "size": 28584
+    },
+    {
+      "version": "20260810092000",
+      "filename": "20260810092000_v07_event_outbox.sql",
+      "checksum": "f9e0d4721ad5d1001f56bcd3d318703f2d715e03c657486408addb26baff2741",
+      "size": 2069
+    },
+    {
+      "version": "20260811042429",
+      "filename": "20260811042429_v071_conversation_artifacts.sql",
+      "checksum": "5cb936ef0b9845ba66e3106dd82fcfd4164c400398c892487af06fd8d54e0a9c",
+      "size": 18896
+    },
+    {
+      "version": "20260811042853",
+      "filename": "20260811042853_v071_notification_event_key_compatibility.sql",
+      "checksum": "7921e9180abc1ec6590ed26235f2ea820f48ef0a6dc77d6159a0778865d7da9f",
+      "size": 246
+    },
+    {
+      "version": "20260811043227",
+      "filename": "20260811043227_v071_artifact_foreign_key_indexes.sql",
+      "checksum": "9ff95cd7f88661c7793d96c3ff6f595a58ab3c815319d6ab03057f4b3ace206f",
+      "size": 398
+    },
+    {
+      "version": "20260811073500",
+      "filename": "20260811073500_v071_operational_settings_grants.sql",
+      "checksum": "ac071e81d5df624f6569d4e683166e2e43e9a7008212ab982801643b1b78c45e",
+      "size": 992
+    },
+    {
+      "version": "20260813081645",
+      "filename": "20260813081645_meta_channel_operations.sql",
+      "checksum": "e9420c067a70a7d3e87a071fcaacb27d8799314c7a928f26303e9ae7c5a0aed7",
+      "size": 16419
+    },
+    {
+      "version": "20260813083531",
+      "filename": "20260813083531_meta_channel_operations_hardening.sql",
+      "checksum": "0bb48f3dfdfe8d52fa5dd7ef017883336903c3c3a984c146ff0f1a96ff673ada",
+      "size": 2001
+    },
+    {
+      "version": "20260813095205",
+      "filename": "20260813095205_meta_channel_oauth_and_delivery.sql",
+      "checksum": "91260d009141bfd741d5c8113eae3a0387e56ddd852c43f5145755bb9e0f4931",
+      "size": 8794
+    },
+    {
+      "version": "20260813100651",
+      "filename": "20260813100651_meta_channel_authority_lockdown.sql",
+      "checksum": "57b7fb47fe13abcf577e9b633fdb7746cf8ee81df5bf841eb59ffd6e886548b1",
+      "size": 6717
+    },
+    {
+      "version": "20260813100652",
+      "filename": "20260813100652_meta_credential_health.sql",
+      "checksum": "c8f6a58461f1987b75e7a3438379387ff33c7ea8b78941909479f0e3f36b9b97",
+      "size": 6278
+    },
+    {
+      "version": "20260813100654",
+      "filename": "20260813100654_meta_publish_execution.sql",
+      "checksum": "1e4b090ac58f28c10e7eb5d007152defcc825577dac4806fa6bba3d9d0fa4af6",
+      "size": 10269
+    },
+    {
+      "version": "20260813101914",
+      "filename": "20260813101914_work_social_reporting.sql",
+      "checksum": "87ba8b18b9feec87ac117d3b0be732a45b9459ed4c4f6be4c69e6851e2a73709",
+      "size": 23362
+    },
+    {
+      "version": "20260813113000",
+      "filename": "20260813113000_meta_preview_payload_identity.sql",
+      "checksum": "a20b61adfb68d078c4e6117e3da80540198b2c2f820097b78eb9ec5bb45e4d7a",
+      "size": 5098
+    },
+    {
+      "version": "20260813113001",
+      "filename": "20260813113001_meta_provider_callbacks_and_webhook_health.sql",
+      "checksum": "805910dea76fed5517b48035d3f4c23155e2e3f37fd31e644093bb2e30aa4ecb",
+      "size": 3336
+    },
+    {
+      "version": "20260813120000",
+      "filename": "20260813120000_meta_publish_retry_and_due_worker.sql",
+      "checksum": "098ccedc9a3667b2de2e63d1dd43698056982bf44342a834f5ae598efb1ad16b",
+      "size": 10589
+    },
+    {
+      "version": "20260813123000",
+      "filename": "20260813123000_meta_publish_result_events.sql",
+      "checksum": "fa77ed97fe9182b9a84eaddddc86df529e188c55876f9907c7a145c14bada752",
+      "size": 3754
+    },
+    {
+      "version": "20260813124000",
+      "filename": "20260813124000_meta_publish_retry_credential_guard.sql",
+      "checksum": "db463f26a49b5aae0a7260fd1e7d870757347ebf56b0f79fff557745ccbf59f3",
+      "size": 4273
+    },
+    {
+      "version": "20260813183740",
+      "filename": "20260813183740_allow_service_role_meta_persistence.sql",
+      "checksum": "d2831eca9f445347de79f5d7e09a283a2684f33ceb5000d365ac2806282b4dd8",
+      "size": 507
+    },
+    {
+      "version": "20260813191407",
+      "filename": "20260813191407_instagram_provider_rejected_jpeg_retry.sql",
+      "checksum": "37fc58afb457c0912a9162e1f47a35b14cb9101aacdd1d0df61189428b9126a3",
+      "size": 9686
+    },
+    {
+      "version": "20260813193255",
+      "filename": "20260813193255_instagram_final_classified_provider_retry.sql",
+      "checksum": "8f241056f00589379c91578a72dd71f43cd63272308b1f858de85db326723f45",
+      "size": 11320
+    },
+    {
+      "version": "20260814000227",
+      "filename": "20260814000227_instagram_exact_v1_native_recovery.sql",
+      "checksum": "8dda76eb42e2b9d63e79ebeb58475d302625f03ad01fe8c52bb6361b378507d5",
+      "size": 8199
+    },
+    {
+      "version": "20260814003000",
+      "filename": "20260814003000_conversation_thread_navigation.sql",
+      "checksum": "d6a38e19408a1a50320493abe7bc132d95090466722e7d285a667bcdbed0452a",
+      "size": 1382
+    },
+    {
+      "version": "20260814004532",
+      "filename": "20260814004532_allow_service_role_meta_credential_load.sql",
+      "checksum": "89a192c815e019c22fdcfb16157ea24ea0802ff2e0e84dd7f434224e9b0c3086",
+      "size": 379
+    },
+    {
+      "version": "20260814005734",
+      "filename": "20260814005734_data_deletion_requests.sql",
+      "checksum": "14da7c89a4a47d243bda51fc984e48854d970b42d2bcebac5d8a8425d1536431",
+      "size": 8060
+    },
+    {
+      "version": "20260814013000",
+      "filename": "20260814013000_meta_publish_checkpoint_and_reconciliation.sql",
+      "checksum": "490045a16ab18c8e7cba641d2b2ea2bb0ec303df51d835142a34c54315caa496",
+      "size": 14078
+    },
+    {
+      "version": "20260814013500",
+      "filename": "20260814013500_meta_reconciled_payload_loader.sql",
+      "checksum": "f90546191798a62117ff4eee63a7fa9f5108202980709bf6500658e3cf58d297",
+      "size": 4173
+    },
+    {
+      "version": "20260814024003",
+      "filename": "20260814024003_isolate_meta_data_deletion_callback.sql",
+      "checksum": "4b5899bafb7eaef67f65ea6d7be24b5f740c54c2a44657455c3a9b0c4f6af175",
+      "size": 1686
+    },
+    {
+      "version": "20260814042147",
+      "filename": "20260814042147_meta_webhook_minimal_payload.sql",
+      "checksum": "dea2bc238031d5a74d4484c950a2ab9bbb78e6448d08448470458921bc780490",
+      "size": 2737
+    },
+    {
+      "version": "20260814042331",
+      "filename": "20260814042331_meta_response_delivery_claims.sql",
+      "checksum": "d44192e1f8a2f97251506fc41e5918a9b5c4205afa3b744ad014ceb86c959da3",
+      "size": 11447
+    },
+    {
+      "version": "20260814043000",
+      "filename": "20260814043000_instagram_recovery_storage_size.sql",
+      "checksum": "aa8e5dda93360ac5befbccb5b5372b460773ec439ef0ea98c49cd5275104ee26",
+      "size": 4970
+    },
+    {
+      "version": "20260814043103",
+      "filename": "20260814043103_meta_response_delivery_claim_wrapper.sql",
+      "checksum": "fe693ec7c77c182580caae7a54fde63c56a8a348d7938fe7a1e2de40750b93a1",
+      "size": 1078
+    },
+    {
+      "version": "20260814083246",
+      "filename": "20260814083246_v075_atomic_conversation_start.sql",
+      "checksum": "63c2f46e43042e5d014a749789e411581a63c22d8a5ec8b8c426f3d488a0827c",
+      "size": 3909
+    },
+    {
+      "version": "20260814085510",
+      "filename": "20260814085510_v075_social_conversation_artifacts.sql",
+      "checksum": "aa5104244ea1ba957e75e612c6c4041f2066ed94176b1e69b26baca94f06c4ac",
+      "size": 10205
+    },
+    {
+      "version": "20260814112000",
+      "filename": "20260814112000_threads_text_only_versions.sql",
+      "checksum": "4a197149918dc05f34e86e4932334b1dd9c91cfb184ac3a574274f692874dead",
+      "size": 6271
+    },
+    {
+      "version": "20260814112500",
+      "filename": "20260814112500_threads_text_only_publishability.sql",
+      "checksum": "3049be6ac8ed6019baa71c6d4f97ad30ca60a4a489e395a6435d979dab511b50",
+      "size": 4025
+    },
+    {
+      "version": "20260814113000",
+      "filename": "20260814113000_publish_payload_connection_identity.sql",
+      "checksum": "b6dc89a108ef1c199adc330d60a0d39be63236f4e7d70ce5ed11f9ee13c07739",
+      "size": 6375
+    },
+    {
+      "version": "20260814140000",
+      "filename": "20260814140000_channel_response_state_guard.sql",
+      "checksum": "5f0084a672b4bff9c292e3cfba58915263cc8c153adafc65bfe3d24480afe530",
+      "size": 709
+    },
+    {
+      "version": "20260814152957",
+      "filename": "20260814152957_byreum_campaign_operator_import.sql",
+      "checksum": "b9f0240f5c89b0b1dceeae497ef68de6753dfeb77d881f99024807dfd762bbcc",
+      "size": 6593
+    },
+    {
+      "version": "20260814154500",
+      "filename": "20260814154500_fix_byreum_import_event_key.sql",
+      "checksum": "1601f63d7417b87372f969a5298d1fc20b8e6320cfc67a85be9245ec91e55401",
+      "size": 1287
+    },
+    {
+      "version": "20260814154700",
+      "filename": "20260814154700_reload_postgrest_after_byreum_function_fix.sql",
+      "checksum": "6a2729a015ff12444448f22f283050831d3771e676dd0f229790b0a75790b9d7",
+      "size": 31
+    },
+    {
+      "version": "20260814154900",
+      "filename": "20260814154900_fix_byreum_import_connection_lookup.sql",
+      "checksum": "5aa125cfea647d7d033ce070f0e2717c66abfce48037e02b5a14be087dac650d",
+      "size": 1470
+    },
+    {
+      "version": "20260814155200",
+      "filename": "20260814155200_fix_byreum_import_operation_event.sql",
+      "checksum": "e71d664b0d848b5d891f155431acfe817c538ce67f8a166a013610c91e8c24e8",
+      "size": 618
+    },
+    {
+      "version": "20260814155900",
+      "filename": "20260814155900_recover_safe_byreum_pending_attempts.sql",
+      "checksum": "102353fbd839d180b3c1fbc69afdfb04c434e14a0cc68d46308eb2b57df26ddc",
+      "size": 1361
+    },
+    {
+      "version": "20260814160300",
+      "filename": "20260814160300_remove_byreum_operator_function.sql",
+      "checksum": "17d627a8fb89f366745684e1e6840290672f7a788fd04c2613681a6b978d14ce",
+      "size": 161
+    },
+    {
+      "version": "20260814203000",
+      "filename": "20260814203000_v075_post_tracking_and_four_hour_reports.sql",
+      "checksum": "0f50963b5d95a3ccc7f1b2e16274399971c478cb8b3c81973531222d6a074fcb",
+      "size": 12308
+    },
+    {
+      "version": "20260814203100",
+      "filename": "20260814203100_v075_social_attribution_tracking_index.sql",
+      "checksum": "0a21ee267d5f7c0be9dd2c2b4229f2fb67c709710872fd41c284887b5eeb259d",
+      "size": 110
+    },
+    {
+      "version": "20260818164410",
+      "filename": "20260818164410_v08_onboarding_profile.sql",
+      "checksum": "3c5b47abbebad0373e612a1d2418b40c3836a1f09d793ad76ba5364ab6581add",
+      "size": 29693
+    },
+    {
+      "version": "20260818164702",
+      "filename": "20260818164702_v08_five_channel_harness_content.sql",
+      "checksum": "f4a4676e63a27c2a98698884579f9aad46001a92979e2156b95a770adb6e3a19",
+      "size": 17477
+    },
+    {
+      "version": "20260818164728",
+      "filename": "20260818164728_v08_external_profile_actions.sql",
+      "checksum": "3f0cd711846d0e4ed3310b382760538d8444e290f31afe135df8d60fb98295a0",
+      "size": 20613
+    },
+    {
+      "version": "20260818165001",
+      "filename": "20260818165001_v08_credit_plan_billing.sql",
+      "checksum": "a1749ca299f3360195e6291f34c213ed333eb4caea235c668a0e87ea0f3d6aad",
+      "size": 27084
+    },
+    {
+      "version": "20260818165451",
+      "filename": "20260818165451_v08_repair_v07_advisor_index_order.sql",
+      "checksum": "d1186b33dddcc11be64ae2a9f186dea1eaecd1c346e5635fb4cbb1079055cd2e",
+      "size": 2044
+    },
+    {
+      "version": "20260818170111",
+      "filename": "20260818170111_v08_automation_reporting_learning.sql",
+      "checksum": "b125d651959b77c9a5c452b29302d99faef7b160480da72584b2b7a5c25d00e7",
+      "size": 8388
+    },
+    {
+      "version": "20260818170650",
+      "filename": "20260818170650_v08_onboarding_restart.sql",
+      "checksum": "a90c37d703d4fc482e27e9f72646fa43efa55c6d82714daa7c3e5891bd3995fe",
+      "size": 5130
+    },
+    {
+      "version": "20260818173733",
+      "filename": "20260818173733_v08_checkout_intent_history.sql",
+      "checksum": "381cee40426c963ec9420fe6030fb715ef9e9c3e3bb66995365929a38ac266fb",
+      "size": 1190
+    },
+    {
+      "version": "20260818182500",
+      "filename": "20260818182500_v08_learning_actor_identity_hardening.sql",
+      "checksum": "b919891813f55ecd8b501895af09b4e72a87d4aced9ad2d03417b85396054579",
+      "size": 1293
+    },
+    {
+      "version": "20260818184056",
+      "filename": "20260818184056_v08_credit_mutation_server_authority.sql",
+      "checksum": "99b6df88fcca5824d8d1efd428276ef3a7154a329b5da0437d783f67f19b3a22",
+      "size": 1132
+    },
+    {
+      "version": "20260818185440",
+      "filename": "20260818185440_v08_runtime_social_report_service_role.sql",
+      "checksum": "e7530f909ce258cce7bd03278e0d2d8e449d53407af8705764f1f47b76fd575f",
+      "size": 693
+    },
+    {
+      "version": "20260818185656",
+      "filename": "20260818185656_v08_preview_credit_weekly_policy.sql",
+      "checksum": "f59e3d18e5741ff3b137e6f68902b2e6d4f1735e2e258d298c6511920d153eac",
+      "size": 14120
+    },
+    {
+      "version": "20260818190403",
+      "filename": "20260818190403_v08_runtime_automation_budget_preview.sql",
+      "checksum": "01a068f87ffcd4f3d6d6c9c984344cad93912f1e8ba53c0419e4f9a7302aa256",
+      "size": 4217
+    },
+    {
+      "version": "20260819070700",
+      "filename": "20260819070700_chrome_local_publish_control_plane.sql",
+      "checksum": "6b940809615f89a2b9fa578c47951921b6e0544eb08d5f2e8e2739ec6ad8a365",
+      "size": 25788
+    },
+    {
+      "version": "20260819071402",
+      "filename": "20260819071402_content_media_sha256_digest.sql",
+      "checksum": "b3f0917a6d35353ce72cecc1a71de87a6000038509bef2d36981c57f14cf2285",
+      "size": 287
+    },
+    {
+      "version": "20260819132521",
+      "filename": "20260819132521_local_publish_schedule_grace.sql",
+      "checksum": "a2362a9c616e98360a0947ace568d44883619b8d5c9eca9014bce8ad1da109e2",
+      "size": 7719
+    },
+    {
+      "version": "20260820021638",
+      "filename": "20260820021638_local_publish_fk_indexes.sql",
+      "checksum": "c7ffe29571e1cfb522be035fe9e449a2f05deb350fda99f6f59b743e547bea98",
+      "size": 630
+    },
+    {
+      "version": "20260820023808",
+      "filename": "20260820023808_browser_channel_connection_registration.sql",
+      "checksum": "680e49d539b5d657bbe0bf5a7506c2f9fb2a4519eb3f07eed3d5a08900e2e11b",
+      "size": 2306
+    },
+    {
+      "version": "20260820030000",
+      "filename": "20260820030000_naver_conversation_artifact_work.sql",
+      "checksum": "587a7219aeeaa47627fc54ff28aeabfb9d14ebb7b7444ba244cbec69ce61069d",
+      "size": 8849
+    },
+    {
+      "version": "20260820033000",
+      "filename": "20260820033000_naver_local_approval_dispatch.sql",
+      "checksum": "63f1b5a4e36137cd8ca10f888ec2e769079a28d66c6b6efbcbfc79289cca19d7",
+      "size": 5723
+    },
+    {
+      "version": "20260820051050",
+      "filename": "20260820051050_recover_expired_local_publish_before_submit.sql",
+      "checksum": "146f252ab97f97d81b714936e92c369fb701e5f1e8c827d0a8d18a1bceb8033c",
+      "size": 2843
+    },
+    {
+      "version": "20260820051333",
+      "filename": "20260820051333_recover_existing_expired_local_pre_submit_jobs.sql",
+      "checksum": "7ad9cc8fb0fcbb969608070c01d01c4ba0c01e5bb54a45359b32ffe5a47381f4",
+      "size": 870
+    },
+    {
+      "version": "20260820051704",
+      "filename": "20260820051704_recover_expired_local_publish_jobs.sql",
+      "checksum": "d0fd98a1a285bcc7784e31d8d419d70f87906b110ef84396d8339213cc45bc01",
+      "size": 1613
+    },
+    {
+      "version": "20260820053347",
+      "filename": "20260820053347_requeue_existing_safe_ui_drift_local_jobs.sql",
+      "checksum": "b581a69a66241f7c583f1d1299cecd1171b95361b5db81e1bc54f7febc302f1d",
+      "size": 943
+    },
+    {
+      "version": "20260820053613",
+      "filename": "20260820053613_requeue_safe_ui_drift_after_editor_navigation.sql",
+      "checksum": "2b949c060f4ff8944cc0a6aeaa86f2f42bb493a9fa4dd67d1a07b20ae5fcdc50",
+      "size": 897
+    },
+    {
+      "version": "20260820053955",
+      "filename": "20260820053955_requeue_safe_ui_drift_after_draft_dialog_fix.sql",
+      "checksum": "2b949c060f4ff8944cc0a6aeaa86f2f42bb493a9fa4dd67d1a07b20ae5fcdc50",
+      "size": 897
+    },
+    {
+      "version": "20260820055547",
+      "filename": "20260820055547_requeue_safe_ui_drift_for_native_host.sql",
+      "checksum": "2b949c060f4ff8944cc0a6aeaa86f2f42bb493a9fa4dd67d1a07b20ae5fcdc50",
+      "size": 897
+    },
+    {
+      "version": "20260820060210",
+      "filename": "20260820060210_requeue_safe_ui_drift_after_native_host_start_fix.sql",
+      "checksum": "2b949c060f4ff8944cc0a6aeaa86f2f42bb493a9fa4dd67d1a07b20ae5fcdc50",
+      "size": 897
+    },
+    {
+      "version": "20260820060705",
+      "filename": "20260820060705_requeue_safe_ui_drift_after_precise_editor_targeting.sql",
+      "checksum": "2b949c060f4ff8944cc0a6aeaa86f2f42bb493a9fa4dd67d1a07b20ae5fcdc50",
+      "size": 897
+    },
+    {
+      "version": "20260820060921",
+      "filename": "20260820060921_requeue_safe_target_mismatch_after_exact_tab_fix.sql",
+      "checksum": "f87b3d8d083d8536cb23ff81e873e725f4ed8307171ba56a76b9b8d06c14fbfe",
+      "size": 904
+    },
+    {
+      "version": "20260820061222",
+      "filename": "20260820061222_requeue_safe_target_mismatch_after_live_editor_preflight.sql",
+      "checksum": "f87b3d8d083d8536cb23ff81e873e725f4ed8307171ba56a76b9b8d06c14fbfe",
+      "size": 904
+    },
+    {
+      "version": "20260820061433",
+      "filename": "20260820061433_requeue_safe_target_mismatch_after_editor_recovery_fix.sql",
+      "checksum": "f87b3d8d083d8536cb23ff81e873e725f4ed8307171ba56a76b9b8d06c14fbfe",
+      "size": 904
+    },
+    {
+      "version": "20260820062739",
+      "filename": "20260820062739_expand_naver_blog_media_capacity.sql",
+      "checksum": "0caad8142a857ce9917e005eefd46f7e28fc9419fc93142b1f680056054136e5",
+      "size": 1249
+    },
+    {
+      "version": "20260820070036",
+      "filename": "20260820070036_materialize_naver_editor_blueprint.sql",
+      "checksum": "d0bf4b46d76aaf0d495748ca643b8550061f82b18f6d9a94a7824215b08f498d",
+      "size": 5495
+    },
+    {
+      "version": "20260820081401",
+      "filename": "20260820081401_naver_conversation_artifact_long_caption.sql",
+      "checksum": "b5cc02083d7acc1dfe04d3b5233af99937e9e860ade2e743786a11c58a287cd8",
+      "size": 519
+    },
+    {
+      "version": "20260820081805",
+      "filename": "20260820081805_remove_naver_editor_blueprint_from_versions.sql",
+      "checksum": "b6f46b505d164e61d2ee1bb320c059a1c645134575a8e86f95c2ee02f2d683c1",
+      "size": 795
+    },
+    {
+      "version": "20260820084007",
+      "filename": "20260820084007_expand_naver_publishable_media_capacity.sql",
+      "checksum": "67c352a70341e26647a0e8c2939e9782a63c633f52276d41492dcbf252883bed",
+      "size": 767
+    },
+    {
+      "version": "20260820085513",
+      "filename": "20260820085513_requeue_safe_ui_drift_after_stale_link_popup_fix.sql",
+      "checksum": "79a6636d7559a46be2203395847faa7858c456d53ea78b0c54e71c39e1e0389c",
+      "size": 1232
+    },
+    {
+      "version": "20260820093335",
+      "filename": "20260820093335_retry_exact_local_publish_before_submit.sql",
+      "checksum": "9e1faaca0b041d85624ab639e5ff99f6eaf60638e17fee3fba76ddd99eda0ad9",
+      "size": 3834
+    },
+    {
+      "version": "20260820101142",
+      "filename": "20260820101142_allow_exact_content_mismatch_pre_submit_retry.sql",
+      "checksum": "d434742d0bfa3bf4bbe4be8b534b671b918dfba9e608b8b8cfb9887cfe4ac4fa",
+      "size": 1036
+    },
+    {
+      "version": "20260820101700",
+      "filename": "20260820101700_allow_device_reconnect_pre_submit_retry.sql",
+      "checksum": "dd3a95f151df5a575d85db08d44f8b9b27b77cf30516856e690c78801e58fe50",
+      "size": 620
+    },
+    {
+      "version": "20260820102318",
+      "filename": "20260820102318_reconcile_observed_local_publish_result.sql",
+      "checksum": "47e1083a967ebc3abe01fe7422670c74a9b4a2f9a5946d54a47136b33574fc5a",
+      "size": 5092
+    },
+    {
+      "version": "20260820105415",
+      "filename": "20260820105415_persist_exact_naver_visibility.sql",
+      "checksum": "8333e389513e3f59003a33b2f07ecc11ce92b2f23079583c1510dfe88999ac5d",
+      "size": 1845
+    },
+    {
+      "version": "20260820135635",
+      "filename": "20260820135635_naver_device_offline_auto_requeue.sql",
+      "checksum": "55ec03400ebc3441045fce1d1fe9e5dbdd4557597471629ed43a5d52e8010e31",
+      "size": 5255
+    },
+    {
+      "version": "20260820162924",
+      "filename": "20260820162924_add_byreum_naver_text_harness.sql",
+      "checksum": "8ccce4df15466d89f6dcce80cfc06e73a79baa732cdbef10f80136f1206c6298",
+      "size": 6634
+    },
+    {
+      "version": "20260820174547",
+      "filename": "20260820174547_allow_public_naver_artifact_review.sql",
+      "checksum": "406229ff02a68087956abb44dc7cc51d7adb06827c236825adcb8126e930682f",
+      "size": 639
+    },
+    {
+      "version": "20260821035557",
+      "filename": "20260821035557_byreum_meta_text_harnesses.sql",
+      "checksum": "b81571d835bbc18bca4020fc220c504a6079f1ad5dba694e71a97bd088624a65",
+      "size": 7927
+    },
+    {
+      "version": "20260821074003",
+      "filename": "20260821074003_byreum_meta_public_copy_policy.sql",
+      "checksum": "05a17cddea42b5074a5b1d35626452d86c065b4a825d27170d939dfa18f971d5",
+      "size": 2307
+    },
+    {
+      "version": "20260822142032",
+      "filename": "20260822142032_v08_background_jobs_token_credits.sql",
+      "checksum": "0b2caee0f7e511228c0ea9df6d4239c4429e1add0f3d0f0bd58babb4ae0eba7f",
+      "size": 33317
+    },
+    {
+      "version": "20260822155306",
+      "filename": "20260822155306_v08_release_unstarted_job_credit.sql",
+      "checksum": "7f5c236d200995499464378a50bd704df30d47584665af4debedf3c7351019cc",
+      "size": 1501
+    },
+    {
+      "version": "20260822163226",
+      "filename": "20260822163226_report_decision_briefing.sql",
+      "checksum": "318b430ab8308dab823e019546f94dc22df927cd49ab1e0c1844ce4a6b90871e",
+      "size": 8825
+    },
+    {
+      "version": "20260822165235",
+      "filename": "20260822165235_cleanup_report_e2e_verification.sql",
+      "checksum": "15eb494646d3bad242601400720caffcf44e0bd368c1fd61f7102684f9b2a756",
+      "size": 105
+    },
+    {
+      "version": "20260822170922",
+      "filename": "20260822170922_v08_commercial_credit_entitlements.sql",
+      "checksum": "be4f4ccd7eaa003e0632a22d76c7f2e524d48b209201d62ff9dfede2b12fdf12",
+      "size": 11331
+    },
+    {
+      "version": "20260822170932",
+      "filename": "20260822170932_v08_credit_usage_detail.sql",
+      "checksum": "438a7845fc6814ddd9fe5c83d90bc2efdd58b3dcc447206b3588cdaba3344490",
+      "size": 1896
+    },
+    {
+      "version": "20260822172448",
+      "filename": "20260822172448_report_decision_atomic_persistence.sql",
+      "checksum": "faf9ba8d1a3cab7412989e23935186099cae0258ff9c7862f54690ebbec05ff5",
+      "size": 2508
+    },
+    {
+      "version": "20260822172746",
+      "filename": "20260822172746_v08_refund_interview_estimated_usage.sql",
+      "checksum": "205455be859b4ff349dbb27d5dd1062c14cf9193cecf31b8793c10c6da3513cb",
+      "size": 2249
+    },
+    {
+      "version": "20260822172757",
+      "filename": "20260822172757_v08_separate_allowance_from_adjustments.sql",
+      "checksum": "8e924182546120e0febd0f95c54f6bc0b5393f2668243cc894cdbb591cd23a0e",
+      "size": 2684
+    },
+    {
+      "version": "20260822173811",
+      "filename": "20260822173811_v08_refund_ready_interview_estimates.sql",
+      "checksum": "371d1a3c65400c91377e29ec6808f34093e903e8dc6d6b143f89dfa9151592ff",
+      "size": 2281
+    },
+    {
+      "version": "20260822174211",
+      "filename": "20260822174211_cleanup_report_production_hardening_verification.sql",
+      "checksum": "4ca78a1679cf39c156055f5adbf745b5ae3cebdf65713e7c0573769ab1bfe5fc",
+      "size": 178
+    },
+    {
+      "version": "20260822181516",
+      "filename": "20260822181516_v08_restore_ready_artifact_results.sql",
+      "checksum": "662d68a7399e5089c20a2cfdc70524960cf30771ce1ccf0c0b33e2c8ad5c86e6",
+      "size": 6025
+    },
+    {
+      "version": "20260822183153",
+      "filename": "20260822183153_user_profile_images.sql",
+      "checksum": "2f1ee2da4271567dcfec9423f3dc1d5072e79b4b827e095ad3b1dce2cb712bcc",
+      "size": 1864
+    },
+    {
+      "version": "20260822183631",
+      "filename": "20260822183631_targeted_publish_lease_recovery.sql",
+      "checksum": "f86b26e5ad8c043acd69fb51653e80be4ba45edd57e3966d4378db7f6c6caf2a",
+      "size": 1910
+    },
+    {
+      "version": "20260822191521",
+      "filename": "20260822191521_schedule_guarded_reschedule.sql",
+      "checksum": "0ca0ae6563167859a3523a224f82b9ff55f8ae965cfd953e02d563955183a2c5",
+      "size": 10290
+    },
+    {
+      "version": "20260823090000",
+      "filename": "20260823090000_operator_admin_foundation.sql",
+      "checksum": "89147adfe0da7ad2dbadb30d072bb26fee09bc1e126248fda5793556362fbb99",
+      "size": 12383
+    },
+    {
+      "version": "20260823093000",
+      "filename": "20260823093000_operator_audit_and_approvals.sql",
+      "checksum": "35c1c6436311de393cbabffd6cfb436722dc1ecfa776c8e0e4b7e7dc1ec061b3",
+      "size": 27127
+    },
+    {
+      "version": "20260823103000",
+      "filename": "20260823103000_operator_workspace_read_model.sql",
+      "checksum": "a59e8497070207eb1557d25ac9c3b601b7f37f1a6c8bf44d552800f0427b23cb",
+      "size": 11222
+    },
+    {
+      "version": "20260823110000",
+      "filename": "20260823110000_credit_ledger_workspace_cascade.sql",
+      "checksum": "0a10c924ddd35cb8f41edc876562df8e94a2f4cf6cbffe15e9813b34763a4dd2",
+      "size": 512
+    },
+    {
+      "version": "20260823113000",
+      "filename": "20260823113000_admin_mfa_onboarding.sql",
+      "checksum": "289436f1a1fa6514876c08220f11363c2e5ad8b14c4e5795c0b61faedd75b795",
+      "size": 6658
+    },
+    {
+      "version": "20260823114000",
+      "filename": "20260823114000_operator_workspace_read_mfa_parity.sql",
+      "checksum": "2ec866abe78d7f1192c9adbf208a07a9200872fc7b34aab37709c1f7fab55715",
+      "size": 11482
+    },
+    {
+      "version": "20260823120000",
+      "filename": "20260823120000_operator_lifecycle_agreements.sql",
+      "checksum": "66c5e04b80976c7a4ca65e7b949dd14be6bc80820150a990d80aff2fa7d2e3f6",
+      "size": 16469
+    },
+    {
+      "version": "20260823120100",
+      "filename": "20260823120100_operator_channel_read_model.sql",
+      "checksum": "bd18c4c3150e4c026b9d92541449bd523e7ab87f1822913aceb9569315f935f9",
+      "size": 5608
+    },
+    {
+      "version": "20260823120200",
+      "filename": "20260823120200_operator_publish_read_model.sql",
+      "checksum": "a10ed42f10b563e4842a2052d8fd5eb581030d764b8f6ff71f0ac9e173db528e",
+      "size": 10654
+    },
+    {
+      "version": "20260823120300",
+      "filename": "20260823120300_operator_audit_read_model.sql",
+      "checksum": "edc647dd9e85773e26bccf3dae20f36ee7d8dfe511f6bb31cf9a3ff822d0583b",
+      "size": 6958
+    },
+    {
+      "version": "20260823120400",
+      "filename": "20260823120400_operator_admin_read_model.sql",
+      "checksum": "db854f94d3ea9d0ee8c70ddd361460cc9d7fb8d71e51b1b322fbd0d1eff9248c",
+      "size": 6923
+    },
+    {
+      "version": "20260823120500",
+      "filename": "20260823120500_operator_billing_read_model.sql",
+      "checksum": "bcbed99a948cdf507eced6983bc58241ae509ca50d25383271b6d1a5f6d48563",
+      "size": 8865
+    },
+    {
+      "version": "20260823120600",
+      "filename": "20260823120600_operator_publish_fingerprint_match_false.sql",
+      "checksum": "7f636cb2f293cb8a513605fe69d37e37aa079d916bbf3d663c6add574fdf518b",
+      "size": 10685
+    },
+    {
+      "version": "20260823121000",
+      "filename": "20260823121000_operator_document_reconsent.sql",
+      "checksum": "8a2b5204b0020e43a6a5f86e45098dde5a85c43ea4ad3c096ab4d74bd3a36790",
+      "size": 21711
+    },
+    {
+      "version": "20260823121100",
+      "filename": "20260823121100_operator_publish_retry_apply.sql",
+      "checksum": "0fbfa609c784e757d373b3410381a51662285b9b2e5a2174a6e76599210e35dd",
+      "size": 6127
+    },
+    {
+      "version": "20260823121500",
+      "filename": "20260823121500_operator_system_observations.sql",
+      "checksum": "993cd684b3abfd5ef80dc5e7ce3d27e075cb459059c8f4bb0efd3f8ffbeb62c9",
+      "size": 5468
+    },
+    {
+      "version": "20260823122000",
+      "filename": "20260823122000_operator_credit_adjust_apply.sql",
+      "checksum": "cecc412884c35124525f0b262a6d3a78c8ee993a5466268ecc90130b0f4c7489",
+      "size": 15405
+    },
+    {
+      "version": "20260823122500",
+      "filename": "20260823122500_operator_support_sessions.sql",
+      "checksum": "affc419c0ab19282d7333b7ac65c2153bec96f0270827c436f6d443f1fbf5f9a",
+      "size": 18466
+    },
+    {
+      "version": "20260823123000",
+      "filename": "20260823123000_operator_incident_ledger.sql",
+      "checksum": "cbd1187f1c21dcec62c5ef46026acfc9f07c5864ac44d013eb31719bff423af4",
+      "size": 18419
+    },
+    {
+      "version": "20260823123100",
+      "filename": "20260823123100_operator_audit_export.sql",
+      "checksum": "d731306ac39acc8b3ee810daddc28d5158c7fef8d9edcf85fcd300541edb888c",
+      "size": 18804
+    },
+    {
+      "version": "20260823124500",
+      "filename": "20260823124500_operator_mfa_exception_retirement.sql",
+      "checksum": "3d52bbe4dd94e9d5890ddadc127d1ebb9084a672f1eb59e65fe8cf6fbba4747f",
+      "size": 12317
+    },
+    {
+      "version": "20260823125500",
+      "filename": "20260823125500_operator_incident_completion_evidence.sql",
+      "checksum": "6135132d98ed440873e13e8097996a037527a43f37c8c37f501d2de7393201f0",
+      "size": 17267
+    },
+    {
+      "version": "20260823130000",
+      "filename": "20260823130000_operator_source_state_wrappers.sql",
+      "checksum": "b0c7ba5e4dc18d925d92341e5e3e71d5241c0cfcde365f5a00f58bffc56b2846",
+      "size": 1495
+    },
+    {
+      "version": "20260823131000",
+      "filename": "20260823131000_admin_account_approval_apply.sql",
+      "checksum": "92499613967089101b4ecaa2e6ce86efd1ec7816417da072447592f6e0918a41",
+      "size": 23399
+    },
+    {
+      "version": "20260823132000",
+      "filename": "20260823132000_operator_system_queue_release_evidence.sql",
+      "checksum": "03ae2ef723f56ef9fa96c0cbc9676c1ef5512a3a4ee892038246832b0ee592ca",
+      "size": 4905
+    },
+    {
+      "version": "20260823133000",
+      "filename": "20260823133000_admin_safe_read_mfa_grace.sql",
+      "checksum": "adc0f8efb79c4e81c9246e3cf3e4e2ed2e16f87eca495cd40b5d4dc936f4beb7",
+      "size": 3603
+    },
+    {
+      "version": "20260823170812",
+      "filename": "20260823170812_operator_admin_crm_read_model.sql",
+      "checksum": "7e13a5cbe4a19df9d7566eb7c24302dd4986cc0b9d13b069b1d9617ac2e7113a",
+      "size": 13922
+    },
+    {
+      "version": "20260823170814",
+      "filename": "20260823170814_operator_admin_crm_demo_seed.sql",
+      "checksum": "b920d336a2f1901ea904bd3e3c62776e2a6ccdfb7fb684f4a97cfcecc2e96983",
+      "size": 8284
+    },
+    {
+      "version": "20260824032415",
+      "filename": "20260824032415_signup_consent_receipts.sql",
+      "checksum": "13f199233dd4203f881f7d87f651e752f9dfa686daba765fc7ab4595fa5b8594",
+      "size": 2155
+    },
+    {
+      "version": "20260824183000",
+      "filename": "20260824183000_operator_admin_crm_demo_seed_credit_fix.sql",
+      "checksum": "920831317431b3f6abff17a1e0da53bb1ccfcc2d2f74b0037eec8aebff79b25f",
+      "size": 7080
+    },
+    {
+      "version": "20260831",
+      "filename": "20260831_harness_os_v11.sql",
+      "checksum": "2a9b44f23bf70a11ac41dd3cb0c1c881a8dff6c1ed5f6bcf5fc490b8833e9051",
+      "size": 7514
+    },
+    {
+      "version": "20260901150000",
+      "filename": "20260901150000_operator_v02_control_plane_core.sql",
+      "checksum": "ad38a658abc1aa6378a4fb7ecb7c121fe52f299ade4f5d4848bc68ce79c3673c",
+      "size": 9782
+    },
+    {
+      "version": "20260901235000",
+      "filename": "20260901235000_v02_1st_refinement_contracts.sql",
+      "checksum": "87bce1482579d3ff51c73af3ef626a471e4ba74b81bb43fb2130a6b2232e4666",
+      "size": 5807
+    },
+    {
+      "version": "20260902",
+      "filename": "20260902_v089_commercial_runtime_schema.sql",
+      "checksum": "e60069077a104cd4e0574488dd6bf0fc2b9ed2cc4095c2b669615e11d5d36bc9",
+      "size": 6223
+    },
+    {
+      "version": "20260902000000",
+      "filename": "20260902000000_v088_3rd_revision_foundation.sql",
+      "checksum": "ba46af96a79155fef1d0b9f9b708dddb13eab7b4a7aca2f8a5eb39b1b076527a",
+      "size": 8103
+    },
+    {
+      "version": "20260902013000",
+      "filename": "20260902013000_canonical_supabase_v088_3rd_refinement.sql",
+      "checksum": "2d7356e61303ef8d3ee49f68ecfaa19227f828cf04fc75dd17a9bce398094b73",
+      "size": 12934
+    },
+    {
+      "version": "20260903020000",
+      "filename": "20260903020000_v089_production_truth_recovery.sql",
+      "checksum": "38f0bf9bbad20ec84707b686659c1669a9dc3ff09686dca6de2ecca2a38e82f3",
+      "size": 13007
+    },
+    {
+      "version": "20260903023000",
+      "filename": "20260903023000_security_hardening.sql",
+      "checksum": "1fca22ec83d09b7ea22e85837651ae2667069c925461a0b06a569449c096255d",
+      "size": 2055
+    },
+    {
+      "version": "20260903030000",
+      "filename": "20260903030000_trial_journey_milestones.sql",
+      "checksum": "c337f5d8c3b5a87781a1e0c7910bf39d82fb64925ae2dea4ce131d72f4f6a39d",
+      "size": 4150
+    },
+    {
+      "version": "20260903040000",
+      "filename": "20260903040000_v089_3rd_revision_invariant_recovery.sql",
+      "checksum": "392f8dc882e8eafb654e064d7c7022ebef819e48951059b99cd8a03d6f98dfa7",
+      "size": 14470
+    },
+    {
+      "version": "20260903050000",
+      "filename": "20260903050000_v089_4th_revision_contract_recovery.sql",
+      "checksum": "4545bc05c2a94d0682bbd3eac427f909b91cffee8081659384ce55102c9bd61c",
+      "size": 7541
+    },
+    {
+      "version": "20260903055000",
+      "filename": "20260903055000_v089_sns_channel_authorization_v1.sql",
+      "checksum": "8f06b300e7145f0a808a75af007ca7495c580e62698fa4087600f2f04266a326",
+      "size": 5822
+    },
+    {
+      "version": "20260903060000",
+      "filename": "20260903060000_v089_sns_channel_authorization_v11.sql",
+      "checksum": "10635c0151e482d1c58ad078334a75c85ccc40cb0fa966c943f4b1bc7ad8fea7",
+      "size": 12659
+    },
+    {
+      "version": "20260903070000",
+      "filename": "20260903070000_purge_demo_seed_data.sql",
+      "checksum": "88874d9bbfa7a100803d1bd5762e34d9203041ffca8c1b29d77c0a9caba8fcdf",
+      "size": 3595
+    },
+    {
+      "version": "20260903080000",
+      "filename": "20260903080000_security_closure_and_killswitch_fix.sql",
+      "checksum": "20a96483e8bd1557fb44669fcd501303cdc73809b27f69260b031c3ba5fbf9eb",
+      "size": 4987
+    },
+    {
+      "version": "20260903090000",
+      "filename": "20260903090000_atomic_credit_adjustment_dual_control.sql",
+      "checksum": "e714ac08be74c46f3763c7d642c2b04f7b5abe2efed54f0a81edbc9ba4f47d06",
+      "size": 4613
+    },
+    {
+      "version": "20260903100000",
+      "filename": "20260903100000_performance_advisor_fk_indexes.sql",
+      "checksum": "025be546b7227a9d57525716548b016ce8bac4e1c1c3947a4f177956476a34ab",
+      "size": 2776
+    },
+    {
+      "version": "20260903110000",
+      "filename": "20260903110000_purge_all_test_and_demo_workspaces.sql",
+      "checksum": "053fd8d12beaeed84a59a5aade15ad016e48e158c32963cd8e7222c7c382f89d",
+      "size": 2365
+    },
+    {
+      "version": "20260904120000",
+      "filename": "20260904120000_harden_rls_no_policy_tables.sql",
+      "checksum": "06ad5782e87aec6333f75a1bddc630409ca3b8acc5e6f550f50a8640ceeeba5b",
+      "size": 5102
+    },
+    {
+      "version": "20260904190000",
+      "filename": "20260904190000_v089_6th_revision_conversation_agent_os.sql",
+      "checksum": "14156edc5aa66ab0332a3a4381c3e31dd1f108474804ec3a7a3474b819efc206",
+      "size": 7808
+    },
+    {
+      "version": "20260904210000",
+      "filename": "20260904210000_v09_autonomous_outcome_os_and_admin_v04.sql",
+      "checksum": "6312f8f2d9f5ab64ff2ce4f4fa1c5627d4cbc0d28b82f80a4de7c4ab781915e0",
+      "size": 12760
+    },
+    {
+      "version": "20260905000000",
+      "filename": "20260905000000_v09_truth_model_commercial_expansion.sql",
+      "checksum": "cb7a0e359fe7c9f006d5dd596afe772abf660cd1053825eb123b4ba404599e78",
+      "size": 8882
+    },
+    {
+      "version": "20260906220000",
+      "filename": "20260906220000_v09_runtime_control_state.sql",
+      "checksum": "46534c8733e93410aaf28dc9c9c68c1c3d5e9f3eb3b848f09f7e618596ca232b",
+      "size": 1882
+    },
+    {
+      "version": "20260906230000",
+      "filename": "20260906230000_v09_agent_sessions.sql",
+      "checksum": "6ccb2f560ad8a855a7192344ac41ec20a05a01b35c29f748910e28181df6e92c",
+      "size": 4604
+    },
+    {
+      "version": "20260907000000",
+      "filename": "20260907000000_v09_durable_evidence_proof_chains.sql",
+      "checksum": "68812d29624b550b1d5c9befa935b0a70a6a2d6792c09c934c035813953c5d2f",
+      "size": 2546
+    },
+    {
+      "version": "20260907010000",
+      "filename": "20260907010000_v09_content_drafts.sql",
+      "checksum": "0aa995efb9f3059815503f56e21bfa92db9ebc1d395d1611602c6d09a14c1e07",
+      "size": 2382
+    },
+    {
+      "version": "20260907020000",
+      "filename": "20260907020000_v09_finops_dual_ledger.sql",
+      "checksum": "5a03f947d5ddee4d59006770bdf9a2973fbf5694123a654548aa7f7aa06c2cbb",
+      "size": 6668
+    },
+    {
+      "version": "20260907030000",
+      "filename": "20260907030000_v089_canonical_agent_run_ledger.sql",
+      "checksum": "4db5bb06daafcdc145c764af5cbfdd1d77d97c589dc50cdf1fd0b16152afa111",
+      "size": 9312
+    },
+    {
+      "version": "20260907040000",
+      "filename": "20260907040000_v089_meta_external_action_schema.sql",
+      "checksum": "da80336a50ffa6bf8dd9a6de682f2e8ab7b7c5f78efe7cc5ff74fb6e32df23ff",
+      "size": 1541
+    },
+    {
+      "version": "20260907050000",
+      "filename": "20260907050000_v089_evidence_gated_channel_verification.sql",
+      "checksum": "26880699170b06fd1a9df277b1a77e5050854197257c3dcbd208595b431dd074",
+      "size": 3997
+    },
+    {
+      "version": "20260907060000",
+      "filename": "20260907060000_v090_security_definer_rls_closure_and_advisor_hardening.sql",
+      "checksum": "a7786ef08482a8aee29d328bc5f8b378d47fc128485eb23cd1765365d9632c5a",
+      "size": 7470
+    },
+    {
+      "version": "20260908000000",
+      "filename": "20260908000000_structured_products_services.sql",
+      "checksum": "847935b7df882f2dca7de398779e33d5a5845999a948ab0b2970407269c90d1c",
+      "size": 2425
+    },
+    {
+      "version": "20260908010000",
+      "filename": "20260908010000_security_definer_view_and_rpc_least_privilege_closure.sql",
+      "checksum": "318ee0f612b2c4f47867919ca4d8f16b597298928113bcaf5c2a84a60bed9516",
+      "size": 2605
+    },
+    {
+      "version": "20260908120000",
+      "filename": "20260908120000_creative_media_asset_truth_v10.sql",
+      "checksum": "44c839991b4040cc6f275af4d626f56935cfad62abdf222ff0208ca1f50bdd17",
+      "size": 6887
+    },
+    {
+      "version": "20260908150000",
+      "filename": "20260908150000_creative_bundles_and_receipts_v10.sql",
+      "checksum": "1274008e2cfc68952d57235f04a4d4a6c9a9af1efcefa15193af530ac6bcdf31",
+      "size": 4054
+    },
+    {
+      "version": "20260908160000",
+      "filename": "20260908160000_security_advisor_hardening_v10.sql",
+      "checksum": "a0ae32b72c66a9903d3cf55c5714152b85c8c896e575d60a966b6c08bf996391",
+      "size": 1642
+    },
+    {
+      "version": "20260909010000",
+      "filename": "20260909010000_ani1113_media_assets_provenance_quarantine.sql",
+      "checksum": "2689774f704d6b3a6ac432b780d79190e61e542ec1dc8db4002919cd1c51682e",
+      "size": 3778
+    },
+    {
+      "version": "20260909020000",
+      "filename": "20260909020000_ani1114_generated_media_db_invariants.sql",
+      "checksum": "6053f0947d963b5ccd2d88ebc38077aeb8f82744e586d2fa9d4885f6136333e1",
+      "size": 2035
+    },
+    {
+      "version": "20260909030000",
+      "filename": "20260909030000_ani1115_storage_10mb_config_sync.sql",
+      "checksum": "5ca110e93422ec56040d2dbc163d35991518eac67fff7ea69fe6e8b6f68a5c05",
+      "size": 1276
+    },
+    {
+      "version": "20260909040000",
+      "filename": "20260909040000_ani1116_creative_tables_server_only_mutation.sql",
+      "checksum": "bf9fa48c01946e33864e0cce56edc49544129f0472babdf173e5a436fe2b237d",
+      "size": 8905
+    },
+    {
+      "version": "20260909050000",
+      "filename": "20260909050000_ani1117_generation_batch_run_contract.sql",
+      "checksum": "233c02ebffa555c034da60118c3bda4b1d34ca6ee6282c9fdfa983e2c2cdcb24",
+      "size": 8019
+    },
+    {
+      "version": "20260909060000",
+      "filename": "20260909060000_ani1140_security_definer_least_privilege_closure.sql",
+      "checksum": "cdd65ef160c26493c7e1c80b362cce87f2ea36b9e53a5dd42904b83818e8f426",
+      "size": 5389
+    },
+    {
+      "version": "20260909070000",
+      "filename": "20260909070000_ani1141_rls_explicit_policies_closure.sql",
+      "checksum": "f58cca9e744786b1340d856c609b52531b3405f66b98c986090a635174f4bacd",
+      "size": 6538
+    },
+    {
+      "version": "20260910080000",
+      "filename": "20260910080000_ani1210_marketing_missions_core_spine.sql",
+      "checksum": "4f2a2ad5432cbb7d0ed1f1647e0511fa39ea8c8d08d826d6541f7fa3734001d6",
+      "size": 5874
+    },
+    {
+      "version": "20260910120000",
+      "filename": "20260910120000_ani1216_reservations_core.sql",
+      "checksum": "639a450fcfd7d1b9b44e13bef73337e9b136751c5d267e59d024393f21b19235",
+      "size": 2238
+    },
+    {
+      "version": "20260910140000",
+      "filename": "20260910140000_ani1229_advisor_index_and_rls_cleanup.sql",
+      "checksum": "8d77198e0d3a9f192423ebeafb5ce05fc591d98ea3b6aa347a6ebb748812a9df",
+      "size": 1749
+    },
+    {
+      "version": "20260910180000",
+      "filename": "20260910180000_v091_wave0_hotpath_advisor_baseline.sql",
+      "checksum": "301e130d114592195dc4602934bac27829a493d8e06ccafe12f8392308e9e754",
+      "size": 6840
+    },
+    {
+      "version": "20260911090000",
+      "filename": "20260911090000_ani1327_reconcile_booking_id_type.sql",
+      "checksum": "e1091eeea4367f01f805466fbecb4bd64da77b298683ba98eb0964d1ca5571a4",
+      "size": 1017
+    },
+    {
+      "version": "20260911100000",
+      "filename": "20260911100000_ani1334_signup_lifecycle_and_taste_ready.sql",
+      "checksum": "5a2b2aa5dda667179d026e637e546d36e0048f3a6294447ae95acbbf5cd16c6b",
+      "size": 10669
+    },
+    {
+      "version": "20260911120000",
+      "filename": "20260911120000_release_hardening_wave.sql",
+      "checksum": "c0c2f54b0d9cc3120c0883035847b220c7c4ff2a302d6845685f3130eb23022f",
+      "size": 20485
+    },
+    {
+      "version": "20260911130000",
+      "filename": "20260911130000_ani1335_media_assets_lifecycle_contract_reconcile.sql",
+      "checksum": "8f4ee5b462857d5fc901c82943bb2c8d26ecaccd951359881f10c41892da8595",
+      "size": 1696
+    },
+    {
+      "version": "20260912120000",
+      "filename": "20260912120000_hf04_security_definer_least_privilege.sql",
+      "checksum": "a36d195eedddfdaf436e8cdf7989b989872cdb73264c82de955d0c77c0907269",
+      "size": 18043
+    },
+    {
+      "version": "20260912130000",
+      "filename": "20260912130000_hf05_education_budget_and_starter_entitlement.sql",
+      "checksum": "bce270546ba8da626fca59357e9ad7ad62342e306809815654e1c0973d4e9bbb",
+      "size": 14028
+    },
+    {
+      "version": "20260912140000",
+      "filename": "20260912140000_hf06_production_containment_and_reconciliation.sql",
+      "checksum": "3481898433bb26789a83c73a15274d1afdf1d00fad98cb5070e9c33c168b6509",
+      "size": 11352
+    },
+    {
+      "version": "20260912150000",
+      "filename": "20260912150000_hf07_security_definer_containment.sql",
+      "checksum": "345232c159ef4b3c7ffb5e925a4d3a41d10b8dcb71a8cd62f6a5180592159f22",
+      "size": 889
+    },
+    {
+      "version": "20260912182702",
+      "filename": "20260912182702_hf51_revoke_authenticated_provision_education_workspace.sql",
+      "checksum": "13c2ed59071d735176839906b11c8c6f3d3b53f1a32c98074fac44a9ffc5042c",
+      "size": 1137
+    },
+    {
+      "version": "20260913214500",
+      "filename": "20260913214500_restore_finalize_signup_grant.sql",
+      "checksum": "5079fb5d3f5fcd2d8272bf275ca0bb012ef99af6e080eaa21148a42c13e8b283",
+      "size": 11219
+    },
+    {
+      "version": "20260914150000",
+      "filename": "20260914150000_r2_b9_mission_events_pre_mission_nullable.sql",
+      "checksum": "79662d6ddcf3d270d7cc8dc6fcbfc2398350c5daab312aeb403bac9d0e11edbf",
+      "size": 276
+    },
+    {
+      "version": "20260918012000",
+      "filename": "20260918012000_ani_1481_harness_atomic_version_activation.sql",
+      "checksum": "915d407a441d5f1d24937dbb2615efadd53b6a655e7a8ded4c7368cb0c9fd4b3",
+      "size": 4195
+    },
+    {
+      "version": "20261006090000",
+      "filename": "20261006090000_ani_1511_funnel_events.sql",
+      "checksum": "5986100d5d8d0170eae5ee2045bd6259b58038efb6422d23ad42a1f3dfb1bed4",
+      "size": 1817
+    },
+    {
+      "version": "20261006101500",
+      "filename": "20261006101500_ani_1505_signup_without_business_number.sql",
+      "checksum": "2be49f95161fb8330cdfeaab8278dc9d2057ea9c47103da5edbabb59aa222857",
+      "size": 6627
+    },
+    {
+      "version": "20261007093000",
+      "filename": "20261007093000_ani_1513_quick_post_credit_reservations.sql",
+      "checksum": "d502d6d8a59b85c31281661ca81bfe4699222c6ba3ea9edf23d30f8f76010f15",
+      "size": 10428
+    },
+    {
+      "version": "20261007100000",
+      "filename": "20261007100000_ani_1505b_signup_grant_600.sql",
+      "checksum": "50dccaf973057dee3cd1301cd117bb89582c0dd9db6719713731f958f11e49d4",
+      "size": 6283
+    },
+    {
+      "version": "20261008090000",
+      "filename": "20261008090000_ani_1525_vault_data_model.sql",
+      "checksum": "ec05e537496c7c26ad27492535341003bcdbd76e2b52efc4bdab9d7c72140544",
+      "size": 7801
+    },
+    {
+      "version": "20261008100000",
+      "filename": "20261008100000_ani_1531_vault_query_indexes.sql",
+      "checksum": "7b3a8eef9808e541cbe5573693a92577359b67607038b6126a0996e0e79bd53e",
+      "size": 926
+    },
+    {
+      "version": "20261008110000",
+      "filename": "20261008110000_ani_1528_vault_funnel_events.sql",
+      "checksum": "aa360ec911a28b5265412658ca193bf9e3d0ed6896943d4b86ffc755b54a129f",
+      "size": 521
+    },
+    {
+      "version": "20261008120000",
+      "filename": "20261008120000_ani_1540_vault_image_renditions.sql",
+      "checksum": "6edffe69c641eff8e77eed0aff33bc0985e054e13b63f4622fb7452088f31bc0",
+      "size": 2573
+    },
+    {
+      "version": "20261008130000",
+      "filename": "20261008130000_ani_1530_vault_edit_atomic.sql",
+      "checksum": "a36dcace567bb627c5e12716db339db532816de781994c183b1ebceca0d7c007",
+      "size": 4424
+    },
+    {
+      "version": "20261008140000",
+      "filename": "20261008140000_ani_1541_vault_published_urls.sql",
+      "checksum": "cc451de034f73d91f8a0163053e7e0fec799d60aa3ef19b1b7af80ccfcfef707",
+      "size": 2154
+    },
+    {
+      "version": "20261008150000",
+      "filename": "20261008150000_ani_1555_admin_same_truth.sql",
+      "checksum": "67e5157def2d59c620cfb277ecb493f9e13899f5b3c3b2beeaf8af3e37596411",
+      "size": 4732
+    },
+    {
+      "version": "20261008157000",
+      "filename": "20261008157000_ani_1557_vault_monitor_access_audit.sql",
+      "checksum": "9b649ab8c7b8a7fc585237d46123a976cddab09279012e925c77df0c6e4379bf",
+      "size": 2020
+    },
+    {
+      "version": "20261008160000",
+      "filename": "20261008160000_ani_1567_vault_funnel_events.sql",
+      "checksum": "37d3063a1e783853d01b5173199f340c4068cd9811e97d16e7e1c10a658eebf0",
+      "size": 1579
+    },
+    {
+      "version": "20261008170000",
+      "filename": "20261008170000_ani_1560_safety_interventions.sql",
+      "checksum": "618a209bf905dd942014c4f8f7fc589a1c0fb6aba8883f51febb13f9c5148a7c",
+      "size": 7088
+    },
+    {
+      "version": "20261008171000",
+      "filename": "20261008171000_ani_1560_kill_switches_conflict_target.sql",
+      "checksum": "8826a193634b3543cfa70624e648c9c325ad870ea0003b180ee483248c0d0f20",
+      "size": 785
+    },
+    {
+      "version": "20261008180000",
+      "filename": "20261008180000_ani_1561_feedback.sql",
+      "checksum": "11c62eae1821b4cb9166eb40ed5e93248b557aed7dfcc6be420d2576782583a3",
+      "size": 3777
+    },
+    {
+      "version": "20261008200000",
+      "filename": "20261008200000_ani_1538_channel_drafts.sql",
+      "checksum": "e117f8a30f861e3864bdd22be028b906755e5af4dfcfddfd968410379333595f",
+      "size": 1642
+    },
+    {
+      "version": "20261008210000",
+      "filename": "20261008210000_ani_1538_channel_drafts_created_by_idx.sql",
+      "checksum": "c09b3e4afba2cd2d454c30ecd46a55719a0ab63dd3db927758fb8b93e02eb306",
+      "size": 255
+    },
+    {
+      "version": "20261008210001",
+      "filename": "20261008210001_ani_1538_channel_draft_reservation.sql",
+      "checksum": "3ca1053c16557f500fbeeefd365c5962b18047138ba1706ab0e2e68b8e4af28a",
+      "size": 2427
+    },
+    {
+      "version": "20261008220000",
+      "filename": "20261008220000_ani_1538_channel_variant_edit.sql",
+      "checksum": "43d3bb4980993e898b7e3aabfa3d37f8ace04e09cd358bd13594b2db42d32848",
+      "size": 6369
+    },
+    {
+      "version": "20261008230000",
+      "filename": "20261008230000_ani_1538_vault_fk_indexes.sql",
+      "checksum": "84cd75fa0e48c4423a8d16a499706735e87debf29494afbc7e048ca17038c439",
+      "size": 1371
+    },
+    {
+      "version": "20261008240000",
+      "filename": "20261008240000_ani_1545_vault_edit_version.sql",
+      "checksum": "9801b40a74b3a59937a6a6a1433841a41de5c2c15ba6d5e10d018249c3572b11",
+      "size": 4749
+    },
+    {
+      "version": "20261008245000",
+      "filename": "20261008245000_ani_1538_channel_variant_edit_title.sql",
+      "checksum": "071903a732269f1bea0fe68c6b766600330319e7c99e6e6e31b50317cd92db35",
+      "size": 6496
+    },
+    {
+      "version": "20261008250000",
+      "filename": "20261008250000_operator_read_rpc_grant_authenticated.sql",
+      "checksum": "c16d46ca158240c7be36d04c6a6b3ea9054d06e3878b51a80ceeef7acb9247b7",
+      "size": 1653
+    },
+    {
+      "version": "20261008260000",
+      "filename": "20261008260000_vault_retention_purge.sql",
+      "checksum": "8c195d81b373ad903b4d25080001a60db5c7548f3629d89c364716e066222af8",
+      "size": 8734
+    },
+    {
+      "version": "20261008270000",
+      "filename": "20261008270000_ani_1538_finalize_channel_draft.sql",
+      "checksum": "30521de28a5ea6ab341c50a93123f1213e2e3ca6c64b9c20beb2a49942c9e003",
+      "size": 6363
+    },
+    {
+      "version": "20261008270001",
+      "filename": "20261008270001_bulk_credit_grant.sql",
+      "checksum": "ba5d38794ea8dfbcabca6037dac100c41a8a4213e290a44b44dab799fb28c999",
+      "size": 8565
+    },
+    {
+      "version": "20261008280000",
+      "filename": "20261008280000_signup_starter_credits_and_tier.sql",
+      "checksum": "a31820b7065d5697754696612ba7728f3332199ea9a77cd8c7a3f8cd8dba3ad5",
+      "size": 14501
+    },
+    {
+      "version": "20261009010000",
+      "filename": "20261009010000_ani_social_comments_inbox.sql",
+      "checksum": "9a1a0fdff60ac95a241ab2724f5f71e9c5b3d0cad168a7a0335fed32c6f9c48a",
+      "size": 9581
+    },
+    {
+      "version": "20261009020000",
+      "filename": "20261009020000_ani_instagram_direct_messages.sql",
+      "checksum": "d2ace7cb4450e6ba2644b4208d16b29f8ddbcd41db40c03e98b768374af59fcc",
+      "size": 8434
+    },
+    {
+      "version": "20261009030000",
+      "filename": "20261009030000_signup_600_verified_plus_1000.sql",
+      "checksum": "feebddd759d389523ee8e624ec80f77beb6cba09e3cfefec6628b1f8e2acd13c",
+      "size": 20768
+    },
+    {
+      "version": "20261009040000",
+      "filename": "20261009040000_admin_formal_member_overview.sql",
+      "checksum": "ebe3ee208bb53e0ec6533a5e09932ceddc2a569c67d464a8a8a72d7e42d366bc",
+      "size": 15637
+    },
+    {
+      "version": "20261009050000",
+      "filename": "20261009050000_ensure_signup_credits_after_clawback.sql",
+      "checksum": "64efe840141653e936b7396bd1d80510098271ba88d33daaef5b16753e5ba9fa",
+      "size": 4930
+    },
+    {
+      "version": "20261009060000",
+      "filename": "20261009060000_signup_credit_one_sns_channel.sql",
+      "checksum": "6bd9da4f3ce25353fce81036a47b6fe5ec41baa3b99b104f4b9694b5bf8bd055",
+      "size": 7222
+    },
+    {
+      "version": "20261009070000",
+      "filename": "20261009070000_business_documents_bucket.sql",
+      "checksum": "c1995a391c79eba8c7d7f017dbccf9775e25c326c840a130e539216402fb2c4e",
+      "size": 649
+    },
+    {
+      "version": "20261009080000",
+      "filename": "20261009080000_confirm_interview_fact_rpc.sql",
+      "checksum": "00813fa0aa4a015772e86376d23484df468a5fd6ca755663e5d4b55f5f44582e",
+      "size": 5356
+    },
+    {
+      "version": "20261009090000",
+      "filename": "20261009090000_regrant_approve_and_dispatch_local_content.sql",
+      "checksum": "c26df123e397c15e61c9871fa179d73451ff33f03e50b7c4c22369035038d8f7",
+      "size": 6776
+    },
+    {
+      "version": "20261009090500",
+      "filename": "20261009090500_naver_four_visibility.sql",
+      "checksum": "86970e19b3fc7448352bcbfbad970fdd729fd30fad5f690411a3c85d31046f9b",
+      "size": 2259
+    },
+    {
+      "version": "20261009091000",
+      "filename": "20261009091000_naver_category_not_found_failure.sql",
+      "checksum": "3af1d28b4b2cc8eee8b8ef36fb86ae85b99324d96eec2d370a62317bf7a45c53",
+      "size": 1458
+    },
+    {
+      "version": "20261009093000",
+      "filename": "20261009093000_naver_post_jobs.sql",
+      "checksum": "525ffcbc3d277d4caaa240c475a707c0646f37333d0aecdf887d79b4bb6cc85a",
+      "size": 5423
+    },
+    {
+      "version": "20261009094000",
+      "filename": "20261009094000_naver_blog_categories.sql",
+      "checksum": "e79d658e5173e409aaf196a22a87a000d59cf0ae31aac7050381ba9b008db6c5",
+      "size": 1905
+    },
+    {
+      "version": "20261010010000",
+      "filename": "20261010010000_instagram_dm_retention_purge.sql",
+      "checksum": "8ab155ad2c88c880e2a20f669eb633376d332dcec2b336c7916dbe370664923e",
+      "size": 4043
+    },
+    {
+      "version": "20261010020000",
+      "filename": "20261010020000_social_comments_retention_purge.sql",
+      "checksum": "db5a86bc7faf0a4060ac660305641e570711a6542afa95a234329e945943cd3b",
+      "size": 4048
+    },
+    {
+      "version": "20261013010000",
+      "filename": "20261013010000_engagement_autonomy_levels.sql",
+      "checksum": "a54653b8886a1b3c74f8990acc73b243c3c18524514300c14047c4eb7783d983",
+      "size": 462
+    },
+    {
+      "version": "20261016090509",
+      "filename": "20261016090509_sohee_studio_production.sql",
+      "checksum": "1412adadec0e026d2766f5aebd4051045d4a71188637cd2da4fe6d44fa7b2dca",
+      "size": 18752
+    },
+    {
+      "version": "20261016092309",
+      "filename": "20261016092309_targeted_local_publish_execution_scope.sql",
+      "checksum": "c6d1ff665b9e74b8b27b994a4102be5498e017c7f80f436dbe7e35bdb70fe9a2",
+      "size": 26645
+    },
+    {
+      "version": "20261016102015",
+      "filename": "20261016102015_sohee_studio_fk_column_specific_set_null.sql",
+      "checksum": "2a54eb079e253f6567c519b1b3ae26a39096b021f135819edbd1d11fd3feffc4",
+      "size": 1319
+    },
+    {
+      "version": "20261016120000",
+      "filename": "20261016120000_booking_recovery_runtime.sql",
+      "checksum": "aa7d180afb1a142a7cccfca06265aeb41ccd694c300b5ace4db80bc721876d66",
+      "size": 28643
+    },
+    {
+      "version": "20261016140000",
+      "filename": "20261016140000_booking_recovery_proposals_and_confirm.sql",
+      "checksum": "b0ba1694068d55a204f080dd538b2fafdfef5d538ccf8ac8a11fc3948d223897",
+      "size": 24577
+    },
+    {
+      "version": "20261021011859",
+      "filename": "20261021011859_operator_credit_adjustment_and_quick_post_sync.sql",
+      "checksum": "a8031c2d56a652d1a24ade8319dc7f8a8603b25fa5116e43ff4dcab51e75bdf2",
+      "size": 13042
+    },
+    {
+      "version": "20261021020535",
+      "filename": "20261021020535_get_workspace_authoritative_credit_balance.sql",
+      "checksum": "7a7977bb9c23b455ca7bf903dee47e3427ec9da8339ec963963a344cd88b0f53",
+      "size": 3509
+    },
+    {
+      "version": "20261021060000",
+      "filename": "20261021060000_business_verifications_start_date_column.sql",
+      "checksum": "3f4360b869b57b306b5ecee08acfbb60d21d3593ec44dde27f5cafaaf50795d4",
+      "size": 576
+    },
+    {
+      "version": "20261021070000",
+      "filename": "20261021070000_finalize_email_signup_atomic_rpc.sql",
+      "checksum": "0e93428f8d1ee28ff22b48f91971cb110fd3b3dd2955b427465ea0cdcf1a5327",
+      "size": 14466
+    },
+    {
+      "version": "20261022030000",
+      "filename": "20261022030000_v093_remove_recursive_membership_policy.sql",
+      "checksum": "0643a73f8b9e7792f45b600c55de5d6d434b52b9a89bd3e03e8f22c5fe882d46",
+      "size": 1062
+    },
+    {
+      "version": "20261022030100",
+      "filename": "20261022030100_v093_legacy_operator_rpc_least_privilege.sql",
+      "checksum": "76835e8976be305df0c2ebbd6b5ea5ae0db47cffd6e181f555da62d321b0b85a",
+      "size": 938
+    },
+    {
+      "version": "20261022030200",
+      "filename": "20261022030200_v093_revoke_public_table_truncate_least_privilege.sql",
+      "checksum": "9f2b3032780d415fbe252dd11a7791a512d8aab5dd448fe15c83884f37b958ab",
+      "size": 1138
+    },
+    {
+      "version": "20261022050000",
+      "filename": "20261022050000_booking_recovery_exact_replay.sql",
+      "checksum": "5bfb1e2214d3f5e2d23e6e1e63450815739b0426fcde191859a622e9db22dd94",
+      "size": 14221
+    },
+    {
+      "version": "20261022050100",
+      "filename": "20261022050100_booking_recovery_receipt_atomic.sql",
+      "checksum": "4627a54ab21e4350c26a57c216151e3c9ae18f333152dd096e5c91664bd6ad4e",
+      "size": 35121
+    },
+    {
+      "version": "20261022050200",
+      "filename": "20261022050200_booking_recovery_approval_consume.sql",
+      "checksum": "195c8fcdf4291c1f76d0132acf0116725abfd85027df04bb37b3f82e839e62c1",
+      "size": 15933
+    },
+    {
+      "version": "20261022070000",
+      "filename": "20261022070000_v093_conversion_destination_versions.sql",
+      "checksum": "3c96ceb965f8d75d68281cb0bf1fb121a64e08a825dd9c73bb947e6c13b838fc",
+      "size": 2637
+    },
+    {
+      "version": "20261022080000",
+      "filename": "20261022080000_workspace_business_details.sql",
+      "checksum": "149827a9814fd128347c047d801219bf0e5d2bc5d141eefd74028bad37338072",
+      "size": 4545
+    },
+    {
+      "version": "20261022080100",
+      "filename": "20261022080100_studio_fact_validity.sql",
+      "checksum": "5451befa25ccc42d4f81ea2fbe92d56b50084280ce88e1406ef12047f7b769ad",
+      "size": 3229
+    },
+    {
+      "version": "20261022090000",
+      "filename": "20261022090000_v093_deposit_refund_notice_ledger.sql",
+      "checksum": "477db56fb7643e0af60ae11d82d75a0f71682254e55e47ece56b0d76611d16aa",
+      "size": 26098
+    },
+    {
+      "version": "20261022090100",
+      "filename": "20261022090100_workspace_products_services_duration_minutes.sql",
+      "checksum": "5053c3ff7258b52b57f68bf09ea865bd2b1dbaef5bcf0b324287822ba99c0e44",
+      "size": 1917
+    },
+    {
+      "version": "20261022090200",
+      "filename": "20261022090200_ani_1602_first_value_funnel_events.sql",
+      "checksum": "e7f1c992e151b555a5694d42144c4804287b3e2fdcdcbe1cbc298b7d225a9865",
+      "size": 1793
+    },
+    {
+      "version": "20261022090300",
+      "filename": "20261022090300_workspace_products_services_catalog_editor.sql",
+      "checksum": "a888fe37f6fb833c735277037d5985acffe1edb4c30806375489c81e032459b6",
+      "size": 4090
+    },
+    {
+      "version": "20261022100000",
+      "filename": "20261022100000_signup_applications_start_date.sql",
+      "checksum": "1ccc47e3d142be6f3f77fd7ea52555deeb43e4bc754cb30877ee882d0490efac",
+      "size": 1687
+    },
+    {
+      "version": "20261023100000",
+      "filename": "20261023100000_booking_recovery_approved_reply_snapshot.sql",
+      "checksum": "a253d75318aef98fd84182bc9f33162b3c94a1bd53755317aae8c1b11d1a147f",
+      "size": 3786
+    },
+    {
+      "version": "20261023100100",
+      "filename": "20261023100100_booking_recovery_steps_immutable_search_path.sql",
+      "checksum": "b5958c38052920c35b1869e8cef48757c91ac49bcd6c43b2539add1139ab4ab5",
+      "size": 2078
+    },
+    {
+      "version": "20261023110000",
+      "filename": "20261023110000_workspace_products_services_updated_at_trigger.sql",
+      "checksum": "921cdff8f075d94030f0b8216a1503a39f38994cb0036a084ac02e3d87c94bbc",
+      "size": 2223
+    },
+    {
+      "version": "20261023120000",
+      "filename": "20261023120000_schema_drift_pii_optout_closure.sql",
+      "checksum": "d1c43f89d1ae865fb3b9a4b16e556936d4a58f43e24b65cf9341656d5b02033f",
+      "size": 4512
+    },
+    {
+      "version": "20261023120100",
+      "filename": "20261023120100_schema_drift_external_action_request_columns.sql",
+      "checksum": "a99eccd6ed176fd1875b1d140166c6d347551124369f60190778c5860ed430b1",
+      "size": 1671
+    },
+    {
+      "version": "20261023130000",
+      "filename": "20261023130000_schema_drift_remaining_tables_and_receipts.sql",
+      "checksum": "1b319419b76931c03d1c46a9b383edd82cdb0707b68d011c5a28906de370de7a",
+      "size": 9932
+    },
+    {
+      "version": "20261025100000",
+      "filename": "20261025100000_ani1790_mobile_read_rls.sql",
+      "checksum": "6748f1d42ec9bf11cff786c6d2d7be2ccc1db4af214a999212b5af84dbc6977b",
+      "size": 492
+    },
+    {
+      "version": "20261025120000",
+      "filename": "20261025120000_first_post_publish_consumption.sql",
+      "checksum": "756220ed5c546fdba88ae90e3f0e4ce2f7f936a9eceae231abc319faac67bd66",
+      "size": 6346
+    },
+    {
+      "version": "20261025130000",
+      "filename": "20261025130000_mobile_reply_draft_cas.sql",
+      "checksum": "7a9203e988776fa6117bcebcada688608c7f41bfe3906b8add3fc85c950f6fc4",
+      "size": 4025
+    },
+    {
+      "version": "20261026170000",
+      "filename": "20261026170000_agent_activity_events.sql",
+      "checksum": "1ed7254f2588ed0acb60e1de2b5ee6289fdf826cec6a27dbacfbcce8b1f17098",
+      "size": 5179
+    },
+    {
+      "version": "20261027100000",
+      "filename": "20261027100000_ani1796_mission_events_composite_fk.sql",
+      "checksum": "2fe2541535808649d2b9943a77d6886f52549afd117b2dcd18612ad7f002ac94",
+      "size": 12672
+    },
+    {
+      "version": "20261027110000",
+      "filename": "20261027110000_ani1877_mission_contract_hardening.sql",
+      "checksum": "0e6fdb8cb939165f882eeb5966c61e4b2efc4d44f3cb7a298ab02ada8027aa7a",
+      "size": 14960
+    },
+    {
+      "version": "20261027150000",
+      "filename": "20261027150000_ani1845_planned_schedule_bridge.sql",
+      "checksum": "2a7a040ad42c403b14bcc56d06acaf1825fc5542f5a03c2e934652b2519c892b",
+      "size": 3969
+    },
+    {
+      "version": "20261027160000",
+      "filename": "20261027160000_booking_recovery_confirm_canonical_booking_id.sql",
+      "checksum": "db8fc1c004922906f4aa0cc757228f62749f5d3162aae56bd57027587e687efb",
+      "size": 15684
+    },
+    {
+      "version": "20261027160100",
+      "filename": "20261027160100_ani1845_persist_planned_content_role_guard.sql",
+      "checksum": "024a1a8436d92c66298a9547bc1dc49d61790437f4887a775b6228bc3ed640ff",
+      "size": 3715
+    },
+    {
+      "version": "20261027200000",
+      "filename": "20261027200000_mission_release_contract.sql",
+      "checksum": "d05fc11ff41528ba2b204071086d2d2b744c698ad32984c69db35fc85aa6e4bb",
+      "size": 20278
+    },
+    {
+      "version": "20261027210000",
+      "filename": "20261027210000_first_post_atomic_publish_claim.sql",
+      "checksum": "c4a352c16ea820a9995a9f40bc992e32010a0ede4873f732aff23c7d3946c1f6",
+      "size": 8242
+    },
+    {
+      "version": "20261027215000",
+      "filename": "20261027215000_meta_credential_save_contract.sql",
+      "checksum": "e6555cf1ddaf432b0e042fb5c35caadb5b03463ce2b6e5908cdb84ea6bc313c7",
+      "size": 3552
+    },
+    {
+      "version": "20261027220000",
+      "filename": "20261027220000_sns_release_readiness.sql",
+      "checksum": "8f51eff728af27e6ef2c6b9622e7fa85d724e854807ba9871e80b1e37d2facd8",
+      "size": 33659
+    },
+    {
+      "version": "20261028100000",
+      "filename": "20261028100000_car_canonical_cancel_state.sql",
+      "checksum": "c102ed672e381baede0f14a7e875e7ab8503c29936625bbff1377f24a16a27c1",
+      "size": 729
+    },
+    {
+      "version": "20261028110000",
+      "filename": "20261028110000_car_graph_execution_fences.sql",
+      "checksum": "b00094e62643c082d75d10bb9f69d594bcb220ab08bf52d46307da491f853dea",
+      "size": 6493
+    },
+    {
+      "version": "20261028120000",
+      "filename": "20261028120000_ani1882_learning_candidate_version_cas_increment.sql",
+      "checksum": "cf9633f89636af9c829a6d35dfd5836462e57570fad0cd93903f6ec41b36cccf",
+      "size": 3840
+    },
+    {
+      "version": "20261028120100",
+      "filename": "20261028120100_quick_post_orphan_reconciliation_and_insert_fence.sql",
+      "checksum": "077ad3219b6ee87f4626ec9d7c5649a93801a6190100e0c9cfae4993942d1268",
+      "size": 8771
+    },
+    {
+      "version": "20261028160000",
+      "filename": "20261028160000_naver_block_revision.sql",
+      "checksum": "8ff1ad317da50f9867bdf94f408cfb976a402693099026eb601dbc35c5fbe9f5",
+      "size": 4667
+    },
+    {
+      "version": "20261028170000",
+      "filename": "20261028170000_naver_version_restore.sql",
+      "checksum": "206f72f340bef01a44398eebd72066f6ea3b1623174b42e36b3018eef7df7b94",
+      "size": 3663
+    },
+    {
+      "version": "20261028180000",
+      "filename": "20261028180000_naver_title_tags_revision.sql",
+      "checksum": "cf2d51e8d441c46fec229ce2bd8d95da5143e58c2a62ecd5134bc4b1d7c14b7f",
+      "size": 3995
+    },
+    {
+      "version": "20261028190000",
+      "filename": "20261028190000_blog_stage_facts.sql",
+      "checksum": "c750c13d911851225038218b7d167a5922fba7d974cdbb8201b4a5d64875968e",
+      "size": 3847
+    },
+    {
+      "version": "20261029130000",
+      "filename": "20261029130000_naver_revision_readiness.sql",
+      "checksum": "3482161ba2dd6b5f9598c4eae88f1e3c1c63f4f6bb697ba8b4b939f18c72fad3",
+      "size": 2560
+    },
+    {
+      "version": "20261029085055",
+      "filename": "20261029085055_conversation_work_status_v2.sql",
+      "checksum": "4feb0f7033d981a0cb71ddba13b8e600b8a34022713a9be3cf661ae0ce3c0855",
+      "size": 2752
+    },
+    {
+      "version": "20261029144924",
+      "filename": "20261029144924_conversation_provider_usage_v2.sql",
+      "checksum": "140a69805d0b7aa93bb1061ab1effb49f9a4eb4900db5c2710a3e629022ffc00",
+      "size": 3516
+    },
+    {
+      "version": "20261029145037",
+      "filename": "20261029145037_conversation_agent_terminal_owner.sql",
+      "checksum": "911ee1cb6218cd81b3a069112c3eb4866c4ec847c5526c2fd158317f80b044fd",
+      "size": 6403
+    },
+    {
+      "version": "20261029201502",
+      "filename": "20261029201502_conversation_unstarted_failure_resolution.sql",
+      "checksum": "170b197605a4f7ee5b6a02703a49630a899b1d274cc049fe5b60c0ecc70752c9",
+      "size": 2414
+    },
+    {
+      "version": "20261030030359",
+      "filename": "20261030030359_actor_scoped_approval_command.sql",
+      "checksum": "d36c49337a49cf21b287a0092414789314b5feb3eb5fffebf769c1d9b6706f13",
+      "size": 2755
+    },
+    {
+      "version": "20261104000000",
+      "filename": "20261104000000_publish_scope_alignment.sql",
+      "checksum": "d66efb020737a0bb4485776e64afaa0dc857057da1aa9906b2a99126d8b513d5",
+      "size": 8210
+    }
+  ],
+  "full_replay_status": "NOT_VERIFIED"
+}

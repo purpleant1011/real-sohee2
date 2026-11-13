@@ -1,0 +1,200 @@
+.page {
+  display: grid;
+  gap: var(--space-5);
+  inline-size: min(100%, 70rem);
+  margin-inline: auto;
+}
+
+.header,
+.sectionHeading,
+.cardHeading,
+.evidenceRow,
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.header h1,
+.panel h2,
+.sectionHeading h2,
+.card h3,
+.header p,
+.panel p,
+.card p,
+.emptyState p {
+  margin: 0;
+}
+
+.header h1 {
+  font-size: clamp(1.65rem, 4vw, 2.7rem);
+  letter-spacing: -0.045em;
+}
+
+.header > div,
+.panel,
+.uploadForm,
+.listSection,
+.list,
+.card {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.eyebrow {
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.actualBadge,
+.cardHeading span,
+.sectionHeading span {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent), transparent 88%);
+  color: var(--color-accent-strong);
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.panel,
+.card,
+.emptyState {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.panel {
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.7fr);
+}
+
+.panel p,
+.card p,
+.cardHeading p,
+.readOnly,
+.sectionHeading span {
+  color: var(--color-muted);
+}
+
+.panel .caution {
+  margin-block-start: var(--space-2);
+  color: var(--color-text);
+  font-size: 0.875rem;
+}
+
+.uploadForm label {
+  display: grid;
+  gap: var(--space-2);
+  font-weight: 700;
+}
+
+.uploadForm input[type='file'],
+.uploadForm input[type='url'],
+.uploadForm select {
+  inline-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3);
+}
+
+.uploadForm button,
+.actions button {
+  min-block-size: 2.75rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  padding-inline: var(--space-4);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.uploadForm button,
+.primary {
+  background: var(--color-accent);
+  color: white;
+}
+
+.secondary {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.danger {
+  background: color-mix(in srgb, #b42318, transparent 88%);
+  color: #8f1d14;
+}
+
+.uploadForm button:disabled,
+.actions button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.message,
+.readOnly {
+  margin: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3) var(--space-4);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardHeading {
+  align-items: flex-start;
+}
+
+.cardHeading > div {
+  min-inline-size: 0;
+}
+
+.cardHeading h3 {
+  overflow-wrap: anywhere;
+}
+
+.cardHeading span[data-status='rejected'],
+.cardHeading span[data-status='disabled'] {
+  background: var(--color-surface-muted);
+  color: var(--color-muted);
+}
+
+.evidenceRow {
+  flex-wrap: wrap;
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: var(--space-3);
+}
+
+.evidenceRow a {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .header,
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .actualBadge {
+    justify-self: start;
+  }
+}

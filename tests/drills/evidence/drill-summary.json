@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-10-22T02:15:00+09:00",
+  "workspace": "/Volumes/Development/Github/real-sohee/.claude/worktrees/v093-w3-drills-v2",
+  "branch": "claude/v093-w3-drills-v2",
+  "baseCommit": "8e03b7b9",
+  "v2HarnessContract": "W4 v2 approval/reconcile boundary",
+  "scenarios": {
+    "D093-01": {
+      "title": "토큰 만료 · 401/403 명시 거절 및 스코프/컨텍스트 부재",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (401/403 demote to RESULT_UNKNOWN, missing scope returns POLICY_BLOCKED, unprovided loadApprovedReply returns CONTEXT_REQUIRED, 0 auto-resend loop, positive control PASS)",
+      "limitations": "PII/credential logger spy unverified, real Meta Graph API unverified"
+    },
+    "D093-02": {
+      "title": "429 Rate Limit (요청 폭주 제한)",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (429 demotes to RESULT_UNKNOWN, enqueues to outbox with state UNKNOWN, 0 auto-resend loop, positive control PASS)",
+      "limitations": "In-memory mock, provider rate limit header reconciliation unverified"
+    },
+    "D093-03": {
+      "title": "5xx 서버 장애 · 실행 여부 불명",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (500/502/503/504 demote to RESULT_UNKNOWN, 0 concealment as EMPTY/success, positive control PASS)",
+      "limitations": "Network-level retry block and gateway timeout branches unverified"
+    },
+    "D093-04": {
+      "title": "Provider 기록 후 응답 Timeout 및 2단계 대사",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (stage 1 timeout records side-effect and queues outbox; stage 2 reconcileOutboxItem verifies via readback-only, duplicate send: 0, transitions with attempted.actor, positive control PASS)",
+      "limitations": "In-memory stateful mock, real distributed network timeout unverified"
+    },
+    "D093-05": {
+      "title": "Provider 성공 후 DB Commit 실패",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (finishStep failure returns RESULT_UNKNOWN, preserves error message, 0 concealment, positive control PASS)",
+      "limitations": "Real DB rollback and compensation transaction unverified"
+    },
+    "D093-06": {
+      "title": "동일 Webhook 반복 · Lease 중복",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (concurrent step lease returns VERSION_CONFLICT with 0 transport calls, duplicate webhook returns duplicate, positive control PASS)",
+      "limitations": "Mock repository return, real DB-level distributed lock and PostgreSQL lease contention unverified"
+    },
+    "D093-07": {
+      "title": "가격/수신자/원문 변경 후 Stale 승인",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (newer customer message, modified draft, fingerprint mismatch, proposal field mismatch, expired DTO, and STALE_BEFORE_SEND return VERSION_CONFLICT with 0 transport calls, positive control PASS)",
+      "limitations": "Real DB CAS transaction unverified"
+    },
+    "D093-08": {
+      "title": "슬롯 충돌 · 동시 확정 거절",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (confirmRecoveryBooking returns VERSION_CONFLICT on repository conflict)",
+      "limitations": "Real 2-worker concurrent PostgreSQL transaction race with 1 exclusive winner is NOT_VERIFIED"
+    },
+    "D093-09": {
+      "title": "중복 PG 결제 Webhook",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "NOT_VERIFIED",
+      "limitations": "본 drill 테스트 하네스에 검증된 영속 PG 원장 및 DB 결속 멱등키가 연결되지 않음 (본 drill scope 밖 / 미검증)"
+    },
+    "D093-10": {
+      "title": "늦은/부분 환불 · 응답 불명",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "NOT_VERIFIED",
+      "limitations": "본 drill 테스트 하네스에 검증된 영속 환불 계약 및 PG 영수증 원장 파이프라인이 연결되지 않음 (본 drill scope 밖 / 미검증)"
+    },
+    "D093-11": {
+      "title": "Readback 불일치 (다른 Workspace/수신자/본문/시각)",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (refuses SEND_VERIFIED promotion on isLive:false, messageId, recipient, text, sender mismatches, past/future observedAt, and exception; positive control PASS)",
+      "limitations": "Real Meta Graph API connection unverified"
+    },
+    "D093-12": {
+      "title": "대사 예산 소진 · 상태 저장 실패",
+      "verdict": "NOT_VERIFIED",
+      "narrowContractCoverage": "CONTRACT_PASS (attempt 3 with valid AttemptedSendEvidence transitions to HUMAN_REVIEW with stepKind RECONCILE_EXHAUSTED and actor attempted.actor; missing evidence throws RECONCILE_MANUAL_EVIDENCE_REQUIRED)",
+      "limitations": "Real DB persistence unverified"
+    }
+  },
+  "v1BaselineArchived": {
+    "commit": "6bbd9648",
+    "providerRecoveryFails": 9,
+    "baselineReconcileGapFails": 1,
+    "note": "Archived as historical baseline reference. W4 v2 implementation resolves all 9 context mismatch failures while hardening boundary verification."
+  },
+  "staticGates": {
+    "testsDrillsVitest": {
+      "command": "npx --no-install vitest run tests/drills",
+      "totalTests": 50,
+      "passed": 50,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "typecheck": {
+      "command": "heavy.sh node --max-old-space-size=3072 node_modules/typescript/bin/tsc --noEmit",
+      "status": "QUEUED_OR_COMPLETED"
+    },
+    "targetLint": {
+      "command": "heavy.sh npx --no-install eslint tests/drills",
+      "status": "QUEUED_OR_COMPLETED"
+    }
+  }
+}

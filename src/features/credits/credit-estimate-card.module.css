@@ -1,0 +1,57 @@
+.card {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.adjustments {
+  border: 1px solid color-mix(in srgb, var(--sohee-warning) 22%, var(--sohee-line));
+  border-radius: var(--sohee-radius-card);
+  background: var(--sohee-warning-soft);
+  padding: var(--space-4);
+}
+
+.adjustments strong {
+  color: var(--sohee-ink);
+  font-size: 0.82rem;
+}
+
+.adjustments ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adjustments li {
+  border: 1px solid color-mix(in srgb, var(--sohee-warning) 20%, var(--sohee-line));
+  border-radius: 999px;
+  background: var(--sohee-surface);
+  color: var(--sohee-warning);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.ready,
+.boundary {
+  margin: 0;
+  color: var(--sohee-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.boundary {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.boundary p {
+  margin: 0;
+}
+
+.boundary span {
+  white-space: nowrap;
+}

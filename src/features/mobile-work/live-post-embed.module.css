@@ -1,0 +1,71 @@
+/* 모바일 전용 게시물 임베드 CSS 모듈 */
+
+.embedContainer {
+  width: 100%;
+  max-width: 100%;
+}
+
+.embedCard {
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--card));
+  transition: border-color 0.15s ease-in-out;
+}
+
+.embedCard.isExpanded {
+  border-color: hsl(var(--border));
+}
+
+.embedTrigger {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.embedTrigger:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: -2px;
+}
+
+.embedFrameWrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  border-top: 1px solid hsl(var(--border));
+  background-color: hsl(var(--muted) / 0.2);
+}
+
+.embedFrame {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 520px;
+  border: 0;
+}
+
+.embedExternalLink {
+  display: flex;
+  min-height: 48px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

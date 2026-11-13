@@ -1,0 +1,336 @@
+.commandSection {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.headerTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8b5cf6;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.sectionDesc {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.chipsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.chipButton {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  min-height: 36px;
+}
+
+.chipButton:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.chipButton:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textInput {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #0f172a;
+  background: #ffffff;
+  min-height: 48px;
+  transition: border-color 0.15s ease;
+}
+
+.textInput:focus {
+  border-color: #0284c7;
+  outline: 2px solid rgba(2, 132, 199, 0.2);
+  outline-offset: 2px;
+}
+
+.voiceButton {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s ease;
+}
+
+.voiceButton:hover {
+  background: #f1f5f9;
+}
+
+.voiceActive {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+}
+
+.submitButton {
+  min-height: 48px;
+  padding: 0 22px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #0369a1;
+}
+
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+/* Compiled Plan Card */
+.planCard {
+  margin-top: 20px;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.planHeader {
+  margin-bottom: 14px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.planTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0284c7;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.planTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.planSection {
+  margin-bottom: 14px;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  color: #334155;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.goalText {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+.rulesComparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.safeBox {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.safeLabel {
+  font-size: 12px;
+  color: #166534;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.safeBox ul,
+.approvalBox ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.approvalBox {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.approvalLabel {
+  font-size: 12px;
+  color: #92400e;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.budgetEstimateRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.budgetLabel {
+  font-weight: 600;
+  color: #64748b;
+}
+
+.budgetValue {
+  color: #059669;
+  font-weight: 800;
+}
+
+.planActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.editPlanButton {
+  min-height: 44px;
+  padding: 0 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+}
+
+.applyPlanButton {
+  min-height: 44px;
+  padding: 0 20px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.applyPlanButton:hover {
+  background: #0369a1;
+}
+
+.successMessage {
+  padding: 12px 16px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #065f46;
+  text-align: center;
+}

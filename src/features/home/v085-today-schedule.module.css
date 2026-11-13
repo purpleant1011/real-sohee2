@@ -1,0 +1,101 @@
+.scheduleCard {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  margin-bottom: 24px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.cardSubtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.scheduleLink {
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #0284c7;
+  text-decoration: none;
+  padding: 4px 6px;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.timeBadge {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  padding: 4px 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.itemBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.itemTitle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 750;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.scheduled {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.approval_pending {
+  background: #fef3c7;
+  color: #b45309;
+}

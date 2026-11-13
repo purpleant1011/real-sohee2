@@ -1,0 +1,550 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.headerTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8b5cf6;
+}
+
+.title {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.newRuleButton {
+  min-height: 44px;
+  padding: 0 18px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.newRuleButton:hover {
+  background: #0369a1;
+}
+
+.tabNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  padding: 12px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.tabBtn:hover {
+  color: #0f172a;
+}
+
+.tabBtnActive {
+  color: #0284c7;
+  border-bottom-color: #0284c7;
+}
+
+/* Schedule View */
+.scheduleView {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.daySelector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.dayBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dayBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.dayBtn strong {
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.dayBtn span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.dayBtnActive {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+
+.dayBtnActive strong {
+  color: #0284c7;
+}
+
+.dayBtnActive span {
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.routineSection,
+.realtimeSection {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.sectionHeading {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.taskTime {
+  padding: 6px 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  flex-shrink: 0;
+}
+
+.taskInfo {
+  flex: 1;
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.channelBadge {
+  padding: 2px 6px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.autonomyBadge {
+  padding: 2px 6px;
+  background: #ecfdf5;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.taskTitle {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.realtimeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.realtimeCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.realtimeTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.realtimeTitle {
+  font-size: 13.5px;
+  font-weight: 750;
+  color: #0f172a;
+  flex: 1;
+}
+
+.autonomyTag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ruleTrigger,
+.ruleAction {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.ruleTrigger strong,
+.ruleAction strong {
+  color: #1e293b;
+}
+
+/* Wizard View */
+.wizardSection {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.wizardTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.wizardDesc {
+  margin: 4px 0 20px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.wizardForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.groupLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.selectInput {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.autonomyCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.autonomyCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.autonomyCard strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.autonomyCard p {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.autonomyCardActive {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+
+.checkboxList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.budgetInputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #334155;
+}
+
+.numInput {
+  width: 90px;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cancelBtn {
+  min-height: 44px;
+  padding: 0 18px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+}
+
+.saveBtn {
+  min-height: 44px;
+  padding: 0 20px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.successBox {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.successBox h3 {
+  margin: 0 0 6px;
+  color: #166534;
+  font-size: 16px;
+}
+
+.successBox p {
+  margin: 0;
+  color: #15803d;
+  font-size: 13px;
+}
+
+/* Channels View */
+.channelSection {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.channelDesc {
+  margin: 4px 0 20px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.channelsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.channelCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.channelHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.chIcon {
+  font-size: 16px;
+}
+
+.channelHeader strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.badgeOfficial {
+  margin-left: auto;
+  padding: 3px 8px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.badgeVerify {
+  margin-left: auto;
+  padding: 3px 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.badgeManaged {
+  margin-left: auto;
+  padding: 3px 8px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.badgeBeta {
+  margin-left: auto;
+  padding: 3px 8px;
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7e22ce;
+}
+
+.channelInfo {
+  margin: 0;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.45;
+}

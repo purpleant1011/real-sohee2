@@ -1,0 +1,28 @@
+{
+  "name": "소희",
+  "short_name": "소희",
+  "description": "사장님의 마케팅 일을 끝까지 챙겨주는 AI 직원, 소희",
+  "id": "/",
+  "scope": "/",
+  "start_url": "/app?launch=pwa",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "theme_color": "#6656e8",
+  "background_color": "#f7f6f2",
+  "lang": "ko",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false,
+  "launch_handler": { "client_mode": "navigate-existing" },
+  "icons": [
+    { "src": "/icons/sohee-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/sohee-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/sohee-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/sohee-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "소희에게 맡기기", "short_name": "맡기기", "url": "/app/command?launch=shortcut", "icons": [{ "src": "/icons/sohee-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "소통함", "short_name": "소통함", "url": "/app/inbox?launch=shortcut", "icons": [{ "src": "/icons/sohee-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "알림", "short_name": "알림", "url": "/app/notifications?launch=shortcut", "icons": [{ "src": "/icons/sohee-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

@@ -1,0 +1,131 @@
+.card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4, 1rem);
+  border: 1px solid color-mix(in srgb, var(--sohee-danger), transparent 62%);
+  border-radius: var(--sohee-radius-card);
+  background: var(--sohee-danger-soft);
+  padding: var(--space-4, 1rem);
+  color: var(--sohee-ink);
+}
+
+.card[data-state='unknown'] {
+  border-color: color-mix(in srgb, var(--sohee-warning), transparent 58%);
+  background: var(--sohee-warning-soft);
+}
+
+.icon {
+  display: grid;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  place-items: center;
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-surface);
+  color: var(--sohee-danger);
+}
+
+.card[data-state='unknown'] .icon {
+  color: var(--sohee-warning);
+}
+
+.icon svg {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+.content {
+  min-inline-size: 0;
+}
+
+.content h3,
+.description,
+.facts {
+  margin: 0;
+}
+
+.content h3 {
+  margin-block-start: var(--space-2, 0.5rem);
+  font-size: 1rem;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+
+.description {
+  margin-block-start: var(--space-1, 0.25rem);
+  color: var(--sohee-ink-soft);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-1, 0.25rem);
+  margin-block-start: var(--space-3, 0.75rem);
+}
+
+.facts div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: var(--space-2, 0.5rem);
+}
+
+.facts dt {
+  color: var(--sohee-ink-soft);
+  font-size: 0.75rem;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2, 0.5rem);
+}
+
+.primaryAction,
+.secondaryAction {
+  min-block-size: 44px;
+  border-radius: var(--sohee-radius-control);
+  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.primaryAction {
+  border: 1px solid var(--sohee-accent);
+  background: var(--sohee-accent);
+  color: #fff;
+}
+
+.secondaryAction {
+  border: 1px solid var(--sohee-line-strong);
+  background: var(--sohee-surface);
+  color: var(--sohee-ink);
+}
+
+@media (max-width: 720px) {
+  .card {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

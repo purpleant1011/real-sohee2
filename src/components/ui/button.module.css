@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  min-block-size: var(--tap-size, 44px);
+  min-height: var(--tap-size, 44px);
+  min-inline-size: var(--tap-size, 44px);
+  min-width: var(--tap-size, 44px);
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 0.5rem);
+  border: 1px solid transparent;
+  border-radius: var(--v07-radius-sm, 13px);
+  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  background: var(--color-accent, #7755cf);
+  color: var(--color-on-accent, #ffffff);
+  font: inherit;
+  font-weight: 650;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-accent-strong, #5d3db1);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-focus, #7755cf);
+  outline-offset: 3px;
+}

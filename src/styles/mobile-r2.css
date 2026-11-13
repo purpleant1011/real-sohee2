@@ -1,0 +1,134 @@
+/* Sohee Mobile R2 design tokens — 기존 v088 토큰(색·radius·Pretendard)은 그대로 두고,
+   모바일 전용 spacing / 터치 / safe-area / 모션 / 상태 시맨틱만 "추가"한다. 값 변경 금지 영역: v088-tokens.css.
+   사용법: docs/mobile-r2/DESIGN-SYSTEM.md */
+
+@layer base {
+  :root,
+  html:not(.dark) {
+    /* 터치·레이아웃 */
+    --m-inset: 1rem; /* 좌우 16px */
+    --m-touch: 2.75rem; /* 최소 터치 44px */
+    --m-cta-h: 3rem; /* 주요 CTA 48px */
+    --m-header-h: 3.5rem;
+    --m-tabbar-h: 3.5rem;
+    --m-safe-top: env(safe-area-inset-top, 0px);
+    --m-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --m-gap-1: 0.5rem;
+    --m-gap-2: 0.75rem;
+    --m-gap-3: 1rem;
+    --m-gap-4: 1.5rem;
+
+    /* 모션 — 업무 시작/저장/승인/전환에만. 120~220ms */
+    --m-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --m-dur-press: 120ms;
+    --m-dur-state: 180ms;
+    --m-dur-sheet: 220ms;
+
+    /* 상태 시맨틱 (아이콘+문구와 함께 쓴다. 색만으로 상태 전달 금지) */
+    --state-ok-fg: oklch(0.40 0.10 155);
+    --state-ok-bg: oklch(0.96 0.03 155);
+    --state-ok-line: oklch(0.86 0.06 155);
+    --state-wait-fg: oklch(0.42 0.09 215);
+    --state-wait-bg: oklch(0.96 0.025 215);
+    --state-wait-line: oklch(0.86 0.05 215);
+    --state-warn-fg: oklch(0.42 0.10 70);
+    --state-warn-bg: oklch(0.97 0.04 85);
+    --state-warn-line: oklch(0.86 0.08 80);
+    --state-danger-fg: oklch(0.45 0.17 25);
+    --state-danger-bg: oklch(0.96 0.03 25);
+    --state-danger-line: oklch(0.86 0.07 25);
+    --state-quiet-fg: oklch(0.45 0.02 275);
+    --state-quiet-bg: oklch(0.96 0.008 275);
+    --state-quiet-line: oklch(0.88 0.01 275);
+
+    --m-shadow-bar: 0 -1px 0 var(--border), 0 -8px 24px oklch(0.25 0.04 280 / 0.06);
+  }
+
+  html.dark,
+  :root.dark,
+  :root[data-theme='dark'] {
+    --state-ok-fg: oklch(0.82 0.12 155);
+    --state-ok-bg: oklch(0.25 0.05 155);
+    --state-ok-line: oklch(0.38 0.07 155);
+    --state-wait-fg: oklch(0.82 0.10 215);
+    --state-wait-bg: oklch(0.25 0.04 215);
+    --state-wait-line: oklch(0.38 0.06 215);
+    --state-warn-fg: oklch(0.85 0.12 80);
+    --state-warn-bg: oklch(0.26 0.05 80);
+    --state-warn-line: oklch(0.40 0.08 80);
+    --state-danger-fg: oklch(0.82 0.12 25);
+    --state-danger-bg: oklch(0.26 0.06 25);
+    --state-danger-line: oklch(0.40 0.09 25);
+    --state-quiet-fg: oklch(0.78 0.02 275);
+    --state-quiet-bg: oklch(0.24 0.01 275);
+    --state-quiet-line: oklch(0.34 0.01 275);
+
+    --m-shadow-bar: 0 -1px 0 var(--border), 0 -8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@theme inline {
+  --color-state-ok: var(--state-ok-fg);
+  --color-state-ok-soft: var(--state-ok-bg);
+  --color-state-wait: var(--state-wait-fg);
+  --color-state-wait-soft: var(--state-wait-bg);
+  --color-state-warn: var(--state-warn-fg);
+  --color-state-warn-soft: var(--state-warn-bg);
+  --color-state-danger: var(--state-danger-fg);
+  --color-state-danger-soft: var(--state-danger-bg);
+  --color-state-quiet: var(--state-quiet-fg);
+  --color-state-quiet-soft: var(--state-quiet-bg);
+  --spacing-inset: var(--m-inset);
+  --spacing-touch: var(--m-touch);
+  --spacing-cta: var(--m-cta-h);
+}
+
+/* 눌림 피드백: 햅틱 대신 "살짝 가라앉는" 시각 반응. 120ms. */
+.m-press {
+  transition: transform var(--m-dur-press) var(--m-ease), opacity var(--m-dur-press) var(--m-ease);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.m-press:active:not(:disabled):not([aria-disabled='true']) {
+  transform: scale(0.98);
+  opacity: 0.88;
+}
+
+/* 스켈레톤: 번쩍이는 shimmer 대신 조용한 숨쉬기(opacity). */
+.m-skel {
+  background: var(--muted);
+  border-radius: 0.5rem;
+  animation: m-breathe 1.6s ease-in-out infinite;
+}
+@keyframes m-breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.m-state-enter {
+  animation: m-state-in var(--m-dur-state) var(--m-ease) both;
+}
+@keyframes m-state-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.m-sticky-bar {
+  position: sticky;
+  bottom: 0;
+  padding: 0.75rem var(--m-inset) calc(0.75rem + var(--m-safe-bottom));
+  background: var(--background);
+  box-shadow: var(--m-shadow-bar);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m-press,
+  .m-press:active:not(:disabled):not([aria-disabled='true']) {
+    transition: none;
+    transform: none;
+  }
+  .m-skel,
+  .m-state-enter {
+    animation: none;
+  }
+}

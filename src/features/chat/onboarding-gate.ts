@@ -1,0 +1,1 @@
+export function gateChatEntry(completed:unknown):Readonly<{status:'ready'}|{status:'onboarding_required';href:'/start'}>{return completed===true?{status:'ready'}:{status:'onboarding_required',href:'/start'}}

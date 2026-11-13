@@ -1,0 +1,127 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "real-sohee",
+  "account_id": "YOUR_CLOUDFLARE_ACCOUNT_ID",
+  "main": "worker-entry.js",
+  "compatibility_date": "2026-03-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "minify": true,
+  "version_metadata": {
+    "binding": "CF_VERSION_METADATA"
+  },
+  "alias": {
+    "server-only": "./src/lib/server-only-worker-shim.ts",
+    "sharp": "./src/lib/sharp-shim.ts"
+  },
+  "workers_dev": true,
+  "preview_urls": true,
+  "placement": {
+    "mode": "smart"
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "images": {
+    "binding": "IMAGES"
+  },
+  "routes": [
+    {
+      "pattern": "example.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.example.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "m.example.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://your-project-ref.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_test_dummy",
+    "MOBILE_R2_UI_ENABLED": "all",
+    "MOBILE_R2_LANDING_ENABLED": "1",
+    "MOBILE_R2_UI_WORKSPACE_ALLOWLIST": "00000000-0000-4000-8000-0000000000a1,00000000-0000-4000-8000-0000000000a2",
+    "CONVERSATION_WORKBENCH_ENABLED": "1",
+    "CONVERSATION_WORKBENCH_ROLLOUT": "all",
+    "CONVERSATION_WORKBENCH_WORKSPACE_ALLOWLIST": "00000000-0000-4000-8000-0000000000a2",
+    "CONVERSATION_READ_RUNTIME_ENABLED": "all",
+    "CONVERSATION_READ_RUNTIME_WORKSPACE_ALLOWLIST": "00000000-0000-4000-8000-0000000000a2",
+    "CONVERSATION_AGENT_RUNTIME_ENABLED": "1",
+    "CONVERSATION_AGENT_RUNTIME_ROLLOUT": "all",
+    "CONVERSATION_AGENT_RUNTIME_WORKSPACE_ALLOWLIST": "00000000-0000-4000-8000-0000000000a2",
+    "NEXT_PUBLIC_MOBILE_R2_FIRSTPOST": "on",
+    "AI_CONVERSATION_PROVIDER": "gemini",
+    "AI_ACTION_PROVIDER": "gemini",
+    "GEMINI_CONVERSATION_MODEL": "gemini-3.5-flash-lite",
+    "GEMINI_ACTION_MODEL": "gemini-3.8-flash",
+    "GEMINI_API_BASE_URL": "https://your-project-ref.supabase.co/functions/v1/gemini-proxy",
+    "OPENAI_IMAGE_MODEL": "gpt-image-2.5-sunburst",
+    "INSTAGRAM_APP_ID": "2149436449308345",
+    "THREADS_APP_ID": "2253956925388481",
+    "META_DATA_DELETION_CALLBACK_ENABLED": "true",
+    "META_APP_REVIEW_STATUS": "approved",
+    "META_APP_MODE": "live",
+    "META_ACCESS_TIER": "advanced",
+    "VAULT_PUBLISH_ENABLED": "1",
+    "META_LIVE_WORKSPACE_ALLOWLIST": "*",
+    "META_EXTENDED_SCOPE_WORKSPACE_IDS": "00000000-0000-4000-8000-0000000000a2",
+    "ENGAGEMENT_WORKSPACE_ALLOWLIST": "00000000-0000-4000-8000-0000000000a2",
+    "ENGAGEMENT_CYCLE_ENABLED": "1",
+    "ENGAGEMENT_DM_INGEST_ENABLED": "1",
+    "ENGAGEMENT_SEND_ENABLED": "1",
+    "SOHEE_REPORT_ONLY_DUE_ENABLED": "1",
+    "SOHEE_CHAT_TURN_CREDITS": "1",
+    "APP_URL": "https://example.com",
+    "KAKAO_ALLOWED_ORIGINS": "https://example.com,https://m.example.com",
+    "KAKAO_REDIRECT_URIS": "https://example.com/api/auth/kakao/callback,https://m.example.com/api/auth/kakao/callback",
+    "NEXT_PUBLIC_KAKAO_ENABLED": "true",
+    "SOLAPI_TEMPLATE_IDS": "{\"SOHEE_BOOKING_CONFIRMED_V1\":\"KA01TP261106085635014nt3IUyERdkX\",\"SOHEE_BOOKING_CHANGED_V1\":\"KA01TP2611060857125566d391fnhd5W\",\"SOHEE_BOOKING_CANCELLED_V1\":\"KA01TP261106085725759Qp3aaOK5R0B\",\"SOHEE_PAYMENT_CONFIRMED_V1\":\"KA01TP261106085850976EozZ57byksi\",\"SOHEE_REMINDER_24H_V1\":\"KA01TP261106085904478lEWOnOh7J65\",\"SOHEE_REMINDER_2H_V1\":\"KA01TP261106085916978GiZiNa6Wcl1\"}",
+    "SOHEE_CHANNEL_LEARNING_ENABLED": "1",
+    "SOHEE_SOURCE_ANALYSIS_RATE_CATALOG": "{\"catalogVersion\":1,\"rates\":{\"source_analysis\":{\"baseCredits\":0,\"perUnit\":{\"chatTurns\":0,\"textGenerations\":0,\"imageGenerations\":0,\"sourceAnalyses\":1,\"externalActions\":0}}}}",
+    "PORTONE_REVIEW_ALLOW_PRODUCTION": "1",
+    "PORTONE_REVIEW_ENABLED": "1",
+    "PORTONE_REVIEW_MODE": "TEST"
+  },
+  "upload_source_maps": false,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "head_sampling_rate": 1,
+      "persist": true
+    }
+  },
+  "triggers": {
+    "crons": ["0 */6 * * *", "*/15 * * * *"]
+  },
+  "queues": {
+    "producers": [
+      {
+        "binding": "CONVERSATION_JOBS_QUEUE",
+        "queue": "sohee-conversation-jobs-v08"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "sohee-conversation-jobs-v08",
+        "max_batch_size": 1,
+        "max_batch_timeout": 1,
+        "max_retries": 20,
+        "dead_letter_queue": "sohee-conversation-jobs-v08-dlq"
+      },
+      {
+        "queue": "sohee-conversation-jobs-v08-dlq",
+        "max_batch_size": 1,
+        "max_batch_timeout": 1,
+        "max_retries": 1
+      }
+    ]
+  }
+}

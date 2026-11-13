@@ -1,0 +1,10 @@
+{
+  "description": "사용자 화면 금칙어 lint 예외 목록. 와일드카드 금지, 파일 단위 지정, 허용 규칙(allowedRules)과 사유(reason) 필수. 사용자 화면에 렌더되지 않는 것이 import 그래프로 확인된 파일만 등록한다. 사용자 문구 위반을 숨기는 용도로 쓰지 않는다.",
+  "allowlist": [
+    {
+      "file": "src/components/common/truth-envelope.tsx",
+      "allowedRules": ["RULE_ENGLISH_STATUS_WORD"],
+      "reason": "운영자 콘솔 전용 근거 라벨(OBSERVED/UNKNOWN 등). src/features/operator-* 화면에서만 import 되며 사용자 라우트(/app, /start, 온보딩)에서 도달하지 않음 (2026-10-07 import 그래프 확인)."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
+import { ProviderReadinessCard } from './provider-readiness-card'
+describe('ProviderReadinessCard',()=>{it('shows a manual fallback without sensitive session detail',()=>{render(<ProviderReadinessCard name="viruagent-cli" readiness={{decision:'manual_assist_only',codeReuse:'allowed'}} sourceUrl="https://github.com/greekr4/viruagent-cli"/>);expect(screen.getByText('수동 마무리만 가능')).toBeVisible();expect(screen.getByRole('link',{name:'공식 출처 열기'})).toHaveAttribute('href','https://github.com/greekr4/viruagent-cli');expect(screen.queryByText(/cookie|password/i)).not.toBeInTheDocument()});it('shows forbidden reuse for unsupported AGPL',()=>{render(<ProviderReadinessCard name="naver" readiness={{decision:'unsupported',codeReuse:'code_reuse_forbidden'}} sourceUrl="https://github.com/cd000242-sudo/naver"/>);expect(screen.getByText('코드 재사용 금지')).toBeVisible()})})

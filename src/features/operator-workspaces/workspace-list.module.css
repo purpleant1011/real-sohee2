@@ -1,0 +1,5 @@
+.customer, .stacked { display: grid; gap: .25rem; }
+.customer a { color: #3d2c45; font-weight: 800; text-decoration: none; }
+.customer small, .stacked small { color: #817685; }
+.channels { display: flex; flex-wrap: wrap; gap: .3rem; }
+.next { display: inline-flex; margin-block-start: 1rem; color: #6f3fd4; font-weight: 800; text-decoration: none; }

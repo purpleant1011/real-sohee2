@@ -1,0 +1,96 @@
+.backdrop {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  background: rgb(34 27 36 / 0.28);
+  backdrop-filter: blur(2px);
+}
+
+.panel {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  display: grid;
+  inline-size: min(27rem, 92vw);
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border-inline-start: 1px solid var(--sohee-line);
+  background: var(--sohee-surface);
+  box-shadow: var(--sohee-shadow-panel);
+  color: var(--sohee-ink);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4, 1rem);
+  border-block-end: 1px solid var(--sohee-line);
+  padding: calc(var(--space-5, 1.25rem) + env(safe-area-inset-top, 0px)) var(--space-5, 1.25rem) var(--space-4, 1rem);
+}
+
+.header h2,
+.description {
+  margin: 0;
+}
+
+.header h2 {
+  font-size: 1.125rem;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
+.description {
+  margin-block-start: var(--space-2, 0.5rem);
+  color: var(--sohee-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.closeButton {
+  display: grid;
+  flex: 0 0 44px;
+  inline-size: 44px;
+  block-size: 44px;
+  place-items: center;
+  border: 1px solid var(--sohee-line);
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-surface-soft);
+  color: var(--sohee-muted);
+  cursor: pointer;
+}
+
+.closeButton svg {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+}
+
+.closeButton:hover {
+  border-color: var(--sohee-accent);
+  color: var(--sohee-accent-strong);
+}
+
+.body {
+  min-block-size: 0;
+  overflow-y: auto;
+  padding: var(--space-5, 1.25rem);
+  padding-block-end: calc(var(--space-6, 1.5rem) + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 620px) {
+  .panel {
+    inline-size: 100%;
+    border-inline-start: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: detail-panel-enter 180ms ease-out;
+  }
+}
+
+@keyframes detail-panel-enter {
+  from { transform: translateX(1rem); }
+  to { transform: translateX(0); }
+}

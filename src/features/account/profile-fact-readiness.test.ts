@@ -1,0 +1,1 @@
+import { expect,it } from 'vitest';import { profileFactReadiness } from './profile-fact-readiness';it('reports approved source coverage only',()=>expect(profileFactReadiness([{status:'approved',sourceId:'s'},{status:'pending',sourceId:'x'},{status:'approved',sourceId:'z',stale:true}])).toEqual({coverage:33,sourceState:'approved_sources_only'}))

@@ -1,0 +1,215 @@
+.container {
+  display: grid;
+  gap: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hint {
+  margin: 0;
+  color: var(--color-text-muted, inherit);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.inputGroup {
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .inputGroup {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .inputGroup input {
+    flex: 1;
+  }
+}
+
+.input {
+  min-block-size: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+}
+
+.button,
+.secondary {
+  min-block-size: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding-inline: var(--space-4);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button {
+  border: 0;
+  background: var(--color-accent);
+  color: white;
+}
+
+.button:disabled,
+.secondary:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.statusList {
+  display: grid;
+  gap: var(--space-2);
+  margin-block-start: var(--space-1);
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted, inherit);
+}
+
+.statusItem.done {
+  color: var(--color-accent-strong, var(--color-accent));
+}
+
+.errorAlert {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(143, 29, 20, 0.08);
+  color: #8f1d14;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.successStatus {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(22, 101, 52, 0.08);
+  color: var(--color-accent-strong, #166534);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.imageSuccessNotice {
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: var(--space-3);
+  color: var(--color-accent-strong, #166534);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.reviewCard {
+  display: grid;
+  gap: var(--space-4);
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: var(--space-4);
+}
+
+.reviewTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+}
+
+.statItem {
+  display: grid;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, inherit);
+}
+
+.statValue {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.formField {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.formLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.textarea {
+  inline-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3);
+  font: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+}
+
+.sampleBox {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sampleTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.sampleContent {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

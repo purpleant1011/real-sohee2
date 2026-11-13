@@ -1,0 +1,31 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(24);
+
+select has_column('public', 'platform_admin_members', 'mfa_exception_until', 'MFA exception expiry is source-backed');
+select has_column('public', 'platform_admin_members', 'mfa_exception_retired_at', 'MFA exception retirement timestamp is source-backed');
+select has_function('private', 'operator_mfa_required', array['uuid'], 'effective MFA requirement helper exists');
+select has_function('public', 'retire_operator_mfa_exception', array['uuid', 'timestamptz', 'text'], 'MFA exception retirement RPC exists');
+select ok(has_function_privilege('authenticated', 'public.retire_operator_mfa_exception(uuid,timestamptz,text)', 'EXECUTE'), 'authenticated can call the guarded retirement RPC');
+select ok(not has_function_privilege('anon', 'public.retire_operator_mfa_exception(uuid,timestamptz,text)', 'EXECUTE'), 'anonymous users cannot retire exceptions');
+select ok(not has_function_privilege('service_role', 'public.retire_operator_mfa_exception(uuid,timestamptz,text)', 'EXECUTE'), 'service role cannot bypass the operator retirement boundary');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) like '%mfa_exception_state%', 'admin read model exposes only safe exception state');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) like '%mfa_exception_until%', 'admin read model exposes expiry timestamp only');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) not like '%secret%', 'admin read model does not expose factor secrets');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%admin.mfa.exception.retired%', 'retirement records a safe audit action');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%MFA_EXCEPTION_VERSION_CONFLICT%', 'retirement is optimistic-concurrency guarded');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%mfa_required = true%', 'retirement immediately requires MFA for subsequent checks');
+select ok(pg_get_functiondef('public.get_current_operator_context()'::regprocedure) like '%operator_mfa_required%', 'current operator context reevaluates effective MFA policy');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%aal2%', 'retirement requires fresh AAL2');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%admin.role.change.request%', 'retirement is restricted to an existing high-risk admin permission');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) like '%session_state%unknown%', 'session state remains unknown without an authoritative source');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) not like '%authenticator%', 'QR and authenticator metadata are not projected');
+select ok(pg_get_functiondef('public.list_operator_admins(text,text,text,timestamptz,uuid,integer)'::regprocedure) like '%p_mfa_state = ''unknown'' and member.mfa_exception_until is null%', 'unknown MFA filter does not match every administrator');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%MFA_FACTOR_REQUIRED%', 'retirement requires a verified TOTP factor');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%OPERATOR_NOT_ACTIVE%', 'retirement requires an active target');
+select ok(pg_get_functiondef('public.retire_operator_mfa_exception(uuid,timestamptz,text)'::regprocedure) like '%MFA_EXCEPTION_IDEMPOTENCY_CONFLICT%', 'idempotency replay is target-bound');
+select ok(pg_get_functiondef('private.operator_mfa_required(uuid)'::regprocedure) like '%mfa_exception_until is null%', 'legacy exceptions use an explicit grace expiry');
+select ok((select pg_get_constraintdef(oid) from pg_constraint where conrelid='public.platform_audit_events'::regclass and conname='platform_audit_events_action_check') like '%audit.export.workspace.applied%' and (select pg_get_constraintdef(oid) from pg_constraint where conrelid='public.platform_audit_events'::regclass and conname='platform_audit_events_action_check') like '%audit.export.global.applied%', 'MFA migration preserves audit export apply actions');
+
+select * from finish();
+rollback;

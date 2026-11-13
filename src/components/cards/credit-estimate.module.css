@@ -1,0 +1,123 @@
+.card {
+  display: grid;
+  gap: var(--space-4, 1rem);
+  border: 1px solid var(--sohee-line);
+  border-radius: var(--sohee-radius-card);
+  background: var(--sohee-surface);
+  padding: var(--space-4, 1rem);
+  box-shadow: var(--sohee-shadow-sm);
+  color: var(--sohee-ink);
+}
+
+.heading {
+  display: grid;
+  min-inline-size: 0;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3, 0.75rem);
+}
+
+.heading p,
+.heading strong,
+.summary {
+  margin: 0;
+}
+
+.heading p {
+  color: var(--sohee-ink-soft);
+  font-size: 0.75rem;
+}
+
+.heading strong {
+  display: block;
+  margin-block-start: var(--space-1, 0.25rem);
+  font-size: 1rem;
+}
+
+.icon {
+  display: grid;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  place-items: center;
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-accent-soft);
+  color: var(--sohee-accent-strong);
+}
+
+.icon svg {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--sohee-line);
+  border-radius: var(--sohee-radius-control);
+  background: var(--sohee-surface-soft);
+}
+
+.summary div {
+  min-inline-size: 0;
+  padding: var(--space-3, 0.75rem);
+  border-inline-end: 1px solid var(--sohee-line);
+}
+
+.summary div:last-child {
+  border-inline-end: 0;
+}
+
+.summary dt {
+  color: var(--sohee-ink-soft);
+  font-size: 0.75rem;
+}
+
+.summary dd {
+  margin: var(--space-1, 0.25rem) 0 0;
+  color: var(--sohee-ink);
+  font-size: 0.8125rem;
+  font-weight: 760;
+}
+
+.card[data-compact='true'] {
+  grid-template-columns: minmax(13rem, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3, 0.75rem);
+  padding-block: var(--space-3, 0.75rem);
+}
+
+.card[data-compact='true'] .summary {
+  grid-template-columns: repeat(2, minmax(6.5rem, 1fr));
+}
+
+.card[data-compact='true'] .summary div {
+  padding-block: var(--space-2, 0.5rem);
+}
+
+@media (max-width: 620px) {
+  .card[data-compact='true'] {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .heading > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .summary div {
+    border-inline-end: 0;
+    border-block-end: 1px solid var(--sohee-line);
+  }
+
+  .summary div:last-child {
+    border-block-end: 0;
+  }
+}

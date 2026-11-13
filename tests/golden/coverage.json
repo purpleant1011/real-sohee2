@@ -1,0 +1,351 @@
+{
+  "version": "v093-golden-1",
+  "note": "contractTests = 결정적 오프라인 테스트(CI 포함 가능). live = 실DB/브라우저/provider/계약이 있어야만 확정되는 증거. live가 있으면 계약 테스트가 통과해도 NOT_VERIFIED이며 PASS로 승격하지 않는다.",
+  "tasks": {
+    "G093-01": {
+      "signup-persisted": {
+        "contractTests": [
+          "src/features/auth/__tests__/signup-state-machine-security.test.ts",
+          "src/app/api/auth/signup-flow/__tests__/signup-flow-api.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "가입 행·사업장 readback은 격리 DB(tests/integration/atomic-signup-and-admin-grant, npm run test:vault-db)가 필요"
+        }
+      },
+      "refresh-parity": {
+        "contractTests": [],
+        "live": {
+          "requires": "BROWSER",
+          "reason": "PC/모바일 재접속 동일 사업장 정보는 실브라우저 E2E 필요; 오프라인 계약 테스트 없음"
+        }
+      },
+      "taste-grant-once": {
+        "contractTests": [
+          "src/features/membership/grant-connected-signup-credits.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "체험 지급 RPC 멱등성은 실DB 원장에서만 확정"
+        }
+      }
+    },
+    "G093-02": {
+      "media-digest-readback": {
+        "contractTests": [
+          "src/features/media/media-upload.test.ts",
+          "tests/unit/media-storage.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "Storage 실객체와 media_assets 행의 동일 digest readback은 실스토리지+DB 필요"
+        }
+      },
+      "rights-enforced": {
+        "contractTests": [
+          "src/features/media/media-rights.test.ts",
+          "src/features/content/actions/upload-content-media.test.ts",
+          "tests/tenant-isolation/media-path.test.ts"
+        ]
+      },
+      "generation-settled": {
+        "contractTests": [
+          "src/features/quick-start/__tests__/quick-post-credits.test.ts",
+          "src/features/quick-start/__tests__/quick-post-credit-retry.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "reserve→settle/release 실원장 대사는 실DB RPC 필요"
+        }
+      }
+    },
+    "G093-03": {
+      "mobile-edit-persisted": {
+        "contractTests": [
+          "src/features/first-value/preview-studio.test.tsx",
+          "src/features/first-value/first-value.test.ts"
+        ],
+        "live": {
+          "requires": "BROWSER",
+          "reason": "375px 모바일 수정 후 새로고침 영속은 실브라우저 필요"
+        }
+      },
+      "approval-exact": {
+        "contractTests": [
+          "src/features/first-value/publish-route.test.ts",
+          "src/features/first-value/__tests__/publish-route-fact-gate.test.ts"
+        ]
+      },
+      "publish-readback-or-manual": {
+        "contractTests": [
+          "src/features/agent-runtime/__tests__/readback-verifier.test.ts",
+          "src/features/publishing/first-value-outcome.test.ts",
+          "src/features/first-value/manual-handoff-panel.test.tsx"
+        ],
+        "live": {
+          "requires": "PROVIDER_ALLOWLIST",
+          "reason": "실제 게시 URL readback은 allowlist 실계정 필요; 수동 대안 분기는 별도 계약 테스트"
+        }
+      }
+    },
+    "G093-04": {
+      "scope-rechecked": {
+        "contractTests": [
+          "src/features/capabilities/publish-context.test.ts",
+          "src/features/booking-recovery/__tests__/capabilities.test.ts"
+        ],
+        "live": {
+          "requires": "PROVIDER_ALLOWLIST",
+          "reason": "실제 OAuth scope 회수 후 재검증은 실계정 필요"
+        }
+      },
+      "provider-writes-zero": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/capabilities.test.ts",
+          "src/features/capabilities/publish-context.test.ts"
+        ]
+      },
+      "manual-alternative": {
+        "contractTests": [
+          "src/features/first-value/manual-handoff-panel.test.tsx",
+          "src/features/notifications/manual-booking-notice.test.ts"
+        ]
+      }
+    },
+    "G093-05": {
+      "inbound-tenant-bound": {
+        "contractTests": [
+          "src/features/meta-webhooks/__tests__/meta-webhook-customer-conversation.test.ts",
+          "src/features/booking-recovery/__tests__/inbound-projector-security.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "실서명 webhook의 테넌트 결속은 격리 DB 교차 테스트 필요"
+        }
+      },
+      "approval-exact": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/approval-binding.test.ts",
+          "src/features/booking-recovery/__tests__/approved-reply.test.ts"
+        ]
+      },
+      "dm-independent-readback": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/dm-adapter.test.ts",
+          "src/features/booking-recovery/__tests__/reconcile.test.ts",
+          "src/features/booking-recovery/__tests__/dm-reconcile-dependencies.test.ts"
+        ],
+        "live": {
+          "requires": "PROVIDER_ALLOWLIST",
+          "reason": "실제 DM 독립 readback은 allowlist 실계정 필요"
+        }
+      },
+      "unknown-no-resend": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/reconcile.test.ts",
+          "src/features/booking-recovery/__tests__/dm-adapter.test.ts"
+        ]
+      }
+    },
+    "G093-06": {
+      "source-sequence-rechecked": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/approved-reply.test.ts",
+          "src/features/booking-recovery/__tests__/approval-binding.test.ts",
+          "tests/golden/domain-probes.test.ts"
+        ]
+      },
+      "stale-approval-blocked": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/approval-binding.test.ts",
+          "tests/golden/domain-probes.test.ts"
+        ]
+      },
+      "provider-writes-zero": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/approved-reply.test.ts",
+          "src/features/booking-recovery/__tests__/dm-adapter.test.ts"
+        ]
+      }
+    },
+    "G093-07": {
+      "customer-acceptance-bound": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/customer-acceptance-evidence.test.ts",
+          "src/features/booking-recovery/__tests__/acceptance-temporal-binding.test.ts",
+          "tests/golden/acceptance-boundary.test.ts"
+        ]
+      },
+      "db-race-one-winner": {
+        "contractTests": [
+          "src/features/booking/__tests__/booking-state-machine.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "동일 슬롯 동시 2요청의 1건 확정은 실DB 원자성(npm run test:booking-recovery-db) 필요"
+        }
+      },
+      "booking-ledger-readback": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/booking-adapter.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "예약 장부 readback은 실DB 필요"
+        }
+      }
+    },
+    "G093-08": {
+      "booking-version-rechecked": {
+        "contractTests": [
+          "src/features/booking-recovery/__tests__/service.test.ts",
+          "src/features/booking-recovery/__tests__/availability.test.ts"
+        ]
+      },
+      "old-notice-invalidated": {
+        "contractTests": [
+          "src/features/notifications/manual-booking-notice.test.ts"
+        ]
+      },
+      "cancel-readback": {
+        "contractTests": [
+          "src/features/reservations/__tests__/cancel-reservation.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "취소 후 장부 readback은 실DB 필요"
+        }
+      }
+    },
+    "G093-09": {
+      "contract-gate": {
+        "contractTests": [
+          "src/features/payments/deposit-intent.test.ts"
+        ],
+        "live": {
+          "requires": "PROVIDER_CONTRACT",
+          "reason": "PG 계약·scope·별도 승인(ANI-1616) 미확보"
+        }
+      },
+      "pg-receipt-readback": {
+        "contractTests": [],
+        "live": {
+          "requires": "PG_SANDBOX",
+          "reason": "PG 독립 조회 증거 없음; 결제 screenshot은 증거 아님"
+        }
+      },
+      "webhook-idempotency": {
+        "contractTests": [],
+        "live": {
+          "requires": "PG_SANDBOX",
+          "reason": "중복 webhook 정산 0은 PG sandbox 필요"
+        }
+      },
+      "refund-reconciled": {
+        "contractTests": [],
+        "live": {
+          "requires": "PG_SANDBOX",
+          "reason": "늦은 환불 대사는 PG sandbox 필요"
+        }
+      }
+    },
+    "G093-10": {
+      "contract-gate": {
+        "contractTests": [],
+        "live": {
+          "requires": "PROVIDER_CONTRACT",
+          "reason": "카카오 공식 발송 계약 미확보(ANI-1619)"
+        }
+      },
+      "consent-purpose-separated": {
+        "contractTests": [
+          "src/features/channels/__tests__/consent-ledger.test.ts",
+          "tests/unit/channel-consent-envelope.test.ts"
+        ]
+      },
+      "withdrawal-race-blocked": {
+        "contractTests": [
+          "src/features/channels/__tests__/consent-ledger.test.ts"
+        ],
+        "live": {
+          "requires": "ISOLATED_DB",
+          "reason": "철회-worker 경쟁은 실DB 동시성 필요"
+        }
+      },
+      "notice-readback": {
+        "contractTests": [],
+        "live": {
+          "requires": "PROVIDER_CONTRACT",
+          "reason": "공식 발송 readback은 계약·실계정 필요"
+        }
+      }
+    },
+    "G093-11": {
+      "availability-fresh": {
+        "contractTests": [
+          "src/features/opportunity/slot-opportunity.test.ts",
+          "src/features/booking-recovery/__tests__/availability.test.ts"
+        ]
+      },
+      "campaign-exact-approval": {
+        "contractTests": [
+          "src/features/benefit-campaigns/__tests__/benefit-campaigns.test.ts",
+          "src/features/booking-recovery/__tests__/approval-binding.test.ts"
+        ],
+        "live": {
+          "requires": "PROVIDER_ALLOWLIST",
+          "reason": "승인 캠페인의 실제 실행·readback은 allowlist 실계정 필요"
+        }
+      },
+      "consent-budget-policy": {
+        "contractTests": [
+          "src/features/benefit-campaigns/__tests__/benefit-campaigns.test.ts",
+          "src/features/policy-gate/service-policy.test.ts"
+        ]
+      }
+    },
+    "G093-12": {
+      "five-view-parity": {
+        "contractTests": [
+          "src/features/reporting/__tests__/consumer-truth.test.ts",
+          "src/features/home/__tests__/home-5-priority-read-model.test.ts"
+        ],
+        "live": {
+          "requires": "BROWSER",
+          "reason": "홈·CRM·예약·성과·관리 다섯 화면 동일 사실은 실DB+브라우저 필요"
+        }
+      },
+      "snapshot-freshness": {
+        "contractTests": [
+          "src/features/admin/same-truth/read-model.test.ts"
+        ]
+      },
+      "zero-missing-error-distinct": {
+        "contractTests": [
+          "src/features/quick-start/__tests__/first-value-observation.test.ts",
+          "src/features/capabilities/publish-context.test.ts"
+        ]
+      },
+      "money-provenance": {
+        "contractTests": [
+          "src/features/reporting/__tests__/consumer-truth.test.ts",
+          "src/features/reporting/__tests__/truth-gate.test.ts"
+        ]
+      }
+    }
+  },
+  "commonScenarios": {
+    "mobile-360-375-ios-android": {
+      "status": "NOT_VERIFIED",
+      "reason": "실기기/모바일 브라우저 E2E 필요(docs Doc12 §4). 오프라인 테스트로 대체 불가"
+    },
+    "network-loss-and-pwa-resume": {
+      "status": "NOT_VERIFIED",
+      "reason": "네트워크 단절·PWA 백그라운드 재개는 실브라우저 필요"
+    },
+    "provider-429-5xx": {
+      "status": "CONTRACT_ONLY",
+      "reason": "provider 오류는 결정적 fake로만; 실제 429/5xx는 allowlist 필요"
+    }
+  }
+}

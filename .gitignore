@@ -1,0 +1,57 @@
+# Dependencies and build output
+node_modules/
+.next/
+connector/chrome-extension/dist/
+connector/chrome-extension/dist-test/
+connector/native-host/dist/
+.open-next/
+.wrangler/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
+*.key
+connector-extension-key.pem
+
+# Supabase local runtime
+.supabase/
+supabase/.branches/
+supabase/.temp/
+
+# Local databases and generated data
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Editor, operating system, and temporary files
+.DS_Store
+# macOS Finder 메타데이터 파일은 `Icon` + CR 한 글자다. `Icon?` 로 쓰면 대소문자를 무시하는
+# 파일시스템(macOS 기본 APFS)에서 `public/icons/` 디렉터리까지 매칭되어 아이콘 PNG 가
+# 조용히 커밋에서 빠진다(2026-10-23 main 배포 실패 원인). 문자 1개 매칭 대신 비영문자 매칭을 쓴다.
+Icon[!a-zA-Z]
+.idea/
+.vscode/
+*.log
+tmp/
+*.command
+소희 크롬.command
+
+# Isolated implementation workspaces
+.worktrees/
+.superpowers/
+
+# Browser sessions and authentication state
+playwright/.auth/
+storage-state*.json
+
+# engagement audit raw output (may contain customer data)
+.audit-raw/

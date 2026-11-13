@@ -1,0 +1,248 @@
+.demo {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: clamp(2rem, 7vw, 5.5rem) clamp(4.5rem, 10vw, 8rem);
+}
+
+.intro {
+  max-inline-size: 44rem;
+}
+
+.kicker,
+.eyebrow,
+.completionLabel {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.intro h1,
+.stageDetail h2,
+.completion h2 {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text);
+  letter-spacing: -0.05em;
+}
+
+.intro h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.04;
+}
+
+.intro > p:last-child {
+  margin: var(--space-6) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.workspace {
+  margin-block-start: clamp(2rem, 6vw, 4rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.progressHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.progressText {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 850;
+  letter-spacing: -0.06em;
+}
+
+.memoryNotice {
+  max-inline-size: 22rem;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: end;
+}
+
+.progressBar {
+  block-size: 0.65rem;
+  margin-block: var(--space-4);
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+}
+
+.progressFill {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+  background: var(--color-accent);
+  transition: inline-size 180ms ease;
+}
+
+.liveStatus {
+  min-block-size: 1.35rem;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.stageList {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  min-block-size: 5.4rem;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.stageNumber {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  font-size: 0.78rem;
+}
+
+.stage[data-state='current'] {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.stage[data-state='current'] .stageNumber,
+.stage[data-state='completed'] .stageNumber {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.stage[data-state='completed'] {
+  color: var(--color-text);
+}
+
+.stageDetail,
+.completion {
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-6);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.stageDetail h2,
+.completion h2 {
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  line-height: 1.16;
+}
+
+.stageDetail > p:not(.eyebrow),
+.completion > p:not(.eyebrow):not(.completionLabel) {
+  max-inline-size: 43rem;
+  margin: var(--space-3) 0 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.nextAction {
+  margin-block-start: var(--space-6);
+  padding: var(--space-4);
+  border-inline-start: 3px solid var(--color-accent);
+  background: var(--color-surface-muted);
+}
+
+.nextAction p:last-child {
+  margin: var(--space-2) 0 0;
+  line-height: 1.6;
+}
+
+.nextAction .eyebrow {
+  color: var(--color-focus);
+}
+
+.primaryButton,
+.secondaryButton {
+  min-block-size: var(--tap-size);
+  margin-block-start: var(--space-6);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.secondaryButton {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton:hover {
+  border-color: var(--color-accent-strong);
+  background: var(--color-accent-strong);
+}
+
+.assurance {
+  color: var(--color-text) !important;
+  font-weight: 750;
+}
+
+@media (max-width: 700px) {
+  .demo {
+    width: min(100% - 1.5rem, 72rem);
+  }
+
+  .progressHeader {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .memoryNotice {
+    max-inline-size: none;
+    text-align: start;
+  }
+
+  .stageList {
+    grid-template-columns: 1fr;
+  }
+
+  .stage {
+    min-block-size: auto;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill,
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
+  }
+}

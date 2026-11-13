@@ -1,0 +1,51 @@
+.frame {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.72);
+  border-radius: 999px;
+  background: linear-gradient(145deg, #c9b3f4, #7956d5);
+  box-shadow: 0 8px 22px rgb(93 61 177 / 0.22);
+}
+
+.small {
+  inline-size: 3rem;
+  block-size: 3rem;
+}
+
+.message {
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+}
+
+.hero {
+  inline-size: 3rem;
+  block-size: 3rem;
+}
+
+.mark {
+  border-radius: 0.875rem;
+  box-shadow: 0 8px 24px rgb(8 3 12 / 0.28);
+}
+
+.image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.messageImage {
+  transform: scale(1.18);
+  transform-origin: 50% 38%;
+}
+
+.fallback {
+  display: grid;
+  inline-size: 100%;
+  block-size: 100%;
+  place-items: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+}

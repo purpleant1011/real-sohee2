@@ -1,0 +1,48 @@
+import type { RecoveryStage } from './contracts';
+
+/**
+ * 2. Formal State Machine Allowed Transitions Map
+ *
+ * 절대 불변식:
+ * 1. 고객 의도(DISCOVERED)만으로 BOOKING_CONFIRMED 직행 불가.
+ * 2. SEND_VERIFIED 전에는 CUSTOMER_ACCEPTED 전이 불가.
+ * 3. CUSTOMER_ACCEPTED 후 사장님 승인(AWAITING_BOOKING_APPROVAL) 없이 BOOKING_CONFIRMED 직행 불가.
+ * 4. RESULT_UNKNOWN에서 SEND_REQUESTED로 자동 복귀 불가 (무조건 재전송 차단; 대사 또는 사람 검토 필수).
+ * 5. 종결 상태(BOOKING_CONFIRMED, DECLINED, EXPIRED)에서는 추가 전이 차단.
+ */
+const ALLOWED_TRANSITIONS: Record<RecoveryStage, readonly RecoveryStage[]> = {
+  DISCOVERED: ['NEEDS_CONTEXT', 'DRAFT_READY', 'BLOCKED', 'HUMAN_REVIEW', 'EXPIRED'],
+  NEEDS_CONTEXT: ['DRAFT_READY', 'BLOCKED', 'HUMAN_REVIEW', 'EXPIRED'],
+  DRAFT_READY: ['AWAITING_SEND_APPROVAL', 'NEEDS_CONTEXT', 'BLOCKED', 'HUMAN_REVIEW', 'EXPIRED'],
+  AWAITING_SEND_APPROVAL: ['SEND_REQUESTED', 'DRAFT_READY', 'DECLINED', 'HUMAN_REVIEW', 'EXPIRED'],
+  SEND_REQUESTED: ['PROVIDER_ACCEPTED', 'RESULT_UNKNOWN', 'HUMAN_REVIEW'],
+  PROVIDER_ACCEPTED: ['SEND_VERIFIED', 'RESULT_UNKNOWN', 'HUMAN_REVIEW'],
+  SEND_VERIFIED: ['AWAITING_CUSTOMER', 'RESULT_UNKNOWN', 'HUMAN_REVIEW'],
+  AWAITING_CUSTOMER: ['CUSTOMER_ACCEPTED', 'DECLINED', 'EXPIRED', 'HUMAN_REVIEW'],
+  CUSTOMER_ACCEPTED: ['AWAITING_BOOKING_APPROVAL', 'DRAFT_READY', 'HUMAN_REVIEW', 'EXPIRED'],
+  AWAITING_BOOKING_APPROVAL: ['BOOKING_CONFIRMED', 'AWAITING_BOOKING_APPROVAL', 'DRAFT_READY', 'DECLINED', 'HUMAN_REVIEW', 'EXPIRED'],
+  BOOKING_CONFIRMED: [], // Terminal
+  RESULT_UNKNOWN: ['NEEDS_RECONCILIATION', 'HUMAN_REVIEW'], // No auto re-send to SEND_REQUESTED
+  NEEDS_RECONCILIATION: ['SEND_VERIFIED', 'AWAITING_CUSTOMER', 'HUMAN_REVIEW', 'BLOCKED'],
+  HUMAN_REVIEW: [
+    'DRAFT_READY',
+    'AWAITING_SEND_APPROVAL',
+    'AWAITING_BOOKING_APPROVAL',
+    'BLOCKED',
+    'DECLINED',
+    'EXPIRED',
+  ],
+  BLOCKED: ['HUMAN_REVIEW'],
+  DECLINED: [], // Terminal
+  EXPIRED: [], // Terminal
+};
+
+/**
+ * Evaluates whether transition from `from` to `to` is legally permitted.
+ */
+export function canTransition(from: RecoveryStage, to: RecoveryStage): boolean {
+  if (from === to && from !== 'AWAITING_BOOKING_APPROVAL') return false;
+  const allowed = ALLOWED_TRANSITIONS[from];
+  if (!allowed || allowed.length === 0) return false;
+  return allowed.includes(to);
+}

@@ -1,0 +1,4 @@
+import { describe, expect, it, vi } from 'vitest'
+import { generateChannelContentAction } from './generate-channel-content'
+const workspaceId='10000000-0000-4000-8000-000000000001'
+describe('generateChannelContentAction',()=>{it('settles successful text and releases failed image slots',async()=>{const settle=vi.fn(),release=vi.fn(); const result=await generateChannelContentAction({workspaceId,requestedImageCount:2},{facts:{listApproved:async()=>['20000000-0000-4000-8000-000000000001']},harness:{listActive:async()=>['30000000-0000-4000-8000-000000000001']},credits:{reserve:async()=>({reservationId:'r'}),settle,release},provider:{generate:async()=>({content:{channel:'threads',segments:['본문'],mediaIds:[],question:'질문'},successfulImageSlots:1})},repository:{persist:async()=>undefined}});expect(result.data?.requestedImageCount).toBe(2);expect(settle).toHaveBeenCalledTimes(1);expect(release).toHaveBeenCalledTimes(1)})})

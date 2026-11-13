@@ -1,0 +1,31 @@
+.card {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--color-warning, #b45309) 32%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--color-warning, #b45309) 6%, var(--surface, #fff));
+}
+
+.header { display: grid; gap: 6px; }
+.header strong { color: var(--text-strong, #171717); font-size: 16px; }
+.header p, .message { margin: 0; color: var(--text-muted, #666); font-size: 13px; line-height: 1.55; }
+
+.facts { display: grid; gap: 8px; margin: 0; }
+.facts div { display: grid; grid-template-columns: minmax(88px, .7fr) 1.3fr; gap: 12px; }
+.facts dt { color: var(--text-muted, #777); font-size: 12px; }
+.facts dd { min-width: 0; margin: 0; overflow-wrap: anywhere; color: var(--text-strong, #222); font-size: 12px; font-weight: 650; }
+
+.action {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--brand-primary, #6c5ce7);
+  color: #fff;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.action:disabled { cursor: wait; opacity: .58; }
+.action:focus-visible { outline: 3px solid color-mix(in srgb, var(--brand-primary, #6c5ce7) 34%, transparent); outline-offset: 2px; }

@@ -1,0 +1,83 @@
+.badge {
+  display: inline-flex;
+  min-inline-size: 0;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  color: var(--sohee-muted);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.label {
+  display: inline-flex;
+  min-block-size: 1.75rem;
+  align-items: center;
+  border: 1px solid var(--sohee-line);
+  border-radius: 999px;
+  background: var(--sohee-surface-soft);
+  padding: 0.35rem 0.65rem;
+  color: var(--sohee-muted);
+  font-size: 0.75rem;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.label[data-tone='proposal'],
+.label[data-tone='ready'] {
+  border-color: color-mix(in srgb, var(--sohee-accent), transparent 68%);
+  background: var(--sohee-accent-soft);
+  color: var(--sohee-accent-strong);
+}
+
+.label[data-tone='review'],
+.label[data-tone='external-review'] {
+  border-color: color-mix(in srgb, var(--sohee-warning), transparent 64%);
+  background: var(--sohee-warning-soft);
+  color: color-mix(in srgb, var(--sohee-warning) 86%, #000000);
+}
+
+.label[data-tone='active'],
+.label[data-tone='success'] {
+  border-color: color-mix(in srgb, var(--sohee-success), transparent 64%);
+  background: var(--sohee-success-soft);
+  color: color-mix(in srgb, var(--sohee-success) 72%, #000000);
+}
+
+.label[data-tone='failure'],
+.label[data-tone='unknown'] {
+  border-color: color-mix(in srgb, var(--sohee-danger), transparent 64%);
+  background: var(--sohee-danger-soft);
+  color: color-mix(in srgb, var(--sohee-danger) 80%, #000000);
+}
+
+.label[data-tone='external-review']::before,
+.label[data-tone='success']::before,
+.label[data-tone='failure']::before,
+.label[data-tone='unknown']::before {
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+  content: '';
+}
+
+.detail {
+  overflow: hidden;
+  max-inline-size: 22rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .badge {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-1, 0.25rem);
+  }
+
+  .detail {
+    max-inline-size: 100%;
+    white-space: normal;
+  }
+}

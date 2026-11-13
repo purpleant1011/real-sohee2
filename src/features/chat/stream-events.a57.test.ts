@@ -1,0 +1,1 @@
+import { expect,it } from 'vitest';import type { MessageArtifact } from './stream-events';it('keeps manual and provider pending artifacts non-successful',()=>{const a:MessageArtifact={id:'x',kind:'manual_assist',title:'수동',href:'/app',statusLabel:'수동 마무리 필요',requiresConfirmation:true};expect(a.statusLabel).not.toBe('성공')})

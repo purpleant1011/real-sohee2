@@ -1,0 +1,20 @@
+.editorSection {
+  display: grid;
+  gap: 0.85rem;
+  border-block-start: 1px solid var(--sohee-line, #e3dfe7);
+  padding-block-start: 1rem;
+}
+
+.versionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.versionHeading h2 { margin: 0; font-size: 1rem; letter-spacing: -0.025em; }
+.formButton, .secondaryLink { display: inline-flex; min-block-size: 44px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 0.8rem; background: var(--sohee-accent, #6f42d7); color: #fff; padding: 0.65rem 0.9rem; font: inherit; font-size: 0.78rem; font-weight: 800; text-decoration: none; cursor: pointer; }
+.formButton:disabled { cursor: not-allowed; opacity: 0.48; }
+.secondaryLink { margin-block-start: 0.65rem; border-color: var(--sohee-line, #e3dfe7); background: var(--sohee-surface, #fff); color: var(--sohee-accent, #6f42d7); }
+.formMessage { margin: 0; border-radius: 0.75rem; background: var(--sohee-surface-soft, #f8f6fa); color: var(--sohee-ink-soft, #5f5967); padding: 0.75rem; font-size: 0.76rem; line-height: 1.55; }
+.muted { display: block; margin-block-start: 0.65rem; color: var(--sohee-muted, #817989); font-size: 0.72rem; }

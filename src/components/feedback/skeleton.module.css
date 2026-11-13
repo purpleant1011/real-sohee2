@@ -1,0 +1,37 @@
+.skeleton {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.line {
+  block-size: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-muted) 25%,
+    color-mix(in srgb, var(--color-surface-muted), var(--color-surface) 45%) 50%,
+    var(--color-surface-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.line:nth-child(2) {
+  inline-size: 82%;
+}
+
+.line:nth-child(3) {
+  inline-size: 64%;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line {
+    animation: none;
+  }
+}

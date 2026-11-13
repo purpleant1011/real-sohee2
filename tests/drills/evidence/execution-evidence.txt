@@ -1,0 +1,64 @@
+================================================================================
+SOHEE V0.93 W3 DRILLS V2 EXECUTION & SECURITY VERIFICATION EVIDENCE
+================================================================================
+Timestamp: 2026-10-22 02:15 KST
+Workspace: /Volumes/Development/Github/real-sohee/.claude/worktrees/v093-w3-drills-v2
+Branch: claude/v093-w3-drills-v2
+Base Commit: 8e03b7b9 (origin/integration/v093)
+Contract: W4 v2 approval/reconcile specification (ANI-1640 / ANI-1641)
+
+--------------------------------------------------------------------------------
+1. Drill Suite Execution Summary (tests/drills/**)
+--------------------------------------------------------------------------------
+Command: npx --no-install vitest run tests/drills
+Exit Code: 0
+Total Test Files: 3 passed (3)
+Total Tests: 50 passed (50)
+Duration: ~99s (environment loading 154s, tests runtime 42ms)
+
+Breakdown:
+- tests/drills/fake-provider.test.ts (5 tests): ALL PASSED
+  - Negative tests: recipient mismatch, text mismatch, missing mandatory params, sourceEventKey prefix mismatch
+  - Positive control: verified: true with matched recorded fields
+- tests/drills/baseline-reconcile-gap.test.ts (9 tests): ALL PASSED
+  - Malicious verified:true rejection: recipientRef, reply text, senderId, providerMessageId, stale observedAt, future observedAt
+  - Missing evidence rejection: null loadAttemptedSend, mismatched sourceEventKey
+  - Positive control: RESOLVED_VERIFIED with attempted.actor (non-zero UUID) and fingerprint match
+- tests/drills/provider-recovery.test.ts (36 tests): ALL PASSED
+  - D093-01: 401 demote, 403 demote, missing scope POLICY_BLOCKED, unprovided loadApprovedReply CONTEXT_REQUIRED, positive control PASS
+  - D093-02: 429 demote to RESULT_UNKNOWN, outbox UNKNOWN enqueue, 0 resend loop, positive control PASS
+  - D093-03: 500, 502, 503, 504 server errors demote to RESULT_UNKNOWN, no EMPTY masking, positive control PASS
+  - D093-04: Timeout after write (send 1, sideEffect 1, outbox UNKNOWN) -> reconcileOutboxItem readback-only (send 1 maintained, AttemptedSendEvidence actor, FINISHED)
+  - D093-05: Post-send DB finishStep failure returns RESULT_UNKNOWN, preserves error message, positive control PASS
+  - D093-06: Step lease conflict returns VERSION_CONFLICT (send 0), duplicate webhook returns duplicate, positive control PASS
+  - D093-07: (a) newer customer msg (b) draft edit (c) fingerprint mismatch (d) proposal field mismatch (e) expired DTO (f) STALE_BEFORE_SEND after SEND_REQUESTED -> all send 0, VERSION_CONFLICT
+  - D093-08: Booking adapter returns VERSION_CONFLICT on slot conflict
+  - D093-11: Readback mismatches on isLive:false, messageId, recipient, text, sender, past observedAt, future observedAt, exception -> refuse SEND_VERIFIED, positive control PASS
+  - D093-12: (a) attempt 3 with AttemptedSendEvidence -> MOVED_TO_HUMAN_REVIEW (RECONCILE_EXHAUSTED) with attempted.actor, (b) attempt 3 without evidence -> throw RECONCILE_MANUAL_EVIDENCE_REQUIRED
+
+--------------------------------------------------------------------------------
+2. v1 Baseline Historic Evidence (Archived from W3 6bbd9648)
+--------------------------------------------------------------------------------
+Initial integration run on provider-recovery.test.ts before v2 update:
+Exit Code: 1 (FAIL: 9 failed, 1 passed out of 10 tests)
+Failures:
+- D093-01: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-02: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-03: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-04: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-05: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-06: expected 'CONTEXT_REQUIRED' to be 'VERSION_CONFLICT'
+- D093-07: expected 'CONTEXT_REQUIRED' to be 'VERSION_CONFLICT'
+- D093-11: expected 'CONTEXT_REQUIRED' to be 'RESULT_UNKNOWN'
+- D093-12: RECONCILE_CONTEXT_MISMATCH
+Cause: Test suite assumed v1 return contract without providing valid ApprovedReplyDto required by W4 v2 dm-adapter.ts.
+Resolution: Re-architected drills harness to inject valid schemaVersion 2 ApprovedReplyDto, enforce AttemptedSendEvidence in reconciliation, and add paired positive controls.
+
+--------------------------------------------------------------------------------
+3. Safety Invariants Observed
+--------------------------------------------------------------------------------
+- Real network / external provider access: 0 (fetch stubbed to throw Error)
+- Production database writes: 0 (in-memory stateful mock)
+- Operating system GUI popups / osascript: 0
+- Secret & PII exposure: 0 (test fixtures only)
+- Skip / it.fails / weakened assertions: 0

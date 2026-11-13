@@ -1,0 +1,169 @@
+.opportunitiesSection {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 14px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.sectionSubtitle {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.viewAllLink {
+  font-size: 13px;
+  font-weight: 750;
+  color: #0284c7;
+  text-decoration: none;
+  padding: 4px 8px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.oppCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+}
+
+.oppCard:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.channelTag {
+  font-size: 12px;
+  font-weight: 750;
+  color: #1e293b;
+}
+
+.timeText {
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+.quoteMessage {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.45;
+}
+
+.soheeBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.soheeLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.soheeText {
+  margin: 0;
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badgeCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oppBadge {
+  font-size: 11.5px;
+  font-weight: 750;
+  color: #059669;
+}
+
+.provenanceText {
+  font-size: 10.5px;
+  color: #94a3b8;
+}
+
+.actionBtn {
+  min-height: 38px;
+  padding: 0 16px;
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: #0369a1;
+}
+
+.repliedTag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #166534;
+  background: #dcfce7;
+  padding: 4px 10px;
+  border-radius: 6px;
+}

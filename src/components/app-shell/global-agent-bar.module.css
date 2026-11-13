@@ -1,0 +1,402 @@
+.agentBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 20px;
+  background: var(--bg-surface, #ffffff);
+  border-bottom: 1px solid var(--line-subtle, #e2e8f0);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  min-height: 56px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mobileHeaderBrand {
+  display: none;
+}
+
+.workspaceSelector {
+  position: relative;
+}
+
+.workspaceButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-canvas, #f8fafc);
+  border: 1px solid var(--line-subtle, #e2e8f0);
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 750;
+  color: var(--text-primary, #0f172a);
+  cursor: pointer;
+  min-height: 38px;
+  transition: all 0.15s ease;
+}
+
+.workspaceButton:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.workspaceButton:focus-visible {
+  outline: 2px solid var(--primary-accent, #0284c7);
+  outline-offset: 2px;
+}
+
+.storeIcon {
+  font-size: 15px;
+}
+
+.chevron {
+  font-size: 10px;
+  color: #64748b;
+  margin-left: 2px;
+}
+
+.workspaceDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #1e293b;
+  cursor: pointer;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background: #f8fafc;
+}
+
+.dropdownItemActive {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agentAvatar {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.agentLabel {
+  font-size: 13.5px;
+  font-weight: 750;
+  color: var(--text-primary, #0f172a);
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.statusWorking {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.statusWorking .statusDot {
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  animation: pulseGreen 2s infinite ease-in-out;
+}
+
+.statusPending {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.statusPending .statusDot {
+  background: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.statusPaused {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.statusPaused .statusDot {
+  background: #94a3b8;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.approvalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #e11d48;
+  text-decoration: none;
+  min-height: 38px;
+  transition: all 0.15s ease;
+}
+
+.approvalBadge:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+}
+
+.approvalBadge:focus-visible {
+  outline: 2px solid #e11d48;
+  outline-offset: 2px;
+}
+
+.creditWidget {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 12.5px;
+  color: #334155;
+  min-height: 38px;
+  transition: all 0.15s ease;
+}
+
+.creditWidget:hover {
+  background: #f1f5f9;
+}
+
+.creditLabel {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 11.5px;
+}
+
+.creditBarTrack {
+  width: 50px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.creditBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #0284c7 100%);
+  border-radius: 9999px;
+}
+
+.creditValue {
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.creditValue strong {
+  font-weight: 750;
+}
+
+.creditValue small {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.emergencyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  min-height: 38px;
+  transition: all 0.15s ease;
+}
+
+.emergencyButton:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.emergencyButtonActive {
+  background: #dc2626;
+  border-color: #b91c1c;
+  color: #ffffff;
+}
+
+.emergencyButtonActive:hover {
+  background: #b91c1c;
+  color: #ffffff;
+}
+
+.emergencyIcon {
+  font-size: 11px;
+}
+
+/* Context Rail Toggle Button */
+.contextToggleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  min-height: 38px;
+  transition: all 0.15s ease;
+}
+
+.contextToggleButton:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.contextToggleActive {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+  color: #0369a1;
+}
+
+.contextButtonText {
+  white-space: nowrap;
+}
+
+/* Header Icon Button (Notifications) */
+.headerIconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #475569;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.headerIconButton:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.unreadBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #e11d48;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .creditWidget {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobileHeaderBrand {
+    display: inline-flex;
+    margin-right: 4px;
+  }
+  .agentBar {
+    padding: 6px 12px;
+  }
+  .contextButtonText {
+    display: none;
+  }
+  .approvalCount {
+    font-size: 12px;
+  }
+  .emergencyButton {
+    padding: 6px 8px;
+  }
+  .agentLabel {
+    display: none;
+  }
+}

@@ -1,0 +1,10 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(6);
+select function_returns('public', 'list_operator_channel_connections_v2', array['uuid','text','text','text','text','integer'], 'jsonb', 'channel source state wrapper');
+select function_returns('public', 'list_operator_support_sessions_v2', array['uuid','integer'], 'jsonb', 'support source state wrapper');
+select ok(has_function_privilege('authenticated', 'public.list_operator_channel_connections_v2(uuid,text,text,text,text,integer)', 'EXECUTE'), 'authenticated can read channel source state');
+select ok(has_function_privilege('authenticated', 'public.list_operator_support_sessions_v2(uuid,integer)', 'EXECUTE'), 'authenticated can read support source state');
+select ok(not has_function_privilege('anon', 'public.list_operator_support_sessions_v2(uuid,integer)', 'EXECUTE'), 'anon cannot read support source state');
+select ok((select pg_get_functiondef('public.list_operator_channel_connections_v2(uuid,text,text,text,text,integer)'::regprocedure) like '%source_state%'), 'wrapper preserves source state');
+select * from finish(); rollback;

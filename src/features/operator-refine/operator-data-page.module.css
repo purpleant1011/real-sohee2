@@ -1,0 +1,12 @@
+.page { display: grid; gap: 1rem; }
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filters > * { min-inline-size: 9rem; }
+.metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .75rem; }
+.metrics4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stack { display: grid; gap: .2rem; }
+.stack small { color: #817685; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.note { color: #726878; font-size: .76rem; line-height: 1.55; }
+@media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }.filters > * { flex: 1 1 10rem; } }
+@media (max-width: 420px) { .metrics { grid-template-columns: 1fr; } }

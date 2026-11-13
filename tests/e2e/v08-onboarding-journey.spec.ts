@@ -1,0 +1,2 @@
+import { expect,test } from '@playwright/test'
+test('covers authenticated onboarding recovery and approval boundaries with local fixture data',async({page})=>{await page.goto('/e2e-fixture/onboarding-journey');for(const text of ['중단된 가입을 이어서 검토합니다.','후보 반려됨 · 기존 승인 사실은 유지됨','stale version 차단됨','처음부터 다시 검토','새 candidate 승인 · 새 fact version 2','onboarding complete','첫 추천: 첫 콘텐츠 만들기','일반 대화 준비됨','승인 전 chat context 미포함','cross-workspace deny'])await expect(page.getByText(text,{exact:true})).toBeVisible();await expect(page.locator('input[type="password"]')).toHaveCount(0)})

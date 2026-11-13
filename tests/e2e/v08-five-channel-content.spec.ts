@@ -1,0 +1,2 @@
+import { expect,test } from '@playwright/test'
+test('renders five channel-native drafts without external provider calls',async({page})=>{await page.goto('/e2e-fixture/channel-content');for(const text of ['첫 슬라이드','둘째 슬라이드','첫 세그먼트','둘째 세그먼트','블로그 제목','첫 구역','플레이스 새소식','청라동','채팅 문의','외부 provider 요청 0건','실패 이미지 슬롯 반환 1건'])await expect(page.getByText(text,{exact:true})).toBeVisible();await expect(page.getByRole('listitem',{name:'이미지 1: 블로그 이미지'})).toBeVisible()})

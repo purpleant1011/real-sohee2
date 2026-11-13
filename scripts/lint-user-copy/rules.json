@@ -1,0 +1,115 @@
+{
+  "rules": [
+    {
+      "id": "RULE_ENGLISH_STATUS_CODE",
+      "name": "영문 상태 코드 노출 금지",
+      "description": "사용자 화면에 내부 영문 상태 코드(PROVIDER_ACCEPTED, VERIFIED, RESULT_UNKNOWN, NOT_VERIFIED, HELD_*, release_gate, PREPARE_ONLY, PUBLISH_READY 등) 노출을 금지합니다.",
+      "pattern": "\\b(PROVIDER_ACCEPTED|VERIFIED|RESULT_UNKNOWN|NOT_VERIFIED|HELD_[A-Z0-9_]+|release_gate|PREPARE_ONLY|PUBLISH_READY)\\b",
+      "flags": "g",
+      "category": "status_code"
+    },
+    {
+      "id": "RULE_ENGLISH_STATUS_WORD",
+      "name": "영문 상태어 노출 금지",
+      "description": "사용자 화면에 영문 상태어(ERROR, EMPTY, UNKNOWN, NOT_VERIFIED, NOT_RUN, FAIL, PASS)와 이를 포함한 대문자 코드(HAS_ERROR, ALL_PASS 등) 노출을 금지합니다. JSX 텍스트·UI 속성·UI 문구 프로퍼티·라벨 맵은 단독 토큰도 위반, 그 외 위치는 한글 문구에 섞인 경우('보관 ERROR')만 위반입니다. 비교식·타입·import·case·로그 인자 등 코드 값은 AST로 제외합니다. 대체: 한국어 상태 문구 (불러오지 못했어요 / 아직 없어요 / 확인 중이에요 / 아직 확인하지 않았어요 / 실행 전이에요 / 문제가 있어요 / 이상 없어요).",
+      "pattern": "(?<![A-Za-z0-9])(?:[A-Z][A-Z0-9]*_)*(?:NOT_VERIFIED|NOT_RUN|ERROR|EMPTY|UNKNOWN|FAIL|PASS)(?:_[A-Z][A-Z0-9]*)*(?![A-Za-z0-9])",
+      "flags": "g",
+      "category": "status_code",
+      "scanContexts": ["ui", "copy"]
+    },
+    {
+      "id": "RULE_INTERNAL_HARNESS",
+      "name": "내부 용어 'Harness' 노출 금지",
+      "description": "사용자 화면에 시스템 내부 아키텍처명인 Harness/harness/하네스 노출을 금지합니다. (대체: 기준, 가이드라인, 스타일)",
+      "pattern": "(\\b[Hh]arness(?:es)?\\b|하네스)",
+      "flags": "g",
+      "category": "internal_term"
+    },
+    {
+      "id": "RULE_INTERNAL_FINGERPRINT",
+      "name": "내부 용어 'fingerprint/지문' 노출 금지",
+      "description": "사용자 화면에 내부 추적 개념인 fingerprint/지문 노출을 금지합니다.",
+      "pattern": "(\\b[Ff]ingerprint(?:s)?\\b|지문)",
+      "flags": "g",
+      "category": "internal_term"
+    },
+    {
+      "id": "RULE_INTERNAL_TECH_TERMS",
+      "name": "내부 기술 용어 'SHA/UUID' 노출 금지",
+      "description": "사용자 화면에 SHA, UUID 등 개발 용어 노출을 금지합니다.",
+      "pattern": "\\b(SHA(?:-?(?:1|256|512))?|SHA256|UUID(?:v[1-5])?)\\b",
+      "flags": "g",
+      "category": "internal_term"
+    },
+    {
+      "id": "RULE_HEX_HASH",
+      "name": "40/64자리 Hex 해시(SHA) 노출 금지",
+      "description": "사용자 화면에 40자리(SHA-1) 또는 64자리(SHA-256) Hex 해시 노출을 금지합니다.",
+      "pattern": "\\b[0-9a-fA-F]{40}\\b|\\b[0-9a-fA-F]{64}\\b",
+      "flags": "g",
+      "category": "technical_id"
+    },
+    {
+      "id": "RULE_UUID_PATTERN",
+      "name": "UUID 형식 식별자 노출 금지",
+      "description": "사용자 화면에 36자리 표준 UUID 형식 문자열 노출을 금지합니다.",
+      "pattern": "\\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\b",
+      "flags": "g",
+      "category": "technical_id"
+    },
+    {
+      "id": "RULE_FIGMA_NODE_ID",
+      "name": "Figma 디자인 노드 ID 노출 금지",
+      "description": "사용자 화면에 'Figma 151:8' 또는 디자인 노드 ID(\\d+:\\d+) 노출을 금지합니다. 시각(09:30), 화면비(16:9), 3항 비율(40:20:40)은 노드 ID가 아니므로 제외합니다.",
+      "pattern": "(?:Figma\\s*)?(?<![\\d:])\\b\\d+:\\d+\\b(?![:\\d])",
+      "flags": "g",
+      "category": "design_token",
+      "excludePatterns": [
+        "^(?:[01]?\\d|2[0-3]):[0-5]\\d$",
+        "^(?:1:1|4:3|3:4|16:9|9:16|2:3|3:2|3:5|21:9)$"
+      ]
+    },
+    {
+      "id": "RULE_VAULT_RESERVED_WORD",
+      "name": "보관 컨텍스트 내 '예약됨' 문구 노출 금지",
+      "description": "보관함 화면에서 '예약됨' 문구 사용을 금지합니다. (표준 표기: '발행 준비 완료 · 외부 게시 전')",
+      "pattern": "예약됨",
+      "flags": "g",
+      "category": "context_forbidden",
+      "contextFilter": {
+        "pathIncludes": ["vault"],
+        "orTextIncludes": ["보관", "vault"]
+      }
+    },
+    {
+      "id": "RULE_RENDER_DATA_LEAK",
+      "name": "렌더된 화면의 데이터 누수 노출 금지",
+      "description": "렌더된 화면 텍스트에 undefined / NaN / [object Object] 가 그대로 보이면 값이 비었거나 객체를 문자열로 출력한 버그입니다. 소스에는 변수만 보이므로 정적 lint 로는 못 잡고, scan-rendered.mjs(렌더 스캔)에서만 동작합니다.",
+      "pattern": "(?<![A-Za-z0-9_$.])(?:undefined|NaN|\\[object Object\\])(?![A-Za-z0-9_$])",
+      "flags": "g",
+      "category": "render_leak",
+      "scanContexts": ["rendered"]
+    },
+    {
+      "id": "WARN_ENGLISH_CODE_TOKEN",
+      "name": "기타 영문 대문자 코드 노출 (경고)",
+      "description": "ERROR/EMPTY 등 금지 상태어 7종 외의 대문자 코드(SCHEMA_DRIFT, BUSINESS_VERIFIED 같은 UPPER_SNAKE 복합 토큰과 BLOCKED/FAILED/PENDING 등 단독 상태어)가 사용자 문구에 섞인 경우입니다. 실제 화면에 보이는 사례가 많지만 한 번에 고치면 회귀 위험이 커서 실패가 아닌 경고로만 보고합니다. 정리가 끝나면 severity를 error로 승격하세요.",
+      "pattern": "(?<![A-Za-z0-9_])(?:[A-Z][A-Z0-9]+(?:_[A-Z0-9]+)+|BLOCKED|FAILED|PASSED|SKIPPED|PENDING|SUCCESS|MISSING|STALE|INFERRED|OBSERVED|ESTIMATED|CALCULATED)(?![A-Za-z0-9_])",
+      "flags": "g",
+      "category": "status_code",
+      "severity": "warn",
+      "scanContexts": ["ui", "copy"]
+    }
+  ],
+  "warnRules": [
+    {
+      "id": "WARN_HARDCODED_ASSURANCE",
+      "name": "조건 없이 단정하는 정상 확인 문구",
+      "description": "'같아요/일치/확인됨/정상/문제 없음/통과' 같은 정상·일치 단정 문구가 삼항·&&·if 등 어떤 조건에도 묶이지 않고 JSX 텍스트로만 렌더되면 경고합니다. 해시·계정·상태 슬롯에 '승인한 내용과 같아요'를 무조건 박아 넣어 실제 불일치를 가리는 거짓 정상 표시를 막기 위한 휴리스틱입니다. 오탐이 많아(범례·안내문·고정 라벨) 실패가 아닌 경고로만 보고합니다.",
+      "assurancePattern": "(같아요|같습니다|일치(?:해요|합니다|함|했어요)|변경(?:된 (?:것이|게|점이)|이)? ?없|확인됨|확인 완료|확인했어요|검증(?:됨| 완료)|정상(?:이에요|입니다|이에요| 작동| 상태| 동작)|이상 ?없|문제 ?없|통과(?:했어요|했습니다|됨))",
+      "hedgePattern": "(되면|하면|경우|때|\\?|수 있|지 않|않으면|않아|아니|못했|없으면|전에|후에|하세요|해 주세요|해주세요|하려면|까요|도록|위해|확인이 필요|필요해요|필요합니다)",
+      "maxLength": 60,
+      "skipElements": ["option", "th", "label", "legend", "h1", "h2", "h3", "h4", "h5", "h6", "button", "Button", "summary", "title", "DialogTitle", "CardTitle"]
+    }
+  ]
+}

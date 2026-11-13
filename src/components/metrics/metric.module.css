@@ -1,0 +1,51 @@
+.metric {
+  display: grid;
+  min-inline-size: 0;
+  align-content: start;
+  gap: 0.55rem;
+  border-block-start: 2px solid var(--color-border);
+  padding-block-start: 0.8rem;
+}
+
+.metric[data-state='available'],
+.metric[data-state='confirmed_zero'] {
+  border-color: var(--sohee-success);
+}
+
+.metric[data-state='collecting'],
+.metric[data-state='stale'] {
+  border-color: var(--sohee-warning);
+}
+
+.metric[data-state='permission_denied'],
+.metric[data-state='failed'] {
+  border-color: var(--sohee-danger);
+}
+
+.heading {
+  display: flex;
+  min-inline-size: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.heading small {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+}
+
+.metric > strong {
+  color: var(--color-text);
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  letter-spacing: -0.045em;
+}
+
+.metric > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}

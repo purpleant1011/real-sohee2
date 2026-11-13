@@ -1,0 +1,26 @@
+.catalog { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.header h1 { margin: 0; color: var(--foreground); font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 750; letter-spacing: -.035em; }
+.header p:not(.eyebrow) { margin: .375rem 0 0; color: var(--muted-foreground); font-size: .875rem; line-height: 1.7; }
+.eyebrow { margin: 0 0 .375rem; color: var(--primary); font-size: .75rem; font-weight: 650; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: .75rem; }
+.group { min-width: 0; scroll-margin-top: 6rem; }
+.groupHeading { display: flex; align-items: center; gap: .625rem; }
+.groupHeading > svg { width: 1.125rem; height: 1.125rem; flex: 0 0 auto; color: var(--primary); }
+.groupHeading h2 { margin: 0; font: inherit; }
+.content { flex: 1; min-width: 0; }
+.operations { display: flex; flex-direction: column; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.operation { display: flex; flex-direction: column; gap: .625rem; min-width: 0; padding: .875rem; border-radius: var(--radius); background: var(--muted); }
+.operationHeading { display: flex; align-items: flex-start; gap: .5rem; flex-wrap: wrap; }
+.operation h3 { flex: 1 1 auto; margin: 0; color: var(--foreground); font-size: .875rem; font-weight: 650; line-height: 1.5; overflow-wrap: anywhere; }
+.operation p { margin: 0; color: var(--muted-foreground); font-size: .75rem; line-height: 1.7; overflow-wrap: anywhere; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; }
+.footer, .notice { margin: 0; color: var(--muted-foreground); font-size: .75rem; line-height: 1.7; }
+.quickNav { display: none; }
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .quickNav { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .quickNav a { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; flex: 1 1 auto; padding: .5rem; border: 1px solid var(--border); border-radius: var(--radius); color: var(--foreground); font-size: .8125rem; background: var(--card); }
+  .quickNav a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+}

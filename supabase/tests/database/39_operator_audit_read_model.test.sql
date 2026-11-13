@@ -1,0 +1,15 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(10);
+select function_returns('public', 'list_operator_audit_events', array['timestamptz','timestamptz','uuid','uuid','text','text','text','text','timestamptz','uuid','integer'], 'jsonb', 'audit list RPC signature');
+select function_returns('public', 'get_operator_audit_event_detail', array['uuid'], 'jsonb', 'audit detail RPC signature');
+select ok((select p.prosecdef from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='list_operator_audit_events'), 'audit list is security definer');
+select ok((select p.prosecdef from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname='get_operator_audit_event_detail'), 'audit detail is security definer');
+select ok(not has_function_privilege('anon', 'public.list_operator_audit_events(timestamptz,timestamptz,uuid,uuid,text,text,text,text,timestamptz,uuid,integer)', 'EXECUTE'), 'anon cannot list audit');
+select ok(has_function_privilege('authenticated', 'public.list_operator_audit_events(timestamptz,timestamptz,uuid,uuid,text,text,text,text,timestamptz,uuid,integer)', 'EXECUTE'), 'authenticated can list audit');
+select ok(not has_function_privilege('service_role', 'public.list_operator_audit_events(timestamptz,timestamptz,uuid,uuid,text,text,text,text,timestamptz,uuid,integer)', 'EXECUTE'), 'service role cannot list audit directly');
+select ok(not (coalesce(pg_get_functiondef('public.list_operator_audit_events(timestamptz,timestamptz,uuid,uuid,text,text,text,text,timestamptz,uuid,integer)'::regprocedure), '') || coalesce(pg_get_functiondef('public.get_operator_audit_event_detail(uuid)'::regprocedure), '')) ~* '(idempotency_key|semantic_fingerprint|provider_reference|raw_payload)', 'safe audit projection has no forbidden columns');
+select ok((select pg_get_functiondef('public.list_operator_audit_events(timestamptz,timestamptz,uuid,uuid,text,text,text,text,timestamptz,uuid,integer)'::regprocedure) like '%event.workspace_id is null and private.has_platform_permission(''audit.read'', null)%'), 'global audit events require global audit scope');
+select ok((select pg_get_functiondef('public.get_operator_audit_event_detail(uuid)'::regprocedure) like '%event.workspace_id is null and private.has_platform_permission(''audit.read'', null)%'), 'global audit detail requires global audit scope');
+select * from finish();
+rollback;

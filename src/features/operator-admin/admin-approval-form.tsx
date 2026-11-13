@@ -1,0 +1,14 @@
+'use client'
+
+import { useActionState, useState } from 'react'
+import { requestAdminApprovalAction } from './actions'
+import type { AdminSelector } from './selector-repository'
+
+export function AdminApprovalForm({ selectors }: Readonly<{ selectors: readonly AdminSelector[] }>) {
+  const [state, action, pending] = useActionState(requestAdminApprovalAction, null)
+  const [kind, setKind] = useState<'admin.invite' | 'admin.deactivate' | 'admin.role.change.global'>('admin.invite')
+  const [target, setTarget] = useState('')
+  const active = selectors.filter((item) => item.status === 'active')
+  const selected = kind === 'admin.deactivate' ? active.find((item) => item.userId === target) : active.flatMap((item) => item.assignments.map((assignment) => ({ ...item, assignmentId: assignment.assignmentId, version: assignment.version }))).find((item) => item.assignmentId === target)
+  return <form aria-label="관리자 승인 요청" action={action}><label>요청 유형 <select name="actionType" value={kind} onChange={(event) => { setKind(event.target.value as typeof kind); setTarget('') }}><option value="admin.invite">관리자 초대</option><option value="admin.deactivate">관리자 비활성화</option><option value="admin.role.change.global">역할 변경</option></select></label>{kind === 'admin.invite' ? <label>초대 이메일 <input name="targetId" type="email" required placeholder="초대할 이메일" /></label> : kind === 'admin.deactivate' ? <label>비활성화 대상 <select name="targetId" value={target} onChange={(event) => setTarget(event.target.value)} required><option value="">관리자 선택</option>{active.map((item) => <option key={item.userId} value={item.userId}>{item.emailLabel} · {item.assignments.map((assignment) => assignment.roleLabel).join(', ') || '역할 확인 전'}</option>)}</select></label> : <><label>역할 대상 <select name="targetId" value={target} onChange={(event) => setTarget(event.target.value)} required><option value="">역할 범위 선택</option>{active.flatMap((item) => item.assignments.map((assignment) => <option key={assignment.assignmentId} value={assignment.assignmentId}>{item.emailLabel} · {assignment.roleLabel} · {assignment.scopeLabel}</option>))}</select></label><label>변경할 역할 <select name="nextRoleKey" defaultValue="audit_viewer"><option value="audit_viewer">감사 조회자</option><option value="operations_admin">운영 관리자</option><option value="customer_support">고객 지원</option></select></label></>}<input type="hidden" name="expectedVersion" value={kind === 'admin.invite' ? '' : selected?.version ?? ''} /><label>현재 버전 <span>대상 원장 기준으로 자동 확인</span></label><label>사유 <textarea name="reason" minLength={1} maxLength={2000} required /></label><button type="submit" disabled={pending}>{pending ? '요청 중…' : '승인 요청 만들기'}</button>{state?.error ? <p role="alert">{state.error.message}</p> : state?.data ? <p role="status">승인 요청이 생성되었습니다.</p> : null}</form>
+}

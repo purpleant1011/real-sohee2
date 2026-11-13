@@ -1,0 +1,163 @@
+.briefingSection {
+  margin-bottom: 24px;
+}
+
+.greetingHeader {
+  margin-bottom: 16px;
+}
+
+.dateLabel {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 4px;
+}
+
+.greetingTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.greetingSubtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.primaryGoalCard {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.goalBadge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.inProgressPill {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #059669;
+  background: #dcfce7;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.goalHeading {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.goalDescription {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.goalMetaRow {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.progressItem strong {
+  color: #0f172a;
+  font-weight: 750;
+}
+
+.metaDivider {
+  color: #cbd5e1;
+}
+
+.currentActionBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  flex-wrap: wrap;
+}
+
+.actionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.actionTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.actionMainText {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.actionMetaText {
+  font-size: 12px;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.planLink {
+  font-size: 13px;
+  font-weight: 750;
+  color: #0284c7;
+  text-decoration: none;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.planLink:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+}
+
+@media (max-width: 640px) {
+  .primaryGoalCard {
+    padding: 16px;
+  }
+  .greetingTitle {
+    font-size: 20px;
+  }
+}

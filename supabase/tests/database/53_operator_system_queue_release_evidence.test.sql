@@ -1,0 +1,12 @@
+begin; create extension if not exists pgtap with schema extensions; select plan(10);
+select has_table('public','operator_queue_observation_snapshots','queue snapshots exist');
+select has_table('public','operator_release_observation_snapshots','release snapshots exist');
+select function_returns('public','get_operator_system_observations_v2',array[]::text[],'jsonb','system evidence RPC exists');
+select ok(not has_table_privilege('authenticated','public.operator_queue_observation_snapshots','SELECT'),'authenticated cannot read queue snapshots directly');
+select ok(has_function_privilege('authenticated','public.get_operator_system_observations_v2()','EXECUTE'),'authenticated can read system evidence');
+select ok((select pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) like '%fact_kind%'),'fact kind is returned');
+select ok((select pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) like '%retryable_failure%'),'queue retryable state is modeled');
+select ok((select pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) like '%commit_sha_prefix%'),'release commit evidence is bounded');
+select ok((select pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) like '%verification_state%'),'release verification state is returned');
+select ok((select pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) not like '%raw_log%' and pg_get_functiondef('public.get_operator_system_observations_v2()'::regprocedure) not like '%secret%'),'raw secrets are excluded');
+select * from finish(); rollback;

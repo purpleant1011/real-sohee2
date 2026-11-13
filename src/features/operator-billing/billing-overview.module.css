@@ -1,0 +1,9 @@
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 14px; align-items: start; }
+.mainColumn { display: grid; gap: 14px; min-inline-size: 0; }
+.overviewGrid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, .75fr); gap: 14px; }
+.detail { position: sticky; inset-block-start: 14px; min-block-size: 620px; }.detail :global(.ant-pro-card-body) { display: grid; gap: 18px; }
+.usageBars { display: grid; gap: 11px; }.usageBars > div { display: grid; grid-template-columns: 130px minmax(0, 1fr) 80px; gap: 10px; align-items: center; }.usageBars span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #655b69; font-size: .78rem; }.usageBars b { display: block; block-size: 9px; border-radius: 999px; background: #eee8f2; overflow: hidden; }.usageBars i { display: block; block-size: 100%; border-radius: 999px; background: #8d64ed; }.usageBars strong { text-align: end; font-size: .78rem; }
+.alerts { display: grid; gap: 10px; }
+.preview { display: grid; gap: 8px; border: 1px solid #e6dff1; border-radius: 10px; background: #faf8fd; padding: 14px; }.preview small, .preview span { color: #7e7483; }.preview strong { color: #2f2733; font-size: 1.05rem; }
+@media (max-width: 1180px) { .workspace { grid-template-columns: 1fr; }.detail { position: static; min-block-size: auto; } }
+@media (max-width: 760px) { .overviewGrid { grid-template-columns: 1fr; }.usageBars > div { grid-template-columns: 95px minmax(0, 1fr) 70px; } }

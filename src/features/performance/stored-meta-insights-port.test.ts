@@ -1,0 +1,4 @@
+import { describe, expect, it, vi } from 'vitest'
+vi.mock('server-only', () => ({}))
+import { createStoredMetaInsightsPort } from './stored-meta-insights-port'
+describe('stored Meta insights port',()=>{it('selects latest workspace-bound zero metric without raw error',async()=>{const reader={read:vi.fn().mockResolvedValue([{workspaceId:'10000000-0000-4000-8000-000000000001',channel:'instagram',collectedAt:'2026-08-02T00:00:00.000Z',state:'available',metrics:[{metric:'views',value:0}],rawError:'secret'}])};const port=createStoredMetaInsightsPort(reader);await expect(port.collect({channel:'instagram',workspaceId:'10000000-0000-4000-8000-000000000001',periodStart:'2026-08-01T00:00:00.000Z',periodEnd:'2026-08-03T00:00:00.000Z'})).resolves.toEqual({state:'available',metrics:[{metric:'views',value:0}]})})})

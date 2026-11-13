@@ -1,0 +1,209 @@
+.railContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+.panelTopHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.panelTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.panelTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.panelSubtitle {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.railCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardHeader h3 {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cardHeader small {
+  font-size: 10.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.statusChip {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.budgetBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.budgetRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #475569;
+}
+
+.budgetRow strong {
+  color: #059669;
+  font-weight: 800;
+}
+
+.budgetNote {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* 2. KPI */
+.kpiList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kpiItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpiMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.kpiLabel {
+  color: #475569;
+}
+
+.kpiValue {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #0284c7;
+  border-radius: 999px;
+}
+
+/* 4. Insights */
+.insightList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.insightItem {
+  display: flex;
+  gap: 6px;
+}
+
+.insightBullet {
+  color: #0284c7;
+  font-weight: bold;
+}
+
+/* 5. Main Full CTA */
+.growthCtaBtn {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  font-weight: 750;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.growthCtaBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+}

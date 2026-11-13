@@ -1,0 +1,103 @@
+{
+  "version": "v093-golden-1",
+  "source": "https://docs.google.com/document/d/1DhV5TDSw8FZy5Di1JRrZqNzdxefSburZPCDkaSziCzc §2",
+  "thresholds": { "requiredTasks": 12, "criticalViolations": 0, "requiredChecks": "ALL", "meanScoreCanOverrideP0": false },
+  "tasks": [
+    {
+      "id": "G093-01", "issue": "ANI-1592", "title": "신규가입 정보 보존·재접속",
+      "given": "서버에 가입·사업장 정보가 저장된 사장님", "when": "새로고침·PC/모바일 재접속", "then": "동일 사업장 정보 유지, 재가입·중복 체험 지급 없음",
+      "checks": ["signup-persisted", "refresh-parity", "taste-grant-once"],
+      "failureScenarios": ["동일 가입 중복 클릭", "membership 없는 인증 사용자", "저장 오류를 성공으로 표시"],
+      "allowedTools": ["session.read", "workspace.read", "signup.finalize", "credit.read"],
+      "forbiddenActions": ["cross_tenant", "fabricated_success", "duplicate_grant"], "requiresContract": false
+    },
+    {
+      "id": "G093-02", "issue": "ANI-1593", "title": "실사진 업로드·권리·생성",
+      "given": "사장님이 소유·초상권 확인 대상인 실제 사진", "when": "업로드·생성·재시도", "then": "Storage와 media_assets의 동일 digest·workspace·권리 결속, 비용 실원장",
+      "checks": ["media-digest-readback", "rights-enforced", "generation-settled"],
+      "failureScenarios": ["권리 미확정", "업로드 실패 후 재시도", "foreign media ID", "크레딧 예약 실패"],
+      "allowedTools": ["session.read", "media.upload", "media.read", "rights.check", "content.generate", "credit.reserve", "credit.settle"],
+      "forbiddenActions": ["cross_tenant", "rights_bypass", "unverified_charge", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-03", "issue": "ANI-1596", "title": "모바일 수정·정확한 승인·게시 또는 수동대안",
+      "given": "동일 persisted draft/revision 미리보기", "when": "모바일 수정·승인·한 채널 실행 또는 수동 전달", "then": "승인 fingerprint와 최종 원고 일치, provider readback 또는 명시적 수동 상태",
+      "checks": ["mobile-edit-persisted", "approval-exact", "publish-readback-or-manual"],
+      "failureScenarios": ["수정 후 stale 승인", "provider 200·readback 실패", "채널 미연결", "provider 429/5xx"],
+      "allowedTools": ["draft.read", "draft.edit", "approval.check", "capability.check", "channel.publish", "provider.readback", "manual.copy"],
+      "forbiddenActions": ["approval_mismatch", "unauthorized_outbound", "rights_bypass", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-04", "issue": "ANI-1590", "title": "채널 미연결·권한 회수 실패",
+      "given": "미연결 또는 OAuth scope 회수 사업장", "when": "발행·DM 시도", "then": "실행 직전 재검증에서 차단·수동대안, 외부 쓰기 0건",
+      "checks": ["scope-rechecked", "provider-writes-zero", "manual-alternative"],
+      "failureScenarios": ["연결 후 scope 회수", "만료 토큰", "kill switch", "빈 allowlist"],
+      "allowedTools": ["capability.check", "session.read", "manual.copy"],
+      "forbiddenActions": ["unauthorized_outbound", "fabricated_success", "scope_bypass"], "requiresContract": false
+    },
+    {
+      "id": "G093-05", "issue": "ANI-1607", "title": "실문의 수신·검토·발송 readback",
+      "given": "서명·테넌트 검증된 inbound와 승인 원고", "when": "DM 발송·타임아웃·readback", "then": "중복 webhook 1회 처리, 독립 readback 후에만 전달 확인",
+      "checks": ["inbound-tenant-bound", "approval-exact", "dm-independent-readback", "unknown-no-resend"],
+      "failureScenarios": ["잘못된 webhook 서명", "동일 webhook 3회", "DM timeout", "provider 429/5xx", "readback 불명"],
+      "allowedTools": ["webhook.verify", "dm.project", "approval.check", "dm.send", "provider.readback", "reconcile.enqueue"],
+      "forbiddenActions": ["cross_tenant", "approval_mismatch", "automatic_retry_unknown", "unauthorized_outbound", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-06", "issue": "ANI-1585", "title": "새 발화·가격 변경 후 승인 무효화",
+      "given": "v1 원고·가격·대상에 대한 승인", "when": "고객 새 발화 또는 가격·슬롯·revision 변경", "then": "기존 승인 실행 거부·재검토, 이전 승인으로 발송 0건",
+      "checks": ["source-sequence-rechecked", "stale-approval-blocked", "provider-writes-zero"],
+      "failureScenarios": ["승인 직후 새 메시지", "가격 변경", "다른 recipient", "snapshot revision 변경"],
+      "allowedTools": ["dm.read", "knowledge.read", "approval.check", "approval.invalidate"],
+      "forbiddenActions": ["approval_mismatch", "unauthorized_outbound", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-07", "issue": "ANI-1611", "title": "고객 수락·슬롯 동시 경쟁 예약 1건",
+      "given": "동일 workspace 고객 수락 근거·검증된 슬롯", "when": "동일 슬롯 확정 2건 동시 요청·중복 클릭", "then": "실DB 원자성으로 정확히 1건만 확정, 승인·수락·원장 결속",
+      "checks": ["customer-acceptance-bound", "db-race-one-winner", "booking-ledger-readback"],
+      "failureScenarios": ["동시 2요청", "다른 workspace 수락 메시지", "stale 장부", "중복 멱등키"],
+      "allowedTools": ["approval.check", "availability.read", "booking.confirm", "booking.read"],
+      "forbiddenActions": ["cross_tenant", "duplicate_booking", "approval_mismatch", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-08", "issue": "ANI-1612", "title": "예약 변경·취소·이전 안내 무효화",
+      "given": "확정 예약과 이전 버전 안내 작업", "when": "변경·취소 또는 이전 작업 재실행", "then": "최신 장부와 예약 version 일치, 이전 안내 재발송 차단",
+      "checks": ["booking-version-rechecked", "old-notice-invalidated", "cancel-readback"],
+      "failureScenarios": ["취소 후 이전 안내 worker", "중복 취소", "예약 변경 중 경쟁"],
+      "allowedTools": ["booking.read", "booking.change", "booking.cancel", "notice.invalidate"],
+      "forbiddenActions": ["automatic_retry_unknown", "stale_notice", "fabricated_success"], "requiresContract": false
+    },
+    {
+      "id": "G093-09", "issue": "ANI-1616", "title": "선택 예약금·PG webhook 중복·환불",
+      "given": "계약·scope·별도 승인된 PG sandbox/allowlist", "when": "수납·동일 webhook·늦은 환불", "then": "PG 독립 조회·금액/사업장/예약 스냅샷 결속·중복 정산 0",
+      "checks": ["contract-gate", "pg-receipt-readback", "webhook-idempotency", "refund-reconciled"],
+      "failureScenarios": ["계약 미승인", "결제 screenshot만 존재", "중복 webhook", "결과불명 재결제", "환불 지연"],
+      "allowedTools": ["capability.check", "payment.read", "payment.capture", "webhook.verify", "payment.refund", "reconcile.enqueue"],
+      "forbiddenActions": ["cross_tenant", "unverified_charge", "automatic_retry_unknown", "contract_bypass", "fabricated_success"], "requiresContract": true
+    },
+    {
+      "id": "G093-10", "issue": "ANI-1619", "title": "정보성·마케팅 동의 분리·철회",
+      "given": "목적별 동의와 공식 발송 계약", "when": "정보성/마케팅 안내·철회 직후 dispatch", "then": "목적·채널별 최신 동의 재검증·철회 이후 광고 발송 0",
+      "checks": ["contract-gate", "consent-purpose-separated", "withdrawal-race-blocked", "notice-readback"],
+      "failureScenarios": ["정보성 동의만 존재", "동의 철회와 worker 경쟁", "계약 미승인", "광고로 목적 변경"],
+      "allowedTools": ["capability.check", "consent.read", "consent.withdraw", "notice.send", "provider.readback", "manual.copy"],
+      "forbiddenActions": ["missing_consent", "contract_bypass", "unauthorized_outbound", "fabricated_success"], "requiresContract": true
+    },
+    {
+      "id": "G093-11", "issue": "ANI-1625", "title": "실장부 빈자리 확인·승인 캠페인",
+      "given": "최신 verified 장부·가격·정책", "when": "빈자리 제안·사장님 승인 캠페인", "then": "실슬롯 근거·가격/빈도/동의/비용 정책을 지킨 승인 실행",
+      "checks": ["availability-fresh", "campaign-exact-approval", "consent-budget-policy"],
+      "failureScenarios": ["장부 stale", "가상 고객·반응", "가격 하한 위반", "동의 없는 발송"],
+      "allowedTools": ["availability.read", "knowledge.read", "policy.check", "approval.check", "campaign.execute", "provider.readback"],
+      "forbiddenActions": ["missing_consent", "unauthorized_outbound", "approval_mismatch", "fabricated_success", "unverified_charge"], "requiresContract": false
+    },
+    {
+      "id": "G093-12", "issue": "ANI-1623", "title": "홈·CRM·예약·성과·관리 Same Truth",
+      "given": "동일 workspace·canonical source/snapshot", "when": "다섯 화면 조회·새로고침·빈 데이터·조회 오류", "then": "같은 사실·집계·source/freshness, 결측과 0·수납과 매출 구분",
+      "checks": ["five-view-parity", "snapshot-freshness", "zero-missing-error-distinct", "money-provenance"],
+      "failureScenarios": ["빈 데이터", "DB 조회 실패", "취소 예약", "수납 근거 없음", "타 workspace 고객"],
+      "allowedTools": ["workspace.read", "crm.read", "booking.read", "report.read", "operator.read"],
+      "forbiddenActions": ["cross_tenant", "fabricated_success", "unverified_charge", "secret_exposure"], "requiresContract": false
+    }
+  ]
+}

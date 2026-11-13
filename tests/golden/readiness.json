@@ -1,0 +1,160 @@
+{
+  "rubric": "v093-golden-1",
+  "generatedAt": "2026-10-21T11:38:27.737Z",
+  "environment": "OFFLINE_RUBRIC",
+  "baseCommitSha": "d063d467c07afc0050b86118dac2fe2c98835832",
+  "sourceState": "WORKTREE_NOT_PRODUCTION_ATTESTATION",
+  "tasks": [
+    {
+      "taskId": "G093-01",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-01:success:v093-golden-1",
+        "G093-01:failure:v093-golden-1",
+        "G093-01:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-02",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-02:success:v093-golden-1",
+        "G093-02:failure:v093-golden-1",
+        "G093-02:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-03",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-03:success:v093-golden-1",
+        "G093-03:failure:v093-golden-1",
+        "G093-03:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-04",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-04:success:v093-golden-1",
+        "G093-04:failure:v093-golden-1",
+        "G093-04:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-05",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-05:success:v093-golden-1",
+        "G093-05:failure:v093-golden-1",
+        "G093-05:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-06",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-06:success:v093-golden-1",
+        "G093-06:failure:v093-golden-1",
+        "G093-06:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-07",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-07:success:v093-golden-1",
+        "G093-07:failure:v093-golden-1",
+        "G093-07:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-08",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-08:success:v093-golden-1",
+        "G093-08:failure:v093-golden-1",
+        "G093-08:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-09",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-09:success:v093-golden-1",
+        "G093-09:failure:v093-golden-1",
+        "G093-09:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-10",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-10:success:v093-golden-1",
+        "G093-10:failure:v093-golden-1",
+        "G093-10:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-11",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-11:success:v093-golden-1",
+        "G093-11:failure:v093-golden-1",
+        "G093-11:trajectory:v093-golden-1"
+      ]
+    },
+    {
+      "taskId": "G093-12",
+      "status": "NOT_VERIFIED",
+      "reasons": [
+        "NO_TRACE"
+      ],
+      "evalIds": [
+        "G093-12:success:v093-golden-1",
+        "G093-12:failure:v093-golden-1",
+        "G093-12:trajectory:v093-golden-1"
+      ]
+    }
+  ],
+  "counts": {
+    "CONTRACT_PASS": 0,
+    "FAIL": 0,
+    "NOT_VERIFIED": 12
+  },
+  "releaseVerdict": "NO_GO",
+  "limitation": "No independent task evidence supplied. Rubric unit passes are not live task passes."
+}

@@ -1,0 +1,96 @@
+.card,
+.compact {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #e4ded9;
+  border-radius: 24px;
+  background: #fffdfb;
+}
+
+.readySummary {
+  display: grid;
+  gap: 6px;
+  border: 1px solid #b9e4d5;
+  border-radius: 16px;
+  background: #effaf5;
+  padding: 18px;
+}
+
+.readySummary small { color: #087a5a; font-size: 12px; font-weight: 800; }
+.readySummary h2, .readySummary p { margin: 0; }
+.readySummary h2 { font-size: 20px; }
+.readySummary p { color: #4f625b; font-size: 14px; }
+
+.connectionDetails {
+  border: 1px solid #e4ded9;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.connectionDetails > summary { cursor: pointer; font-weight: 800; }
+.connectionDetails[open] > summary { margin-bottom: 12px; }
+
+.compact {
+  padding: 18px;
+  border-radius: 18px;
+  background: #faf7ff;
+}
+
+.steps {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #eadfd1;
+  border-radius: 14px;
+  background: #fff7e9;
+}
+
+.steps li[data-complete='true'] {
+  border-color: #b9e4d5;
+  background: #effaf5;
+}
+
+.steps li > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #f2d39f;
+  font-weight: 800;
+}
+
+.steps li[data-complete='true'] > span {
+  color: #087a5a;
+  background: #ccefe2;
+}
+
+.steps p {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.steps small {
+  color: #6f6660;
+}
+
+.card > button,
+.compact > button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 14px;
+  color: #fff;
+  background: #6f42d8;
+  font-weight: 800;
+}

@@ -1,0 +1,56 @@
+.preview {
+  display: block;
+  background: var(--color-surface-raised, var(--card, #fff));
+  color: var(--color-text, var(--foreground, #171717));
+  min-inline-size: 0;
+  align-self: start;
+  position: sticky;
+  inset-block-start: var(--space-3, 0.75rem);
+  max-block-size: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: var(--space-4, 1rem);
+  border: 1px solid var(--color-border, #e5e0ec);
+  border-radius: 1rem;
+  background: var(--color-surface-raised, #fff);
+  color: var(--color-text);
+}
+
+.reviewTrigger { display: none; inline-size: 100%; }
+.preview header small { color: var(--color-muted); font-size: 0.75rem; font-weight: 700; }
+.preview h2 { margin: 0.25rem 0; font-size: 1.125rem; overflow-wrap: anywhere; }
+.preview header p { margin: 0 0 0.75rem; color: var(--color-muted); font-size: 0.875rem; }
+
+/* 모바일은 대화 옆 레일 대신 초점을 가두는 원고 검토 화면을 사용한다. */
+@media (max-width: 1199px) {
+  .preview { position: static; max-block-size: none; margin-block: var(--space-3, 0.75rem); }
+  .reviewTrigger { display: inline-flex; }
+  .desktopDocument { display: none; }
+}
+
+.blocks { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.blocks li { display: grid; gap: 0.5rem; padding: 0.5rem; border-radius: 0.5rem; }
+.blocks li[data-selected='true'] { outline: 2px solid var(--color-focus); background: var(--color-surface-muted); }
+.blocks p, .blocks h3, .blocks blockquote { margin: 0; font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; white-space: pre-wrap; }
+.blocks h3 { font-weight: 700; }
+.blocks blockquote { padding-inline-start: 0.75rem; border-inline-start: 2px solid var(--color-border); }
+.editActions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.manuscriptPhoto { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 0.5rem; }
+.evidence h4 { margin: 0.75rem 0 0.25rem; font-size: 0.875rem; }
+.evidence ul { margin: 0; padding-inline-start: 1.1rem; font-size: 0.875rem; overflow-wrap: anywhere; }
+.manuscriptMeta { margin-block: 0.75rem; padding-block-start: 0.5rem; border-block-start: 1px dashed var(--color-border); font-size: 0.875rem; color: var(--color-muted); overflow-wrap: anywhere; }
+.manuscriptMeta p { margin: 0 0 0.25rem; }
+
+.copyBar { display: grid; gap: 0.5rem; margin-block: 0.75rem; padding: 0.75rem; border-radius: 0.75rem; background: var(--color-surface-muted); }
+.copyBar p { margin: 0; font-size: 0.875rem; line-height: 1.6; overflow-wrap: anywhere; }
+.copyBar .copyHint { color: var(--color-muted); }
+.copyPrimary { inline-size: 100%; }
+.copyOptions summary { min-block-size: 44px; display: list-item; align-content: center; padding: 0.5rem; cursor: pointer; font-size: 0.875rem; }
+.copyOptions summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: 0.5rem; }
+.copyParts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 0.5rem; }
+.copyParts > button { flex: 1 1 auto; }
+
+.focusedLayout { display: flex; flex-direction: column; gap: 0.75rem; block-size: min(42rem, calc(100dvh - 9rem)); min-block-size: 0; }
+.focusHint { margin: 0; font-size: 0.875rem; line-height: 1.5; color: var(--color-muted); overflow-wrap: anywhere; }
+.focusedDocument { flex: 1 1 auto; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; }
+.focusFooter { flex: 0 0 auto; max-block-size: 45dvh; overflow-y: auto; padding-block-start: 0.5rem; border-block-start: 1px solid var(--color-border); background: var(--color-surface-raised); }
+.focusFooter .copyBar { margin: 0; }

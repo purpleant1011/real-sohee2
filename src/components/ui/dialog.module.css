@@ -1,0 +1,76 @@
+.overlay {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: calc(var(--space-4) + var(--safe-area-top)) calc(var(--space-4) + var(--safe-area-right)) calc(var(--space-4) + var(--safe-area-bottom)) calc(var(--space-4) + var(--safe-area-left));
+  background: rgb(23 18 26 / 0.58);
+}
+
+.overlay[data-entering],
+.overlay[data-exiting] { animation: overlay-in var(--sohee-duration-normal) var(--sohee-ease-standard); }
+.overlay[data-exiting] { animation-direction: reverse; }
+
+.modal {
+  inline-size: min(100%, 36rem);
+  max-block-size: min(44rem, calc(100dvh - var(--safe-area-top) - var(--safe-area-bottom) - 2rem));
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--sohee-radius-action);
+  background: var(--color-surface-raised, var(--card, #ffffff));
+  color: var(--color-text, var(--foreground, #171717));
+  box-shadow: var(--sohee-shadow-panel);
+}
+
+.modal[data-entering],
+.modal[data-exiting] { animation: modal-in var(--sohee-duration-normal) var(--sohee-ease-standard); }
+.modal[data-exiting] { animation-direction: reverse; }
+.dialog { outline: none; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border-block-end: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-5) var(--space-4);
+}
+
+.header h2 { margin: 0; color: var(--color-text); font-size: 1.15rem; letter-spacing: -0.035em; }
+
+.close {
+  display: grid;
+  inline-size: var(--tap-size);
+  block-size: var(--tap-size);
+  flex: 0 0 var(--tap-size);
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--sohee-radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-muted);
+}
+
+.close svg { inline-size: 1.1rem; block-size: 1.1rem; }
+.close[data-focus-visible] { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.body { padding: var(--space-5); }
+
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-in { from { opacity: 0; transform: translateY(0.75rem) scale(0.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 759px) {
+  .overlay { align-items: end; padding: var(--safe-area-top) 0 0; }
+  .modal {
+    inline-size: 100%;
+    max-block-size: calc(100dvh - var(--safe-area-top));
+    border-block-end: 0;
+    border-inline: 0;
+    border-radius: var(--sohee-radius-action) var(--sohee-radius-action) 0 0;
+    padding-block-end: var(--safe-area-bottom);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay[data-entering], .overlay[data-exiting], .modal[data-entering], .modal[data-exiting] { animation: none; }
+}

@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "note": "Human approvals for live-gated golden checks (ANI-1655 E2E-G). An approval is NOT evidence: it records that a named person accepted a stated external gap for a bounded window, with a reason and a pilot plan. It can only attach to a check whose coverage.json entry has a `live` requirement, it never overrides FAIL, and it never turns anything into CONTRACT_PASS. Empty by default so the verdict stays NO_GO until someone signs. See tests/golden/approvals.ts for the schema and validation rules.",
+  "approvals": []
+}
